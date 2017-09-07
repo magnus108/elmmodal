@@ -1,0 +1,92 @@
+html {
+    height: 100%;
+    font-size: 16px;
+}
+
+body {
+    display: flex;
+    margin: 0;
+    height: 100%;
+}
+
+.bootstrapMdContent {
+    flex: 8;
+}
+
+.bootstrapFlex {
+    flex: 1;
+}
+
+.bootstrapFlex2 {
+    flex: 1;
+    flex-basis: 10rem;
+}
+
+.bootstrapRow {
+    display: flex;
+    flex-flow: wrap row;
+}
+
+.bootstrapColumn {
+    display: flex;
+    flex-flow: nowrap column;
+}
+
+.bootstrapTitle {
+    color: #ffffff;
+    background-color: #00954a;
+    font-size: 1.5rem;
+    padding: 0.7rem 1rem;
+}
+
+.bootstrapPop {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    max-width: 30rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.bootstrapPadding1 {
+    padding: 0.7rem 1rem;
+}
+
+.bootstrapChip {
+    background-color: #00954a;
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+}
+
+.bootstrapMaterialIcon {
+    font-family: "Material Icons";
+    font-style: normal;
+    display: inline-block;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.bootstrapImage {
+    max-width: 100%;
+    display: block;
+    min-width: 11rem;
+}
+
+.bootstrapBackgroundImage {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    z-index: -1;
+}
+
+.bootstrapBackgroundImage > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 50%;
+    min-height: 50%;
+}
