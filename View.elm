@@ -1,10 +1,20 @@
 module View exposing (view)
 
 import Transit
+import Html
+  exposing
+    ( Html
+    , div
+    , text
+    , button
+    , span
+    , br
+    , input
+    , p
+    )
 
-import Html exposing (Html, div, text, button, span, br, input, p)
 import Html.Attributes exposing (style)
-import Html.Events exposing (onClick, onInput)
+import Html.Events exposing (onClick)
 
 import Html.Attributes
   exposing
@@ -37,7 +47,6 @@ import Bootstrap
     )
 
 import Modal exposing (State(..), Config(..))
-
 import Models exposing (Model)
 import Messages exposing (Msg(..))
 
@@ -90,7 +99,7 @@ body =
             [ p [] [ text "Tilmeld dig vores nyhedsmail og få tilbud, inspiration og de bedste rejsetilbud før alle andre." ]
             , p [] [ text "Du er samtidig med i lodtrækningen om et rejsegavekort på 5000 kr." ]
             , mdForm [ method "POST", action "http://coco.cctravel.dk/scripts/apsis/Tilmelding/Callback.php" ]
-              [ mdText [ autocomplete False, type_ "email", name "Email", placeholder "Email-addresse", onInput Email ] []
+              [ mdText [ autocomplete False, type_ "email", name "Email", placeholder "Email-addresse" ] []
               , mdInput [ type_ "submit", value "TILMELD" ] []
               ]
             ]
@@ -102,7 +111,7 @@ body =
 
 close : Html Msg
 close =
-  span [ onClick ( CloseModal )]
+  span [ onClick ( CloseModalStart )]
     [ mdIcon
       [ text "cancel"
       ]
@@ -121,7 +130,7 @@ closed =
 
 open : Html Msg
 open =
-  span [ onClick ( OpenModal )]
+  span [ onClick ( OpenModalStart )]
     [ mdIcon
       [ text "menu"
       ]

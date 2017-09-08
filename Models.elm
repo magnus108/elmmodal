@@ -11,30 +11,30 @@ import Messages exposing (Msg(..))
 
 import Transit
 
+--naming!
+type alias General =
+  { modalState : Modal.State
+  , opened : Bool
+  }
 
 type alias Model =
-  Transit.WithTransition
-    { modalState : Modal.State
-    , opened : Bool
-    , email : String
-    }
+  Transit.WithTransition General
 
 
 initialModel : Model
 initialModel =
-  { modalState = Starting
+  { modalState = Opening
   , opened = False
-  , email = ""
   , transition = Transit.empty
   }
 
 
 popupMsg : Cmd Msg
-popupMsg = delay (Time.second * 5) <| InitModalState Open
+popupMsg = delay (Time.second * 5) <| InitModalState Opened
 
 
 blinkMsg : Cmd Msg
-blinkMsg = delay (Time.second * 0) <| StartModalState
+blinkMsg = delay (Time.second * 0) <| CloseModalStart
 
 
 init : ( Model, Cmd Msg )

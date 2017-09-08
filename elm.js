@@ -15248,11 +15248,8 @@ var _user$project$Modal$view = F2(
 		var _p1 = _p0;
 		var _p2 = state;
 		switch (_p2.ctor) {
-			case 'Starting':
-				return A2(
-					_elm_lang$html$Html$div,
-					{ctor: '[]'},
-					{ctor: '[]'});
+			case 'Opening':
+				return _elm_lang$html$Html$text('');
 			case 'Closed':
 				return A2(
 					_elm_lang$html$Html$div,
@@ -15277,9 +15274,9 @@ var _user$project$Modal$view = F2(
 					});
 		}
 	});
-var _user$project$Modal$Starting = {ctor: 'Starting'};
 var _user$project$Modal$Closed = {ctor: 'Closed'};
-var _user$project$Modal$Open = {ctor: 'Open'};
+var _user$project$Modal$Opened = {ctor: 'Opened'};
+var _user$project$Modal$Opening = {ctor: 'Opening'};
 var _user$project$Modal$Config = function (a) {
 	return {ctor: 'Config', _0: a};
 };
@@ -15287,17 +15284,13 @@ var _user$project$Modal$Config = function (a) {
 var _user$project$Messages$TransitMsg = function (a) {
 	return {ctor: 'TransitMsg', _0: a};
 };
-var _user$project$Messages$CloseModal = {ctor: 'CloseModal'};
-var _user$project$Messages$OpenModal = {ctor: 'OpenModal'};
+var _user$project$Messages$CloseModalStop = {ctor: 'CloseModalStop'};
+var _user$project$Messages$CloseModalStart = {ctor: 'CloseModalStart'};
+var _user$project$Messages$OpenModalStop = {ctor: 'OpenModalStop'};
+var _user$project$Messages$OpenModalStart = {ctor: 'OpenModalStart'};
 var _user$project$Messages$StartModalState = {ctor: 'StartModalState'};
-var _user$project$Messages$Email = function (a) {
-	return {ctor: 'Email', _0: a};
-};
 var _user$project$Messages$InitModalState = function (a) {
 	return {ctor: 'InitModalState', _0: a};
-};
-var _user$project$Messages$SetModalState = function (a) {
-	return {ctor: 'SetModalState', _0: a};
 };
 
 var _user$project$Models$delay = F2(
@@ -15311,12 +15304,12 @@ var _user$project$Models$delay = F2(
 					_elm_lang$core$Task$succeed(msg)),
 				_elm_lang$core$Process$sleep(time)));
 	});
-var _user$project$Models$blinkMsg = A2(_user$project$Models$delay, _elm_lang$core$Time$second * 0, _user$project$Messages$StartModalState);
+var _user$project$Models$blinkMsg = A2(_user$project$Models$delay, _elm_lang$core$Time$second * 0, _user$project$Messages$CloseModalStart);
 var _user$project$Models$popupMsg = A2(
 	_user$project$Models$delay,
 	_elm_lang$core$Time$second * 5,
-	_user$project$Messages$InitModalState(_user$project$Modal$Open));
-var _user$project$Models$initialModel = {modalState: _user$project$Modal$Starting, opened: false, email: '', transition: _etaque$elm_transit$Transit$empty};
+	_user$project$Messages$InitModalState(_user$project$Modal$Opened));
+var _user$project$Models$initialModel = {modalState: _user$project$Modal$Opening, opened: false, transition: _etaque$elm_transit$Transit$empty};
 var _user$project$Models$init = A2(
 	_elm_lang$core$Platform_Cmd_ops['!'],
 	_user$project$Models$initialModel,
@@ -15325,12 +15318,16 @@ var _user$project$Models$init = A2(
 		_0: _user$project$Models$blinkMsg,
 		_1: {ctor: '[]'}
 	});
+var _user$project$Models$General = F2(
+	function (a, b) {
+		return {modalState: a, opened: b};
+	});
 
 var _user$project$View$open = A2(
 	_elm_lang$html$Html$span,
 	{
 		ctor: '::',
-		_0: _elm_lang$html$Html_Events$onClick(_user$project$Messages$OpenModal),
+		_0: _elm_lang$html$Html_Events$onClick(_user$project$Messages$OpenModalStart),
 		_1: {ctor: '[]'}
 	},
 	{
@@ -15367,7 +15364,7 @@ var _user$project$View$close = A2(
 	_elm_lang$html$Html$span,
 	{
 		ctor: '::',
-		_0: _elm_lang$html$Html_Events$onClick(_user$project$Messages$CloseModal),
+		_0: _elm_lang$html$Html_Events$onClick(_user$project$Messages$CloseModalStart),
 		_1: {ctor: '[]'}
 	},
 	{
@@ -15455,11 +15452,7 @@ var _user$project$View$body = _user$project$Bootstrap$mdRow(
 																			_1: {
 																				ctor: '::',
 																				_0: _elm_lang$html$Html_Attributes$placeholder('Email-addresse'),
-																				_1: {
-																					ctor: '::',
-																					_0: _elm_lang$html$Html_Events$onInput(_user$project$Messages$Email),
-																					_1: {ctor: '[]'}
-																				}
+																				_1: {ctor: '[]'}
 																			}
 																		}
 																	}
@@ -15563,28 +15556,36 @@ var _user$project$Update$update = F2(
 	function (msg, model) {
 		var _p0 = msg;
 		switch (_p0.ctor) {
-			case 'SetModalState':
+			case 'OpenModalStart':
+				return A4(
+					_etaque$elm_transit$Transit$start,
+					_user$project$Messages$TransitMsg,
+					_user$project$Messages$OpenModalStop,
+					{ctor: '_Tuple2', _0: 500, _1: 500},
+					model);
+			case 'OpenModalStop':
 				return {
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
 						model,
-						{modalState: _p0._0, opened: true}),
+						{modalState: _user$project$Modal$Opened, opened: true}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
-			case 'OpenModal':
+			case 'CloseModalStart':
 				return A4(
 					_etaque$elm_transit$Transit$start,
 					_user$project$Messages$TransitMsg,
-					_user$project$Messages$SetModalState(_user$project$Modal$Open),
+					_user$project$Messages$CloseModalStop,
 					{ctor: '_Tuple2', _0: 500, _1: 500},
 					model);
-			case 'CloseModal':
-				return A4(
-					_etaque$elm_transit$Transit$start,
-					_user$project$Messages$TransitMsg,
-					_user$project$Messages$SetModalState(_user$project$Modal$Closed),
-					{ctor: '_Tuple2', _0: 500, _1: 500},
-					model);
+			case 'CloseModalStop':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{modalState: _user$project$Modal$Closed}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
 			case 'InitModalState':
 				return model.opened ? {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none} : {
 					ctor: '_Tuple2',
@@ -15593,19 +15594,11 @@ var _user$project$Update$update = F2(
 						{modalState: _p0._0}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
-			case 'Email':
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{email: _p0._0}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
 			case 'StartModalState':
 				return A4(
 					_etaque$elm_transit$Transit$start,
 					_user$project$Messages$TransitMsg,
-					_user$project$Messages$SetModalState(_user$project$Modal$Closed),
+					_user$project$Messages$OpenModalStart,
 					{ctor: '_Tuple2', _0: 100, _1: 500},
 					model);
 			default:

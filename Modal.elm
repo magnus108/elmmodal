@@ -1,13 +1,22 @@
-module Modal exposing (State(..), Config(..), view)
+module Modal
+  exposing
+    ( State(..)
+    , Config(..)
+    , view
+    )
 
-
-import Html exposing (Html, div, text)
+import Html
+  exposing
+    ( Html
+    , div
+    , text
+    )
 
 
 type State
-  = Open
+  = Opening
+  | Opened
   | Closed
-  | Starting
 
 
 type Config msg =
@@ -19,13 +28,13 @@ type Config msg =
 
 
 view : Config msg -> State -> Html msg
-view (Config {header, body, closed}) state =
+view ( Config { header, body, closed } ) state =
   case state of
-    Starting ->
-      div [] []
+    Opening ->
+      text ""
 
     Closed ->
       div [] [ closed ]
 
-    Open ->
+    Opened ->
       div [] [ header, body ]

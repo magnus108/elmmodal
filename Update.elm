@@ -9,17 +9,24 @@ import Messages exposing (Msg(..))
 import Modal exposing (State(..))
 
 
+
+
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
   case msg of
-    SetModalState newState ->
-      ( { model | modalState = newState, opened = True }, Cmd.none )
+    OpenModalStart ->
+      Transit.start TransitMsg OpenModalStop (500, 500) model
 
-    OpenModal ->
-      Transit.start TransitMsg (SetModalState Open) (500, 500) model
+    OpenModalStop ->
+      ( { model | modalState = Opened, opened = True }, Cmd.none )
 
-    CloseModal ->
-      Transit.start TransitMsg (SetModalState Closed) (500, 500) model
+    CloseModalStart ->
+      Transit.start TransitMsg CloseModalStop (500, 500) model
+
+    CloseModalStop ->
+      ( { model | modalState = Closed }, Cmd.none )
+
+
 
     InitModalState newState ->
       if model.opened then
@@ -27,11 +34,8 @@ update msg model =
       else
         ( { model | modalState = newState }, Cmd.none )
 
-    Email email ->
-      ( { model | email = email }, Cmd.none )
-
     StartModalState ->
-      Transit.start TransitMsg (SetModalState Closed) (100, 500) model
+      Transit.start TransitMsg OpenModalStart (100, 500) model
 
     TransitMsg transitMsg ->
       Transit.tick TransitMsg transitMsg model

@@ -7,10 +7,10 @@ import Modal
 
 
 type Msg
-  = SetModalState Modal.State
-  | InitModalState Modal.State
-  | Email String
+  = InitModalState Modal.State
   | StartModalState
-  | OpenModal
-  | CloseModal
+  | OpenModalStart
+  | OpenModalStop
+  | CloseModalStart
+  | CloseModalStop
   | TransitMsg (Transit.Msg Msg)
