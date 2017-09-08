@@ -1,10 +1,12 @@
 module Subscription exposing (subscriptions)
 
 
+import Transit
+
 import Models exposing (Model)
-import Messages exposing (Msg)
+import Messages exposing (Msg(..))
 
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-  Sub.none
+  Transit.subscriptions TransitMsg model

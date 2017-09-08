@@ -1,7 +1,9 @@
 module View exposing (view)
 
+import Transit
 
 import Html exposing (Html, div, text, button, span, br, input, p)
+import Html.Attributes exposing (style)
 import Html.Events exposing (onClick, onInput)
 
 import Html.Attributes
@@ -43,6 +45,11 @@ import Messages exposing (Msg(..))
 view : Model -> Html Msg
 view model =
   mdPop
+    [ style
+      [ ( "opacity", toString (Transit.getValue model.transition) )
+      , ( "bottom", toString (2 * (Transit.getValue model.transition)) ++ "%" )
+      ]
+    ]
     [ mdContent
       [ Modal.view config model.modalState
       ]
@@ -52,8 +59,7 @@ view model =
 config : Config Msg
 config =
   Config
-    { toMsg = SetModalState
-    , header = header
+    { header = header
     , body = body
     , closed = closed
     }
@@ -96,7 +102,7 @@ body =
 
 close : Html Msg
 close =
-  span [ onClick ( SetModalState Closed )]
+  span [ onClick ( CloseModal )]
     [ mdIcon
       [ text "cancel"
       ]
@@ -115,7 +121,7 @@ closed =
 
 open : Html Msg
 open =
-  span [ onClick ( SetModalState Open )]
+  span [ onClick ( OpenModal )]
     [ mdIcon
       [ text "menu"
       ]

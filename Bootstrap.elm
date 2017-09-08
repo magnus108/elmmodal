@@ -100,9 +100,9 @@ mdContent =
   div [ class [ MdContent ] ]
 
 
-mdPop : List (Html msg) -> Html msg
-mdPop =
-  div [ class [ Pop ] ]
+mdPop : List (Attribute msg) -> List (Html msg) -> Html msg
+mdPop attr body =
+  div ( attr ++ [ class [ Pop ] ] ) body
 
 
 mdForm : List (Attribute msg) -> List (Html msg) -> Html msg

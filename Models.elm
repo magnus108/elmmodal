@@ -9,24 +9,36 @@ import Time exposing (Time)
 import Modal exposing (State(..))
 import Messages exposing (Msg(..))
 
+import Transit
+
 
 type alias Model =
-  { modalState : Modal.State
-  , opened : Bool
-  , email : String
-  }
+  Transit.WithTransition
+    { modalState : Modal.State
+    , opened : Bool
+    , email : String
+    }
 
 
 initialModel : Model
 initialModel =
-  { modalState = Closed
+  { modalState = Starting
   , opened = False
   , email = ""
+  , transition = Transit.empty
   }
 
 
+popupMsg : Cmd Msg
+popupMsg = delay (Time.second * 5) <| InitModalState Open
+
+
+blinkMsg : Cmd Msg
+blinkMsg = delay (Time.second * 0) <| StartModalState
+
+
 init : ( Model, Cmd Msg )
-init = ( initialModel, delay (Time.second * 5) <| InitModalState Open )
+init = initialModel ! [ blinkMsg ]
 
 
 delay : Time -> msg -> Cmd msg

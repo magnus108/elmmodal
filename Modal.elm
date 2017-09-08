@@ -7,20 +7,23 @@ import Html exposing (Html, div, text)
 type State
   = Open
   | Closed
+  | Starting
 
 
 type Config msg =
   Config
-    { toMsg : State -> msg
-    , header : Html msg
+    { header : Html msg
     , body : Html msg
     , closed : Html msg
     }
 
 
 view : Config msg -> State -> Html msg
-view (Config {toMsg, header, body, closed}) state =
+view (Config {header, body, closed}) state =
   case state of
+    Starting ->
+      div [] []
+
     Closed ->
       div [] [ closed ]
 
