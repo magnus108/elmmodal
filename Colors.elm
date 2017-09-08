@@ -26,7 +26,12 @@ primaryLightColor =
 
 primaryAccentColor : Color
 primaryAccentColor =
-  hex "ff4081"
+  hex "f7a600"
+
+
+secondaryAccentColor : Color
+secondaryAccentColor =
+  hex "ffb92b"
 
 
 primaryIconColor : Color

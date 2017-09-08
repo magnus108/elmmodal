@@ -16,3 +16,6 @@ update msg model =
         ( model, Cmd.none )
       else
         ( { model | modalState = newState }, Cmd.none )
+
+    Email email ->
+      ( { model | email = email }, Cmd.none )

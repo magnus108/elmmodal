@@ -11,6 +11,7 @@ body {
 
 .bootstrapMdContent {
     flex: 8;
+    max-width: 45rem;
 }
 
 .bootstrapFlex {
@@ -27,6 +28,24 @@ body {
     flex-flow: wrap row;
 }
 
+.bootstrapSubmitButton {
+    background-color: #f7a600;
+    color: #ffffff;
+    border: 0;
+    flex: 1;
+    padding: 10px;
+    margin: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.bootstrapSubmitButton:hover {
+    background-color: #ffb92b;
+}
+
+.bootstrapSubmitButton:focus {
+    outline: none;
+}
+
 .bootstrapColumn {
     display: flex;
     flex-flow: nowrap column;
@@ -41,9 +60,9 @@ body {
 
 .bootstrapPop {
     position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    max-width: 30rem;
+    bottom: 2%;
+    right: 2%;
+    max-width: 96%;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 
@@ -89,4 +108,25 @@ body {
     margin: auto;
     min-width: 50%;
     min-height: 50%;
+}
+
+.bootstrapMdForm {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bootstrapMdText {
+    outline: none;
+    flex: 6;
+    margin: 8px 32px 8px 0px;
+    padding: 8px 2px;
+    font-size: 16px;
+    display: block;
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.bootstrapMdText:focus {
+    outline: none;
+    border-bottom: 1px solid #ffb92b;
 }

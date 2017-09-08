@@ -14153,7 +14153,8 @@ var _user$project$Colors$dividerColor = _rtfeldman$elm_css$Css$hex('bdbdbd');
 var _user$project$Colors$secondaryTextColor = _rtfeldman$elm_css$Css$hex('757575');
 var _user$project$Colors$primaryTextColor = _rtfeldman$elm_css$Css$hex('212121');
 var _user$project$Colors$primaryIconColor = _rtfeldman$elm_css$Css$hex('ffffff');
-var _user$project$Colors$primaryAccentColor = _rtfeldman$elm_css$Css$hex('ff4081');
+var _user$project$Colors$secondaryAccentColor = _rtfeldman$elm_css$Css$hex('ffb92b');
+var _user$project$Colors$primaryAccentColor = _rtfeldman$elm_css$Css$hex('f7a600');
 var _user$project$Colors$primaryLightColor = _rtfeldman$elm_css$Css$hex('d1c4e9');
 var _user$project$Colors$primaryColor = _rtfeldman$elm_css$Css$hex('673ab7');
 var _user$project$Colors$primaryDarkColor = _rtfeldman$elm_css$Css$hex('00954a');
@@ -14177,6 +14178,9 @@ var _user$project$MyCss$Column = {ctor: 'Column'};
 var _user$project$MyCss$Row = {ctor: 'Row'};
 var _user$project$MyCss$Flex2 = {ctor: 'Flex2'};
 var _user$project$MyCss$Flex = {ctor: 'Flex'};
+var _user$project$MyCss$MdForm = {ctor: 'MdForm'};
+var _user$project$MyCss$MdText = {ctor: 'MdText'};
+var _user$project$MyCss$SubmitButton = {ctor: 'SubmitButton'};
 var _user$project$MyCss$MdContent = {ctor: 'MdContent'};
 var _user$project$MyCss$css = function (_p0) {
 	return _rtfeldman$elm_css$Css$stylesheet(
@@ -14222,7 +14226,12 @@ var _user$project$MyCss$css = function (_p0) {
 						ctor: '::',
 						_0: _rtfeldman$elm_css$Css$flex(
 							_rtfeldman$elm_css$Css$int(8)),
-						_1: {ctor: '[]'}
+						_1: {
+							ctor: '::',
+							_0: _rtfeldman$elm_css$Css$maxWidth(
+								_rtfeldman$elm_css$Css$rem(45)),
+							_1: {ctor: '[]'}
+						}
 					}),
 				_1: {
 					ctor: '::',
@@ -14269,67 +14278,93 @@ var _user$project$MyCss$css = function (_p0) {
 								ctor: '::',
 								_0: A2(
 									_rtfeldman$elm_css$Css$class,
-									_user$project$MyCss$Column,
+									_user$project$MyCss$SubmitButton,
 									{
 										ctor: '::',
-										_0: _rtfeldman$elm_css$Css$displayFlex,
+										_0: _rtfeldman$elm_css$Css$backgroundColor(_user$project$Colors$primaryAccentColor),
 										_1: {
 											ctor: '::',
-											_0: A2(_rtfeldman$elm_css$Css$flexFlow2, _rtfeldman$elm_css$Css$noWrap, _rtfeldman$elm_css$Css$column),
-											_1: {ctor: '[]'}
+											_0: _rtfeldman$elm_css$Css$color(_user$project$Colors$primaryIconColor),
+											_1: {
+												ctor: '::',
+												_0: _rtfeldman$elm_css$Css$border(_rtfeldman$elm_css$Css$zero),
+												_1: {
+													ctor: '::',
+													_0: _rtfeldman$elm_css$Css$flex(
+														_rtfeldman$elm_css$Css$int(1)),
+													_1: {
+														ctor: '::',
+														_0: _rtfeldman$elm_css$Css$padding(
+															_rtfeldman$elm_css$Css$px(10)),
+														_1: {
+															ctor: '::',
+															_0: _rtfeldman$elm_css$Css$margin(
+																_rtfeldman$elm_css$Css$px(5)),
+															_1: {
+																ctor: '::',
+																_0: _user$project$Colors$primaryBoxShadow,
+																_1: {
+																	ctor: '::',
+																	_0: _rtfeldman$elm_css$Css$hover(
+																		{
+																			ctor: '::',
+																			_0: _rtfeldman$elm_css$Css$backgroundColor(_user$project$Colors$secondaryAccentColor),
+																			_1: {ctor: '[]'}
+																		}),
+																	_1: {
+																		ctor: '::',
+																		_0: _rtfeldman$elm_css$Css$focus(
+																			{
+																				ctor: '::',
+																				_0: _rtfeldman$elm_css$Css$outline(_rtfeldman$elm_css$Css$none),
+																				_1: {ctor: '[]'}
+																			}),
+																		_1: {ctor: '[]'}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
 										}
 									}),
 								_1: {
 									ctor: '::',
 									_0: A2(
 										_rtfeldman$elm_css$Css$class,
-										_user$project$MyCss$Title,
+										_user$project$MyCss$Column,
 										{
 											ctor: '::',
-											_0: _rtfeldman$elm_css$Css$color(_user$project$Colors$primaryIconColor),
+											_0: _rtfeldman$elm_css$Css$displayFlex,
 											_1: {
 												ctor: '::',
-												_0: _rtfeldman$elm_css$Css$backgroundColor(_user$project$Colors$primaryDarkColor),
-												_1: {
-													ctor: '::',
-													_0: _rtfeldman$elm_css$Css$fontSize(
-														_rtfeldman$elm_css$Css$rem(1.5)),
-													_1: {
-														ctor: '::',
-														_0: A2(
-															_rtfeldman$elm_css$Css$padding2,
-															_rtfeldman$elm_css$Css$rem(0.7),
-															_rtfeldman$elm_css$Css$rem(1)),
-														_1: {ctor: '[]'}
-													}
-												}
+												_0: A2(_rtfeldman$elm_css$Css$flexFlow2, _rtfeldman$elm_css$Css$noWrap, _rtfeldman$elm_css$Css$column),
+												_1: {ctor: '[]'}
 											}
 										}),
 									_1: {
 										ctor: '::',
 										_0: A2(
 											_rtfeldman$elm_css$Css$class,
-											_user$project$MyCss$Pop,
+											_user$project$MyCss$Title,
 											{
 												ctor: '::',
-												_0: _rtfeldman$elm_css$Css$position(_rtfeldman$elm_css$Css$fixed),
+												_0: _rtfeldman$elm_css$Css$color(_user$project$Colors$primaryIconColor),
 												_1: {
 													ctor: '::',
-													_0: _rtfeldman$elm_css$Css$bottom(
-														_rtfeldman$elm_css$Css$rem(1)),
+													_0: _rtfeldman$elm_css$Css$backgroundColor(_user$project$Colors$primaryDarkColor),
 													_1: {
 														ctor: '::',
-														_0: _rtfeldman$elm_css$Css$right(
-															_rtfeldman$elm_css$Css$rem(1)),
+														_0: _rtfeldman$elm_css$Css$fontSize(
+															_rtfeldman$elm_css$Css$rem(1.5)),
 														_1: {
 															ctor: '::',
-															_0: _rtfeldman$elm_css$Css$maxWidth(
-																_rtfeldman$elm_css$Css$rem(30)),
-															_1: {
-																ctor: '::',
-																_0: _user$project$Colors$primaryBoxShadow,
-																_1: {ctor: '[]'}
-															}
+															_0: A2(
+																_rtfeldman$elm_css$Css$padding2,
+																_rtfeldman$elm_css$Css$rem(0.7),
+																_rtfeldman$elm_css$Css$rem(1)),
+															_1: {ctor: '[]'}
 														}
 													}
 												}
@@ -14338,63 +14373,61 @@ var _user$project$MyCss$css = function (_p0) {
 											ctor: '::',
 											_0: A2(
 												_rtfeldman$elm_css$Css$class,
-												_user$project$MyCss$Padding1,
+												_user$project$MyCss$Pop,
 												{
 													ctor: '::',
-													_0: A2(
-														_rtfeldman$elm_css$Css$padding2,
-														_rtfeldman$elm_css$Css$rem(0.7),
-														_rtfeldman$elm_css$Css$rem(1)),
-													_1: {ctor: '[]'}
+													_0: _rtfeldman$elm_css$Css$position(_rtfeldman$elm_css$Css$fixed),
+													_1: {
+														ctor: '::',
+														_0: _rtfeldman$elm_css$Css$bottom(
+															_rtfeldman$elm_css$Css$pct(2)),
+														_1: {
+															ctor: '::',
+															_0: _rtfeldman$elm_css$Css$right(
+																_rtfeldman$elm_css$Css$pct(2)),
+															_1: {
+																ctor: '::',
+																_0: _rtfeldman$elm_css$Css$maxWidth(
+																	_rtfeldman$elm_css$Css$pct(96)),
+																_1: {
+																	ctor: '::',
+																	_0: _user$project$Colors$primaryBoxShadow,
+																	_1: {ctor: '[]'}
+																}
+															}
+														}
+													}
 												}),
 											_1: {
 												ctor: '::',
 												_0: A2(
 													_rtfeldman$elm_css$Css$class,
-													_user$project$MyCss$Chip,
+													_user$project$MyCss$Padding1,
 													{
 														ctor: '::',
-														_0: _rtfeldman$elm_css$Css$backgroundColor(_user$project$Colors$primaryDarkColor),
-														_1: {
-															ctor: '::',
-															_0: _rtfeldman$elm_css$Css$fontSize(
-																_rtfeldman$elm_css$Css$rem(1.5)),
-															_1: {
-																ctor: '::',
-																_0: _rtfeldman$elm_css$Css$lineHeight(
-																	_rtfeldman$elm_css$Css$rem(1.7)),
-																_1: {ctor: '[]'}
-															}
-														}
+														_0: A2(
+															_rtfeldman$elm_css$Css$padding2,
+															_rtfeldman$elm_css$Css$rem(0.7),
+															_rtfeldman$elm_css$Css$rem(1)),
+														_1: {ctor: '[]'}
 													}),
 												_1: {
 													ctor: '::',
 													_0: A2(
 														_rtfeldman$elm_css$Css$class,
-														_user$project$MyCss$MaterialIcon,
+														_user$project$MyCss$Chip,
 														{
 															ctor: '::',
-															_0: _rtfeldman$elm_css$Css$fontFamilies(
-																{
-																	ctor: '::',
-																	_0: _rtfeldman$elm_css$Css$qt('Material Icons'),
-																	_1: {ctor: '[]'}
-																}),
+															_0: _rtfeldman$elm_css$Css$backgroundColor(_user$project$Colors$primaryDarkColor),
 															_1: {
 																ctor: '::',
-																_0: _rtfeldman$elm_css$Css$fontStyle(_rtfeldman$elm_css$Css$normal),
+																_0: _rtfeldman$elm_css$Css$fontSize(
+																	_rtfeldman$elm_css$Css$rem(1.5)),
 																_1: {
 																	ctor: '::',
-																	_0: _rtfeldman$elm_css$Css$display(_rtfeldman$elm_css$Css$inlineBlock),
-																	_1: {
-																		ctor: '::',
-																		_0: _rtfeldman$elm_css$Css$color(_user$project$Colors$primaryIconColor),
-																		_1: {
-																			ctor: '::',
-																			_0: _rtfeldman$elm_css$Css$cursor(_rtfeldman$elm_css$Css$pointer),
-																			_1: {ctor: '[]'}
-																		}
-																	}
+																	_0: _rtfeldman$elm_css$Css$lineHeight(
+																		_rtfeldman$elm_css$Css$rem(1.7)),
+																	_1: {ctor: '[]'}
 																}
 															}
 														}),
@@ -14402,19 +14435,30 @@ var _user$project$MyCss$css = function (_p0) {
 														ctor: '::',
 														_0: A2(
 															_rtfeldman$elm_css$Css$class,
-															_user$project$MyCss$Image,
+															_user$project$MyCss$MaterialIcon,
 															{
 																ctor: '::',
-																_0: _rtfeldman$elm_css$Css$maxWidth(
-																	_rtfeldman$elm_css$Css$pct(100)),
+																_0: _rtfeldman$elm_css$Css$fontFamilies(
+																	{
+																		ctor: '::',
+																		_0: _rtfeldman$elm_css$Css$qt('Material Icons'),
+																		_1: {ctor: '[]'}
+																	}),
 																_1: {
 																	ctor: '::',
-																	_0: _rtfeldman$elm_css$Css$display(_rtfeldman$elm_css$Css$block),
+																	_0: _rtfeldman$elm_css$Css$fontStyle(_rtfeldman$elm_css$Css$normal),
 																	_1: {
 																		ctor: '::',
-																		_0: _rtfeldman$elm_css$Css$minWidth(
-																			_rtfeldman$elm_css$Css$rem(11)),
-																		_1: {ctor: '[]'}
+																		_0: _rtfeldman$elm_css$Css$display(_rtfeldman$elm_css$Css$inlineBlock),
+																		_1: {
+																			ctor: '::',
+																			_0: _rtfeldman$elm_css$Css$color(_user$project$Colors$primaryIconColor),
+																			_1: {
+																				ctor: '::',
+																				_0: _rtfeldman$elm_css$Css$cursor(_rtfeldman$elm_css$Css$pointer),
+																				_1: {ctor: '[]'}
+																			}
+																		}
 																	}
 																}
 															}),
@@ -14422,82 +14466,188 @@ var _user$project$MyCss$css = function (_p0) {
 															ctor: '::',
 															_0: A2(
 																_rtfeldman$elm_css$Css$class,
-																_user$project$MyCss$BackgroundImage,
+																_user$project$MyCss$Image,
 																{
 																	ctor: '::',
-																	_0: _rtfeldman$elm_css$Css$position(_rtfeldman$elm_css$Css$fixed),
+																	_0: _rtfeldman$elm_css$Css$maxWidth(
+																		_rtfeldman$elm_css$Css$pct(100)),
 																	_1: {
 																		ctor: '::',
-																		_0: _rtfeldman$elm_css$Css$top(
-																			_rtfeldman$elm_css$Css$pct(-50)),
+																		_0: _rtfeldman$elm_css$Css$display(_rtfeldman$elm_css$Css$block),
 																		_1: {
 																			ctor: '::',
-																			_0: _rtfeldman$elm_css$Css$left(
+																			_0: _rtfeldman$elm_css$Css$minWidth(
+																				_rtfeldman$elm_css$Css$rem(11)),
+																			_1: {ctor: '[]'}
+																		}
+																	}
+																}),
+															_1: {
+																ctor: '::',
+																_0: A2(
+																	_rtfeldman$elm_css$Css$class,
+																	_user$project$MyCss$BackgroundImage,
+																	{
+																		ctor: '::',
+																		_0: _rtfeldman$elm_css$Css$position(_rtfeldman$elm_css$Css$fixed),
+																		_1: {
+																			ctor: '::',
+																			_0: _rtfeldman$elm_css$Css$top(
 																				_rtfeldman$elm_css$Css$pct(-50)),
 																			_1: {
 																				ctor: '::',
-																				_0: _rtfeldman$elm_css$Css$width(
-																					_rtfeldman$elm_css$Css$pct(200)),
+																				_0: _rtfeldman$elm_css$Css$left(
+																					_rtfeldman$elm_css$Css$pct(-50)),
 																				_1: {
 																					ctor: '::',
-																					_0: _rtfeldman$elm_css$Css$height(
+																					_0: _rtfeldman$elm_css$Css$width(
 																						_rtfeldman$elm_css$Css$pct(200)),
 																					_1: {
 																						ctor: '::',
-																						_0: _rtfeldman$elm_css$Css$zIndex(
-																							_rtfeldman$elm_css$Css$int(-1)),
+																						_0: _rtfeldman$elm_css$Css$height(
+																							_rtfeldman$elm_css$Css$pct(200)),
 																						_1: {
 																							ctor: '::',
-																							_0: _rtfeldman$elm_css$Css$children(
-																								{
-																									ctor: '::',
-																									_0: _rtfeldman$elm_css$Css_Elements$img(
-																										{
-																											ctor: '::',
-																											_0: _rtfeldman$elm_css$Css$position(_rtfeldman$elm_css$Css$absolute),
-																											_1: {
+																							_0: _rtfeldman$elm_css$Css$zIndex(
+																								_rtfeldman$elm_css$Css$int(-1)),
+																							_1: {
+																								ctor: '::',
+																								_0: _rtfeldman$elm_css$Css$children(
+																									{
+																										ctor: '::',
+																										_0: _rtfeldman$elm_css$Css_Elements$img(
+																											{
 																												ctor: '::',
-																												_0: _rtfeldman$elm_css$Css$top(_rtfeldman$elm_css$Css$zero),
+																												_0: _rtfeldman$elm_css$Css$position(_rtfeldman$elm_css$Css$absolute),
 																												_1: {
 																													ctor: '::',
-																													_0: _rtfeldman$elm_css$Css$left(_rtfeldman$elm_css$Css$zero),
+																													_0: _rtfeldman$elm_css$Css$top(_rtfeldman$elm_css$Css$zero),
 																													_1: {
 																														ctor: '::',
-																														_0: _rtfeldman$elm_css$Css$right(_rtfeldman$elm_css$Css$zero),
+																														_0: _rtfeldman$elm_css$Css$left(_rtfeldman$elm_css$Css$zero),
 																														_1: {
 																															ctor: '::',
-																															_0: _rtfeldman$elm_css$Css$bottom(_rtfeldman$elm_css$Css$zero),
+																															_0: _rtfeldman$elm_css$Css$right(_rtfeldman$elm_css$Css$zero),
 																															_1: {
 																																ctor: '::',
-																																_0: _rtfeldman$elm_css$Css$margin(_rtfeldman$elm_css$Css$auto),
+																																_0: _rtfeldman$elm_css$Css$bottom(_rtfeldman$elm_css$Css$zero),
 																																_1: {
 																																	ctor: '::',
-																																	_0: _rtfeldman$elm_css$Css$minWidth(
-																																		_rtfeldman$elm_css$Css$pct(50)),
+																																	_0: _rtfeldman$elm_css$Css$margin(_rtfeldman$elm_css$Css$auto),
 																																	_1: {
 																																		ctor: '::',
-																																		_0: _rtfeldman$elm_css$Css$minHeight(
+																																		_0: _rtfeldman$elm_css$Css$minWidth(
 																																			_rtfeldman$elm_css$Css$pct(50)),
-																																		_1: {ctor: '[]'}
+																																		_1: {
+																																			ctor: '::',
+																																			_0: _rtfeldman$elm_css$Css$minHeight(
+																																				_rtfeldman$elm_css$Css$pct(50)),
+																																			_1: {ctor: '[]'}
+																																		}
 																																	}
 																																}
 																															}
 																														}
 																													}
 																												}
-																											}
-																										}),
-																									_1: {ctor: '[]'}
-																								}),
-																							_1: {ctor: '[]'}
+																											}),
+																										_1: {ctor: '[]'}
+																									}),
+																								_1: {ctor: '[]'}
+																							}
 																						}
 																					}
 																				}
 																			}
 																		}
+																	}),
+																_1: {
+																	ctor: '::',
+																	_0: A2(
+																		_rtfeldman$elm_css$Css$class,
+																		_user$project$MyCss$MdForm,
+																		{
+																			ctor: '::',
+																			_0: _rtfeldman$elm_css$Css$displayFlex,
+																			_1: {
+																				ctor: '::',
+																				_0: _rtfeldman$elm_css$Css$flexWrap(_rtfeldman$elm_css$Css$wrap),
+																				_1: {ctor: '[]'}
+																			}
+																		}),
+																	_1: {
+																		ctor: '::',
+																		_0: A2(
+																			_rtfeldman$elm_css$Css$class,
+																			_user$project$MyCss$MdText,
+																			{
+																				ctor: '::',
+																				_0: _rtfeldman$elm_css$Css$outline(_rtfeldman$elm_css$Css$none),
+																				_1: {
+																					ctor: '::',
+																					_0: _rtfeldman$elm_css$Css$flex(
+																						_rtfeldman$elm_css$Css$int(6)),
+																					_1: {
+																						ctor: '::',
+																						_0: A4(
+																							_rtfeldman$elm_css$Css$margin4,
+																							_rtfeldman$elm_css$Css$px(8),
+																							_rtfeldman$elm_css$Css$px(32),
+																							_rtfeldman$elm_css$Css$px(8),
+																							_rtfeldman$elm_css$Css$px(0)),
+																						_1: {
+																							ctor: '::',
+																							_0: A2(
+																								_rtfeldman$elm_css$Css$padding2,
+																								_rtfeldman$elm_css$Css$px(8),
+																								_rtfeldman$elm_css$Css$px(2)),
+																							_1: {
+																								ctor: '::',
+																								_0: _rtfeldman$elm_css$Css$fontSize(
+																									_rtfeldman$elm_css$Css$px(16)),
+																								_1: {
+																									ctor: '::',
+																									_0: _rtfeldman$elm_css$Css$display(_rtfeldman$elm_css$Css$block),
+																									_1: {
+																										ctor: '::',
+																										_0: _rtfeldman$elm_css$Css$border(_rtfeldman$elm_css$Css$zero),
+																										_1: {
+																											ctor: '::',
+																											_0: A3(
+																												_rtfeldman$elm_css$Css$borderBottom3,
+																												_rtfeldman$elm_css$Css$px(1),
+																												_rtfeldman$elm_css$Css$solid,
+																												A4(_rtfeldman$elm_css$Css$rgba, 0, 0, 0, 0.12)),
+																											_1: {
+																												ctor: '::',
+																												_0: _rtfeldman$elm_css$Css$focus(
+																													{
+																														ctor: '::',
+																														_0: _rtfeldman$elm_css$Css$outline(_rtfeldman$elm_css$Css$none),
+																														_1: {
+																															ctor: '::',
+																															_0: A3(
+																																_rtfeldman$elm_css$Css$borderBottom3,
+																																_rtfeldman$elm_css$Css$px(1),
+																																_rtfeldman$elm_css$Css$solid,
+																																_user$project$Colors$secondaryAccentColor),
+																															_1: {ctor: '[]'}
+																														}
+																													}),
+																												_1: {ctor: '[]'}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}),
+																		_1: {ctor: '[]'}
 																	}
-																}),
-															_1: {ctor: '[]'}
+																}
+															}
 														}
 													}
 												}
@@ -14681,6 +14831,63 @@ var _user$project$Bootstrap$mdPop = _elm_lang$html$Html$div(
 			}),
 		_1: {ctor: '[]'}
 	});
+var _user$project$Bootstrap$mdForm = F2(
+	function (attr, body) {
+		return A2(
+			_elm_lang$html$Html$form,
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				attr,
+				{
+					ctor: '::',
+					_0: _user$project$Bootstrap$class(
+						{
+							ctor: '::',
+							_0: _user$project$MyCss$MdForm,
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				}),
+			body);
+	});
+var _user$project$Bootstrap$mdInput = F2(
+	function (attr, body) {
+		return A2(
+			_elm_lang$html$Html$input,
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				attr,
+				{
+					ctor: '::',
+					_0: _user$project$Bootstrap$class(
+						{
+							ctor: '::',
+							_0: _user$project$MyCss$SubmitButton,
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				}),
+			body);
+	});
+var _user$project$Bootstrap$mdText = F2(
+	function (attr, body) {
+		return A2(
+			_elm_lang$html$Html$input,
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				attr,
+				{
+					ctor: '::',
+					_0: _user$project$Bootstrap$class(
+						{
+							ctor: '::',
+							_0: _user$project$MyCss$MdText,
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				}),
+			body);
+	});
 
 var _user$project$Modal$view = F2(
 	function (_p0, state) {
@@ -14716,6 +14923,9 @@ var _user$project$Modal$Config = function (a) {
 	return {ctor: 'Config', _0: a};
 };
 
+var _user$project$Messages$Email = function (a) {
+	return {ctor: 'Email', _0: a};
+};
 var _user$project$Messages$InitModalState = function (a) {
 	return {ctor: 'InitModalState', _0: a};
 };
@@ -14734,7 +14944,7 @@ var _user$project$Models$delay = F2(
 					_elm_lang$core$Task$succeed(msg)),
 				_elm_lang$core$Process$sleep(time)));
 	});
-var _user$project$Models$initialModel = {modalState: _user$project$Modal$Closed, opened: false};
+var _user$project$Models$initialModel = {modalState: _user$project$Modal$Closed, opened: false, email: ''};
 var _user$project$Models$init = {
 	ctor: '_Tuple2',
 	_0: _user$project$Models$initialModel,
@@ -14743,9 +14953,9 @@ var _user$project$Models$init = {
 		_elm_lang$core$Time$second * 5,
 		_user$project$Messages$InitModalState(_user$project$Modal$Open))
 };
-var _user$project$Models$Model = F2(
-	function (a, b) {
-		return {modalState: a, opened: b};
+var _user$project$Models$Model = F3(
+	function (a, b, c) {
+		return {modalState: a, opened: b, email: c};
 	});
 
 var _user$project$View$open = A2(
@@ -14819,7 +15029,7 @@ var _user$project$View$body = _user$project$Bootstrap$mdRow(
 								_0: _user$project$Bootstrap$padding1(
 									{
 										ctor: '::',
-										_0: _user$project$Bootstrap$mdImage('Nepal2.png'),
+										_0: _user$project$Bootstrap$mdImage('image.jpg'),
 										_1: {ctor: '[]'}
 									}),
 								_1: {ctor: '[]'}
@@ -14832,16 +15042,80 @@ var _user$project$View$body = _user$project$Bootstrap$mdRow(
 									_0: _user$project$Bootstrap$padding1(
 										{
 											ctor: '::',
-											_0: _elm_lang$html$Html$text(' Tilmeld dig vores nyhedsmail og få tilbud, inspiration og de bedste rejsetilbud før alle andre.'),
+											_0: A2(
+												_elm_lang$html$Html$p,
+												{ctor: '[]'},
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html$text('Tilmeld dig vores nyhedsmail og få tilbud, inspiration og de bedste rejsetilbud før alle andre.'),
+													_1: {ctor: '[]'}
+												}),
 											_1: {
 												ctor: '::',
 												_0: A2(
-													_elm_lang$html$Html$br,
+													_elm_lang$html$Html$p,
 													{ctor: '[]'},
-													{ctor: '[]'}),
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html$text('Du er samtidig med i lodtrækningen om et rejsegavekort på 5000 kr.'),
+														_1: {ctor: '[]'}
+													}),
 												_1: {
 													ctor: '::',
-													_0: _elm_lang$html$Html$text(' Vi trækker lod fire gange om året om et gavekort à 5000 kr. Måske bliver du den heldige vinder!'),
+													_0: A2(
+														_user$project$Bootstrap$mdForm,
+														{
+															ctor: '::',
+															_0: _elm_lang$html$Html_Attributes$method('POST'),
+															_1: {
+																ctor: '::',
+																_0: _elm_lang$html$Html_Attributes$action('http://coco.cctravel.dk/scripts/apsis/Tilmelding/Callback.php'),
+																_1: {ctor: '[]'}
+															}
+														},
+														{
+															ctor: '::',
+															_0: A2(
+																_user$project$Bootstrap$mdText,
+																{
+																	ctor: '::',
+																	_0: _elm_lang$html$Html_Attributes$autocomplete(false),
+																	_1: {
+																		ctor: '::',
+																		_0: _elm_lang$html$Html_Attributes$type_('email'),
+																		_1: {
+																			ctor: '::',
+																			_0: _elm_lang$html$Html_Attributes$name('Email'),
+																			_1: {
+																				ctor: '::',
+																				_0: _elm_lang$html$Html_Attributes$placeholder('Email-addresse'),
+																				_1: {
+																					ctor: '::',
+																					_0: _elm_lang$html$Html_Events$onInput(_user$project$Messages$Email),
+																					_1: {ctor: '[]'}
+																				}
+																			}
+																		}
+																	}
+																},
+																{ctor: '[]'}),
+															_1: {
+																ctor: '::',
+																_0: A2(
+																	_user$project$Bootstrap$mdInput,
+																	{
+																		ctor: '::',
+																		_0: _elm_lang$html$Html_Attributes$type_('submit'),
+																		_1: {
+																			ctor: '::',
+																			_0: _elm_lang$html$Html_Attributes$value('TILMELD'),
+																			_1: {ctor: '[]'}
+																		}
+																	},
+																	{ctor: '[]'}),
+																_1: {ctor: '[]'}
+															}
+														}),
 													_1: {ctor: '[]'}
 												}
 											}
@@ -14894,22 +15168,31 @@ var _user$project$View$view = function (model) {
 var _user$project$Update$update = F2(
 	function (msg, model) {
 		var _p0 = msg;
-		if (_p0.ctor === 'SetModalState') {
-			return {
-				ctor: '_Tuple2',
-				_0: _elm_lang$core$Native_Utils.update(
-					model,
-					{modalState: _p0._0, opened: true}),
-				_1: _elm_lang$core$Platform_Cmd$none
-			};
-		} else {
-			return model.opened ? {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none} : {
-				ctor: '_Tuple2',
-				_0: _elm_lang$core$Native_Utils.update(
-					model,
-					{modalState: _p0._0}),
-				_1: _elm_lang$core$Platform_Cmd$none
-			};
+		switch (_p0.ctor) {
+			case 'SetModalState':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{modalState: _p0._0, opened: true}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'InitModalState':
+				return model.opened ? {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none} : {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{modalState: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			default:
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{email: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
 		}
 	});
 

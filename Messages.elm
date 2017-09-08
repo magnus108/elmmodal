@@ -7,3 +7,4 @@ import Modal
 type Msg
   = SetModalState Modal.State
   | InitModalState Modal.State
+  | Email String

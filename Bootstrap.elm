@@ -11,16 +11,22 @@ module Bootstrap
   , padding1
   , mdIcon
   , mdBackgroundImage
+  , mdInput
   , mdImage
+  , mdForm
+  , mdText
   )
 
 
 import Html
   exposing
     ( Html
+    , Attribute
     , div
+    , form
     , i
     , img
+    , input
     )
 
 
@@ -97,3 +103,18 @@ mdContent =
 mdPop : List (Html msg) -> Html msg
 mdPop =
   div [ class [ Pop ] ]
+
+
+mdForm : List (Attribute msg) -> List (Html msg) -> Html msg
+mdForm attr body =
+  form ( attr ++ [ class [ MdForm ] ] ) body
+
+
+mdInput : List (Attribute msg) -> List (Html msg) -> Html msg
+mdInput attr body =
+  input ( attr ++ [ class [ SubmitButton ] ] ) body
+
+
+mdText : List (Attribute msg) -> List (Html msg) -> Html msg
+mdText attr body =
+  input ( attr ++ [ class [ MdText ] ] ) body

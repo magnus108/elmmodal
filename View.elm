@@ -1,20 +1,34 @@
 module View exposing (view)
 
 
-import Html exposing (Html, div, text, button, span, br)
-import Html.Events exposing (onClick)
+import Html exposing (Html, div, text, button, span, br, input, p)
+import Html.Events exposing (onClick, onInput)
+
+import Html.Attributes
+  exposing
+    ( placeholder
+    , type_
+    , value
+    , action
+    , name
+    , method
+    , autocomplete
+    )
 
 import Bootstrap
   exposing
     ( mdTitle
     , mdContent
+    , mdForm
     , mdRow
     , flex
     , flex2
     , mdPop
+    , mdText
     , padding1
     , mdChip
     , mdIcon
+    , mdInput
     , mdColumn
     , mdBackgroundImage
     , mdImage
@@ -62,14 +76,17 @@ body =
       [ mdRow
         [ flex
           [ padding1
-            [ mdImage "Nepal2.png"
+            [ mdImage "image.jpg"
             ]
           ]
         , flex2
           [ padding1
-            [ text " Tilmeld dig vores nyhedsmail og få tilbud, inspiration og de bedste rejsetilbud før alle andre." 
-            , br [] []
-            , text " Vi trækker lod fire gange om året om et gavekort à 5000 kr. Måske bliver du den heldige vinder!"
+            [ p [] [ text "Tilmeld dig vores nyhedsmail og få tilbud, inspiration og de bedste rejsetilbud før alle andre." ]
+            , p [] [ text "Du er samtidig med i lodtrækningen om et rejsegavekort på 5000 kr." ]
+            , mdForm [ method "POST", action "http://coco.cctravel.dk/scripts/apsis/Tilmelding/Callback.php" ]
+              [ mdText [ autocomplete False, type_ "email", name "Email", placeholder "Email-addresse", onInput Email ] []
+              , mdInput [ type_ "submit", value "TILMELD" ] []
+              ]
             ]
           ]
         ]

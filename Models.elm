@@ -13,6 +13,7 @@ import Messages exposing (Msg(..))
 type alias Model =
   { modalState : Modal.State
   , opened : Bool
+  , email : String
   }
 
 
@@ -20,6 +21,7 @@ initialModel : Model
 initialModel =
   { modalState = Closed
   , opened = False
+  , email = ""
   }
 
 
