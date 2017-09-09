@@ -1,48 +1,16 @@
-module Models exposing (Model, init)
+module Models exposing (Model, initialModel)
 
-
-import Process
-import Task
-import Time exposing (Time)
-
-
-import Modal exposing (State(..))
-import Messages exposing (Msg(..))
 
 import Transit
+import Modal
 
---naming!
-type alias General =
-  { modalState : Modal.State
-  , opened : Bool
-  }
 
 type alias Model =
-  Transit.WithTransition General
+  Transit.WithTransition (Modal.WithModal {})
 
 
 initialModel : Model
 initialModel =
-  { modalState = Opening
-  , opened = False
+  { modal = Modal.empty
   , transition = Transit.empty
   }
-
-
-popupMsg : Cmd Msg
-popupMsg = delay (Time.second * 5) <| InitModalState Opened
-
-
-blinkMsg : Cmd Msg
-blinkMsg = delay (Time.second * 0) <| CloseModalStart
-
-
-init : ( Model, Cmd Msg )
-init = initialModel ! [ blinkMsg ]
-
-
-delay : Time -> msg -> Cmd msg
-delay time msg =
-  Process.sleep time
-    |> Task.andThen (always <| Task.succeed msg)
-    |> Task.perform identity

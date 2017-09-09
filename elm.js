@@ -15204,50 +15204,94 @@ var _user$project$Bootstrap$mdForm = F2(
 				}),
 			body);
 	});
-var _user$project$Bootstrap$mdInput = F2(
-	function (attr, body) {
-		return A2(
-			_elm_lang$html$Html$input,
-			A2(
-				_elm_lang$core$Basics_ops['++'],
-				attr,
-				{
-					ctor: '::',
-					_0: _user$project$Bootstrap$class(
-						{
-							ctor: '::',
-							_0: _user$project$MyCss$SubmitButton,
-							_1: {ctor: '[]'}
-						}),
-					_1: {ctor: '[]'}
-				}),
-			body);
-	});
-var _user$project$Bootstrap$mdText = F2(
-	function (attr, body) {
-		return A2(
-			_elm_lang$html$Html$input,
-			A2(
-				_elm_lang$core$Basics_ops['++'],
-				attr,
-				{
-					ctor: '::',
-					_0: _user$project$Bootstrap$class(
-						{
-							ctor: '::',
-							_0: _user$project$MyCss$MdText,
-							_1: {ctor: '[]'}
-						}),
-					_1: {ctor: '[]'}
-				}),
-			body);
-	});
+var _user$project$Bootstrap$mdInput = function (attr) {
+	return A2(
+		_elm_lang$html$Html$input,
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			attr,
+			{
+				ctor: '::',
+				_0: _user$project$Bootstrap$class(
+					{
+						ctor: '::',
+						_0: _user$project$MyCss$SubmitButton,
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			}),
+		{ctor: '[]'});
+};
+var _user$project$Bootstrap$mdText = function (attr) {
+	return A2(
+		_elm_lang$html$Html$input,
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			attr,
+			{
+				ctor: '::',
+				_0: _user$project$Bootstrap$class(
+					{
+						ctor: '::',
+						_0: _user$project$MyCss$MdText,
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			}),
+		{ctor: '[]'});
+};
 
+var _user$project$Modal$open = function (toMsg) {
+	return A2(
+		_elm_lang$html$Html$span,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Events$onClick(toMsg),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: _user$project$Bootstrap$mdIcon(
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('menu'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Modal$closed = function (toMsg) {
+	return _user$project$Bootstrap$mdChip(
+		{
+			ctor: '::',
+			_0: _user$project$Bootstrap$flex(
+				{
+					ctor: '::',
+					_0: _user$project$Bootstrap$mdTitle(
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('Tilmeld dig nyhedsbrevet'),
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: _user$project$Modal$open(toMsg),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$Modal$getState = function (modal) {
+	var _p0 = modal;
+	return _p0._0;
+};
 var _user$project$Modal$view = F2(
-	function (_p0, state) {
-		var _p1 = _p0;
-		var _p2 = state;
-		switch (_p2.ctor) {
+	function (_p1, modal) {
+		var _p2 = _p1;
+		var state = _user$project$Modal$getState(modal);
+		var _p3 = state.status;
+		switch (_p3.ctor) {
 			case 'Opening':
 				return _elm_lang$html$Html$text('');
 			case 'Closed':
@@ -15256,7 +15300,7 @@ var _user$project$Modal$view = F2(
 					{ctor: '[]'},
 					{
 						ctor: '::',
-						_0: _p1._0.closed,
+						_0: _user$project$Modal$closed(_p2._0.open),
 						_1: {ctor: '[]'}
 					});
 			default:
@@ -15265,18 +15309,53 @@ var _user$project$Modal$view = F2(
 					{ctor: '[]'},
 					{
 						ctor: '::',
-						_0: _p1._0.header,
+						_0: _p2._0.header,
 						_1: {
 							ctor: '::',
-							_0: _p1._0.body,
+							_0: _p2._0.body,
 							_1: {ctor: '[]'}
 						}
 					});
 		}
 	});
+var _user$project$Modal$State = F2(
+	function (a, b) {
+		return {status: a, pristine: b};
+	});
+var _user$project$Modal$M = function (a) {
+	return {ctor: 'M', _0: a};
+};
 var _user$project$Modal$Closed = {ctor: 'Closed'};
 var _user$project$Modal$Opened = {ctor: 'Opened'};
+var _user$project$Modal$alter = F3(
+	function (tagger, msg, parent) {
+		var tag = function (_p4) {
+			var _p5 = _p4;
+			return {
+				ctor: '_Tuple2',
+				_0: _elm_lang$core$Native_Utils.update(
+					parent,
+					{
+						modal: _user$project$Modal$M(_p5._0)
+					}),
+				_1: A2(_elm_lang$core$Platform_Cmd$map, tagger, _p5._1)
+			};
+		};
+		var state = _user$project$Modal$getState(parent.modal);
+		return tag(
+			{
+				ctor: '_Tuple2',
+				_0: _elm_lang$core$Native_Utils.update(
+					state,
+					{status: _user$project$Modal$Opened, pristine: false}),
+				_1: _elm_lang$core$Platform_Cmd$none
+			});
+	});
 var _user$project$Modal$Opening = {ctor: 'Opening'};
+var _user$project$Modal$initialState = {status: _user$project$Modal$Opening, pristine: true};
+var _user$project$Modal$empty = _user$project$Modal$M(_user$project$Modal$initialState);
+var _user$project$Modal$Close = {ctor: 'Close'};
+var _user$project$Modal$Open = {ctor: 'Open'};
 var _user$project$Modal$Config = function (a) {
 	return {ctor: 'Config', _0: a};
 };
@@ -15284,87 +15363,19 @@ var _user$project$Modal$Config = function (a) {
 var _user$project$Messages$TransitMsg = function (a) {
 	return {ctor: 'TransitMsg', _0: a};
 };
-var _user$project$Messages$CloseModalStop = {ctor: 'CloseModalStop'};
-var _user$project$Messages$CloseModalStart = {ctor: 'CloseModalStart'};
-var _user$project$Messages$OpenModalStop = {ctor: 'OpenModalStop'};
-var _user$project$Messages$OpenModalStart = {ctor: 'OpenModalStart'};
-var _user$project$Messages$StartModalState = {ctor: 'StartModalState'};
-var _user$project$Messages$InitModalState = function (a) {
-	return {ctor: 'InitModalState', _0: a};
+var _user$project$Messages$CloseModal = {ctor: 'CloseModal'};
+var _user$project$Messages$OpenModal = {ctor: 'OpenModal'};
+var _user$project$Messages$ModalMsg = function (a) {
+	return {ctor: 'ModalMsg', _0: a};
 };
 
-var _user$project$Models$delay = F2(
-	function (time, msg) {
-		return A2(
-			_elm_lang$core$Task$perform,
-			_elm_lang$core$Basics$identity,
-			A2(
-				_elm_lang$core$Task$andThen,
-				_elm_lang$core$Basics$always(
-					_elm_lang$core$Task$succeed(msg)),
-				_elm_lang$core$Process$sleep(time)));
-	});
-var _user$project$Models$blinkMsg = A2(_user$project$Models$delay, _elm_lang$core$Time$second * 0, _user$project$Messages$CloseModalStart);
-var _user$project$Models$popupMsg = A2(
-	_user$project$Models$delay,
-	_elm_lang$core$Time$second * 5,
-	_user$project$Messages$InitModalState(_user$project$Modal$Opened));
-var _user$project$Models$initialModel = {modalState: _user$project$Modal$Opening, opened: false, transition: _etaque$elm_transit$Transit$empty};
-var _user$project$Models$init = A2(
-	_elm_lang$core$Platform_Cmd_ops['!'],
-	_user$project$Models$initialModel,
-	{
-		ctor: '::',
-		_0: _user$project$Models$blinkMsg,
-		_1: {ctor: '[]'}
-	});
-var _user$project$Models$General = F2(
-	function (a, b) {
-		return {modalState: a, opened: b};
-	});
+var _user$project$Models$initialModel = {modal: _user$project$Modal$empty, transition: _etaque$elm_transit$Transit$empty};
 
-var _user$project$View$open = A2(
-	_elm_lang$html$Html$span,
-	{
-		ctor: '::',
-		_0: _elm_lang$html$Html_Events$onClick(_user$project$Messages$OpenModalStart),
-		_1: {ctor: '[]'}
-	},
-	{
-		ctor: '::',
-		_0: _user$project$Bootstrap$mdIcon(
-			{
-				ctor: '::',
-				_0: _elm_lang$html$Html$text('menu'),
-				_1: {ctor: '[]'}
-			}),
-		_1: {ctor: '[]'}
-	});
-var _user$project$View$closed = _user$project$Bootstrap$mdChip(
-	{
-		ctor: '::',
-		_0: _user$project$Bootstrap$flex(
-			{
-				ctor: '::',
-				_0: _user$project$Bootstrap$mdTitle(
-					{
-						ctor: '::',
-						_0: _elm_lang$html$Html$text('Tilmeld dig nyhedsbrevet'),
-						_1: {ctor: '[]'}
-					}),
-				_1: {ctor: '[]'}
-			}),
-		_1: {
-			ctor: '::',
-			_0: _user$project$View$open,
-			_1: {ctor: '[]'}
-		}
-	});
 var _user$project$View$close = A2(
 	_elm_lang$html$Html$span,
 	{
 		ctor: '::',
-		_0: _elm_lang$html$Html_Events$onClick(_user$project$Messages$CloseModalStart),
+		_0: _elm_lang$html$Html_Events$onClick(_user$project$Messages$CloseModal),
 		_1: {ctor: '[]'}
 	},
 	{
@@ -15376,6 +15387,54 @@ var _user$project$View$close = A2(
 				_1: {ctor: '[]'}
 			}),
 		_1: {ctor: '[]'}
+	});
+var _user$project$View$submitButton = _user$project$Bootstrap$mdInput(
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$type_('submit'),
+		_1: {
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$value('TILMELD'),
+			_1: {ctor: '[]'}
+		}
+	});
+var _user$project$View$emailInput = _user$project$Bootstrap$mdText(
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$autocomplete(false),
+		_1: {
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$type_('email'),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$name('Email'),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$placeholder('Email-addresse'),
+					_1: {ctor: '[]'}
+				}
+			}
+		}
+	});
+var _user$project$View$form = A2(
+	_user$project$Bootstrap$mdForm,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$method('POST'),
+		_1: {
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$action('http://coco.cctravel.dk/scripts/apsis/Tilmelding/Callback.php'),
+			_1: {ctor: '[]'}
+		}
+	},
+	{
+		ctor: '::',
+		_0: _user$project$View$emailInput,
+		_1: {
+			ctor: '::',
+			_0: _user$project$View$submitButton,
+			_1: {ctor: '[]'}
+		}
 	});
 var _user$project$View$body = _user$project$Bootstrap$mdRow(
 	{
@@ -15425,56 +15484,7 @@ var _user$project$View$body = _user$project$Bootstrap$mdRow(
 													}),
 												_1: {
 													ctor: '::',
-													_0: A2(
-														_user$project$Bootstrap$mdForm,
-														{
-															ctor: '::',
-															_0: _elm_lang$html$Html_Attributes$method('POST'),
-															_1: {
-																ctor: '::',
-																_0: _elm_lang$html$Html_Attributes$action('http://coco.cctravel.dk/scripts/apsis/Tilmelding/Callback.php'),
-																_1: {ctor: '[]'}
-															}
-														},
-														{
-															ctor: '::',
-															_0: A2(
-																_user$project$Bootstrap$mdText,
-																{
-																	ctor: '::',
-																	_0: _elm_lang$html$Html_Attributes$autocomplete(false),
-																	_1: {
-																		ctor: '::',
-																		_0: _elm_lang$html$Html_Attributes$type_('email'),
-																		_1: {
-																			ctor: '::',
-																			_0: _elm_lang$html$Html_Attributes$name('Email'),
-																			_1: {
-																				ctor: '::',
-																				_0: _elm_lang$html$Html_Attributes$placeholder('Email-addresse'),
-																				_1: {ctor: '[]'}
-																			}
-																		}
-																	}
-																},
-																{ctor: '[]'}),
-															_1: {
-																ctor: '::',
-																_0: A2(
-																	_user$project$Bootstrap$mdInput,
-																	{
-																		ctor: '::',
-																		_0: _elm_lang$html$Html_Attributes$type_('submit'),
-																		_1: {
-																			ctor: '::',
-																			_0: _elm_lang$html$Html_Attributes$value('TILMELD'),
-																			_1: {ctor: '[]'}
-																		}
-																	},
-																	{ctor: '[]'}),
-																_1: {ctor: '[]'}
-															}
-														}),
+													_0: _user$project$View$form,
 													_1: {ctor: '[]'}
 												}
 											}
@@ -15509,7 +15519,7 @@ var _user$project$View$header = _user$project$Bootstrap$mdChip(
 		}
 	});
 var _user$project$View$config = _user$project$Modal$Config(
-	{header: _user$project$View$header, body: _user$project$View$body, closed: _user$project$View$closed});
+	{open: _user$project$Messages$OpenModal, header: _user$project$View$header, body: _user$project$View$body});
 var _user$project$View$view = function (model) {
 	return A2(
 		_user$project$Bootstrap$mdPop,
@@ -15545,7 +15555,7 @@ var _user$project$View$view = function (model) {
 			_0: _user$project$Bootstrap$mdContent(
 				{
 					ctor: '::',
-					_0: A2(_user$project$Modal$view, _user$project$View$config, model.modalState),
+					_0: A2(_user$project$Modal$view, _user$project$View$config, model.modal),
 					_1: {ctor: '[]'}
 				}),
 			_1: {ctor: '[]'}
@@ -15556,50 +15566,21 @@ var _user$project$Update$update = F2(
 	function (msg, model) {
 		var _p0 = msg;
 		switch (_p0.ctor) {
-			case 'OpenModalStart':
+			case 'ModalMsg':
+				return A3(_user$project$Modal$alter, _user$project$Messages$ModalMsg, _p0._0, model);
+			case 'OpenModal':
 				return A4(
 					_etaque$elm_transit$Transit$start,
 					_user$project$Messages$TransitMsg,
-					_user$project$Messages$OpenModalStop,
+					_user$project$Messages$ModalMsg(_user$project$Modal$Open),
 					{ctor: '_Tuple2', _0: 500, _1: 500},
 					model);
-			case 'OpenModalStop':
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{modalState: _user$project$Modal$Opened, opened: true}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
-			case 'CloseModalStart':
+			case 'CloseModal':
 				return A4(
 					_etaque$elm_transit$Transit$start,
 					_user$project$Messages$TransitMsg,
-					_user$project$Messages$CloseModalStop,
+					_user$project$Messages$ModalMsg(_user$project$Modal$Close),
 					{ctor: '_Tuple2', _0: 500, _1: 500},
-					model);
-			case 'CloseModalStop':
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{modalState: _user$project$Modal$Closed}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
-			case 'InitModalState':
-				return model.opened ? {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none} : {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{modalState: _p0._0}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
-			case 'StartModalState':
-				return A4(
-					_etaque$elm_transit$Transit$start,
-					_user$project$Messages$TransitMsg,
-					_user$project$Messages$OpenModalStart,
-					{ctor: '_Tuple2', _0: 100, _1: 500},
 					model);
 			default:
 				return A3(_etaque$elm_transit$Transit$tick, _user$project$Messages$TransitMsg, _p0._0, model);
@@ -15610,8 +15591,9 @@ var _user$project$Subscription$subscriptions = function (model) {
 	return A2(_etaque$elm_transit$Transit$subscriptions, _user$project$Messages$TransitMsg, model);
 };
 
+var _user$project$Main$init = A2(_user$project$Update$update, _user$project$Messages$CloseModal, _user$project$Models$initialModel);
 var _user$project$Main$main = _elm_lang$html$Html$program(
-	{init: _user$project$Models$init, view: _user$project$View$view, update: _user$project$Update$update, subscriptions: _user$project$Subscription$subscriptions})();
+	{init: _user$project$Main$init, view: _user$project$View$view, update: _user$project$Update$update, subscriptions: _user$project$Subscription$subscriptions})();
 
 var Elm = {};
 Elm['Main'] = Elm['Main'] || {};

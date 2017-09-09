@@ -110,11 +110,11 @@ mdForm attr body =
   form ( attr ++ [ class [ MdForm ] ] ) body
 
 
-mdInput : List (Attribute msg) -> List (Html msg) -> Html msg
-mdInput attr body =
-  input ( attr ++ [ class [ SubmitButton ] ] ) body
+mdInput : List (Attribute msg) -> Html msg
+mdInput attr =
+  input ( attr ++ [ class [ SubmitButton ] ] ) []
 
 
-mdText : List (Attribute msg) -> List (Html msg) -> Html msg
-mdText attr body =
-  input ( attr ++ [ class [ MdText ] ] ) body
+mdText : List (Attribute msg) -> Html msg
+mdText attr =
+  input ( attr ++ [ class [ MdText ] ] ) []

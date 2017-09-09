@@ -2,7 +2,6 @@ module Subscription exposing (subscriptions)
 
 
 import Transit
-
 import Models exposing (Model)
 import Messages exposing (Msg(..))
 
