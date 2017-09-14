@@ -17,6 +17,7 @@ import Colors exposing (..)
 
 type CssClasses
   = MdContent
+  | Dimension
   | SubmitButton
   | MdText
   | MdForm
@@ -27,10 +28,9 @@ type CssClasses
   | Title
   | Pop
   | Padding1
-  | Chip
+  | MaxZero
   | MaterialIcon
-  | BackgroundImage
-  | Image
+  | OneTwo
 
 
 
@@ -58,8 +58,21 @@ css =
     [ flex (int 1)
     ]
   , class Flex2
-    [ flex (int 1)
-    , flexBasis ( Css.rem 10)
+    [ flex (int 2)
+    ]
+  , class Dimension
+    [ minHeight ( Css.rem 10 )
+    , minWidth ( Css.rem 10 )
+    ]
+  , class OneTwo
+    [ children
+      [ everything
+        [ firstChild
+          [ flex (int 1) ]
+        , lastChild
+          [ flex (int 2) ]
+        ]
+      ]
     ]
   , class Row
     [ displayFlex
@@ -89,6 +102,7 @@ css =
     , backgroundColor primaryDarkColor
     , fontSize (Css.rem 1.5)
     , padding2 (Css.rem 0.7) (Css.rem 1)
+    , lineHeight (Css.rem 1.7)
     ]
   , class Pop
     [ position fixed
@@ -100,10 +114,14 @@ css =
   , class Padding1
     [ padding2 (Css.rem 0.7) (Css.rem 1)
     ]
-  , class Chip
+  , class MaxZero
     [ backgroundColor primaryDarkColor
-    , fontSize (Css.rem 1.5)
-    , lineHeight (Css.rem 1.7)
+    , children
+      [ everything
+        [ firstChild
+          [ flex (int 1) ]
+        ]
+      ]
     ]
   , class MaterialIcon
     [ fontFamilies [(qt "Material Icons")] --should use svg instead
@@ -111,31 +129,6 @@ css =
     , display inlineBlock
     , color primaryIconColor
     , cursor pointer
-    ]
-  , class Image
-    [ maxWidth (pct 100)
-    , display block
-    , minWidth (Css.rem 11)
-    ]
-  , class BackgroundImage
-    [ position fixed
-    , top (pct -50)
-    , left (pct -50)
-    , width (pct 200)
-    , height (pct 200)
-    , zIndex (int -1)
-    , children
-      [ img
-        [  position absolute
-        , top zero
-        , left zero
-        , right zero
-        , bottom zero
-        , margin auto
-        , minWidth (pct 50)
-        , minHeight (pct 50)
-        ]
-      ]
     ]
   , class MdForm
     [ displayFlex

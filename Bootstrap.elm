@@ -1,7 +1,6 @@
 module Bootstrap
   exposing
   ( mdColumn
-  , mdChip
   , flex
   , flex2
   , mdRow
@@ -10,11 +9,12 @@ module Bootstrap
   , mdTitle
   , padding1
   , mdIcon
-  , mdBackgroundImage
   , mdInput
   , mdImage
   , mdForm
   , mdText
+  , mdOneTwo
+  , mdMaxZero
   )
 
 
@@ -45,14 +45,40 @@ import MyCss exposing (CssClasses(..))
   Html.CssHelpers.withNamespace MyCss.name
 
 
-mdIcon : List (Html msg) -> Html msg
-mdIcon =
-  i [ class [ MaterialIcon, Padding1 ] ]
+
+-- Kig gerne på det der layout modul.
+-- bruger ikke attribtues.
+mdOneTwo : List (Attribute msg) -> Html msg -> Html msg -> Html msg
+mdOneTwo attributes one two =
+  div [ class [ OneTwo, Row, Padding1, Flex ] ]
+    [ one
+    , two
+    ]
 
 
-mdChip : List (Html msg) -> Html msg
-mdChip =
-  div [ class [ Row, Chip ] ]
+mdMaxZero : List (Attribute msg) -> Html msg -> Html msg -> Html msg
+mdMaxZero attributes max zero =
+  div [ class [ MaxZero, Row ] ]
+    [ max
+    , zero
+    ]
+
+{-Bootstrap.mdRow
+    [ Bootstrap.padding1
+      [ Bootstrap.mdRow
+        [ left
+        , right
+        ]
+      ]
+    ]
+-}
+
+
+mdIcon : List (Attribute msg) -> List (Html msg) -> Html msg
+mdIcon attributes =
+  i ( attributes ++ [ class [ MaterialIcon, Padding1 ] ] )
+
+
 
 
 padding1 : List (Html msg) -> Html msg
@@ -60,14 +86,10 @@ padding1 =
   div [ class [ Padding1 ] ]
 
 
-mdImage : String -> Html msg
-mdImage x =
-  img [ src x, class [ Image ] ] []
+mdImage : List (Attribute msg) -> Html msg
+mdImage attributes =
+  div ( attributes ++ [ class [ Padding1, Dimension ] ] ) []
 
-
-mdBackgroundImage : String -> Html msg
-mdBackgroundImage x =
-  div [ class [ BackgroundImage ] ] [ mdImage x ]
 
 
 flex : List (Html msg) -> Html msg
@@ -90,14 +112,14 @@ mdRow =
   div [ class [ Row, Flex ] ]
 
 
-mdTitle : List (Html msg) -> Html msg
-mdTitle =
-  div [ class [ Title ] ]
+mdTitle : List (Attribute msg) -> List (Html msg) -> Html msg
+mdTitle attributes =
+  div ( attributes ++ [ class [ Title ] ] )
 
 
-mdContent : List (Html msg) -> Html msg
-mdContent =
-  div [ class [ MdContent ] ]
+mdContent : List (Attribute msg) -> List (Html msg) -> Html msg
+mdContent attributes =
+  div ( attributes ++ [ class [ MdContent ] ] )
 
 
 mdPop : List (Attribute msg) -> List (Html msg) -> Html msg

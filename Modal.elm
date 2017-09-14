@@ -5,17 +5,16 @@ module Modal
     , alter
     , WithModal
     , empty
-    , view
+    , viewHeader
+    , viewBody
     )
 
+
+-- purge
 import Html exposing (..)
 import Html.Events exposing (..)
-
-
-
-
+import Html.Attributes exposing (..)
 import Bootstrap exposing (..)
-
 
 
 type alias WithModal model =
@@ -29,8 +28,7 @@ type Modal
 getState : Modal -> State
 getState modal =
   case modal of
-    M s ->
-      s
+    M s -> s
 
 
 type alias State =
@@ -40,16 +38,14 @@ type alias State =
 
 
 type Status
-  = Opening
+  = NotCalled
   | Opened
   | Closed
-
 
 
 type Msg msg
   = Open
   | Close
-
 
 
 empty : Modal
@@ -59,10 +55,9 @@ empty =
 
 initialState : State
 initialState =
-  { status = Opening
+  { status = NotCalled
   , pristine = True
   }
-
 
 
 alter : (Msg msg -> msg) -> Msg msg -> WithModal parent -> ( WithModal parent, Cmd msg )
@@ -74,7 +69,12 @@ alter tagger msg parent =
     tag ( state, fx ) =
       ( { parent | modal = M state }, Cmd.map tagger fx )
   in
-    tag ( { state | status = Opened, pristine = False }, Cmd.none )
+    case msg of
+      Open ->
+        tag ( { state | status = Opened, pristine = False }, Cmd.none )
+
+      Close ->
+        tag ( { state | status = Closed }, Cmd.none )
 
 
 
@@ -84,48 +84,94 @@ alter tagger msg parent =
 
 
 
-closed : msg -> Html msg
-closed toMsg =
-  mdChip
-    [ flex
-      [ mdTitle [ text "Tilmeld dig nyhedsbrevet" ]
-      ]
-    , open toMsg
-    ]
-
-
-open : msg -> Html msg
-open toMsg =
-  span [ onClick toMsg ]
-    [ mdIcon
-      [ text "menu"
-      ]
-    ]
 
 
 
 
-type Config msg =
+
+
+
+
+
+
+
+
+type Config headerData bodyData msg =
   Config
-    { open : msg
-    , header : Html msg
-    , body : Html msg
+    { body : bodyData -> Html msg
+    , header : headerData -> Html msg --- kan ændres til WithData ??
     }
 
 
-
-view : Config msg -> Modal -> Html msg
-view ( Config { header, body, open } ) modal =
+--THIS seems weird that config needs body data here
+viewHeader : Config headerData bodyData msg -> Modal -> headerData -> Html msg
+viewHeader ( Config { header } ) modal data =
   let
     state =
       getState modal
   in
     case state.status of
-      Opening ->
+      NotCalled ->
         text ""
 
       Closed ->
-        div [] [ closed open ]
+        header data
+  --      mdContent [] [ header closedHeaderConfig openMsg ]
 
       Opened ->
-        div [] [ header, body ]
+        header data
+        --mdContent [] [ header openHeaderConfig closeMsg, body ]
+
+
+viewBody : Config headerData bodyData msg -> Modal -> bodyData -> Html msg
+viewBody ( Config { body } ) modal data =
+  let
+    state =
+      getState modal
+  in
+    case state.status of
+      NotCalled ->
+        text ""
+
+      Closed ->
+        text ""
+  --      mdContent [] [ header closedHeaderConfig openMsg ]
+
+      Opened ->
+        body data
+        --mdContent [] [ header openHeaderConfig closeMsg, body ]
+
+
+
+{-
+type HeaderConfig =
+  HeaderConfig
+    { title : String
+    , icon : String
+    }
+
+
+closedHeaderConfig : HeaderConfig
+closedHeaderConfig =
+  HeaderConfig
+    { title = "Tilmeld dig nyhedsbrevet"
+    , icon = "menu"
+    }
+
+
+openHeaderConfig : HeaderConfig
+openHeaderConfig =
+  HeaderConfig
+    { title = "Få nyhederne først!"
+    , icon = "cancel"
+    }
+
+
+-- DEN Her skal nok ikke være gemt her. Tanken er at header er statisk i modal
+header : HeaderConfig -> msg -> Html msg
+header ( HeaderConfig { title, icon } ) msg =
+  mdChip
+    [ mdTitle [] [ text title ]
+    , mdIcon [ onClick msg ] [ text icon ]
+    ]
+    -}

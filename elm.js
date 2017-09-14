@@ -14513,10 +14513,9 @@ var _user$project$Colors$primaryBoxShadow = A5(
 	A4(_rtfeldman$elm_css$Css$rgba, 0, 0, 0, 0.26));
 
 var _user$project$MyCss$name = 'bootstrap';
-var _user$project$MyCss$Image = {ctor: 'Image'};
-var _user$project$MyCss$BackgroundImage = {ctor: 'BackgroundImage'};
+var _user$project$MyCss$OneTwo = {ctor: 'OneTwo'};
 var _user$project$MyCss$MaterialIcon = {ctor: 'MaterialIcon'};
-var _user$project$MyCss$Chip = {ctor: 'Chip'};
+var _user$project$MyCss$MaxZero = {ctor: 'MaxZero'};
 var _user$project$MyCss$Padding1 = {ctor: 'Padding1'};
 var _user$project$MyCss$Pop = {ctor: 'Pop'};
 var _user$project$MyCss$Title = {ctor: 'Title'};
@@ -14527,6 +14526,7 @@ var _user$project$MyCss$Flex = {ctor: 'Flex'};
 var _user$project$MyCss$MdForm = {ctor: 'MdForm'};
 var _user$project$MyCss$MdText = {ctor: 'MdText'};
 var _user$project$MyCss$SubmitButton = {ctor: 'SubmitButton'};
+var _user$project$MyCss$Dimension = {ctor: 'Dimension'};
 var _user$project$MyCss$MdContent = {ctor: 'MdContent'};
 var _user$project$MyCss$css = function (_p0) {
 	return _rtfeldman$elm_css$Css$stylesheet(
@@ -14598,25 +14598,22 @@ var _user$project$MyCss$css = function (_p0) {
 							{
 								ctor: '::',
 								_0: _rtfeldman$elm_css$Css$flex(
-									_rtfeldman$elm_css$Css$int(1)),
-								_1: {
-									ctor: '::',
-									_0: _rtfeldman$elm_css$Css$flexBasis(
-										_rtfeldman$elm_css$Css$rem(10)),
-									_1: {ctor: '[]'}
-								}
+									_rtfeldman$elm_css$Css$int(2)),
+								_1: {ctor: '[]'}
 							}),
 						_1: {
 							ctor: '::',
 							_0: A2(
 								_rtfeldman$elm_css$Css$class,
-								_user$project$MyCss$Row,
+								_user$project$MyCss$Dimension,
 								{
 									ctor: '::',
-									_0: _rtfeldman$elm_css$Css$displayFlex,
+									_0: _rtfeldman$elm_css$Css$minHeight(
+										_rtfeldman$elm_css$Css$rem(10)),
 									_1: {
 										ctor: '::',
-										_0: A2(_rtfeldman$elm_css$Css$flexFlow2, _rtfeldman$elm_css$Css$wrap, _rtfeldman$elm_css$Css$row),
+										_0: _rtfeldman$elm_css$Css$minWidth(
+											_rtfeldman$elm_css$Css$rem(10)),
 										_1: {ctor: '[]'}
 									}
 								}),
@@ -14624,68 +14621,49 @@ var _user$project$MyCss$css = function (_p0) {
 								ctor: '::',
 								_0: A2(
 									_rtfeldman$elm_css$Css$class,
-									_user$project$MyCss$SubmitButton,
+									_user$project$MyCss$OneTwo,
 									{
 										ctor: '::',
-										_0: _rtfeldman$elm_css$Css$backgroundColor(_user$project$Colors$primaryAccentColor),
-										_1: {
-											ctor: '::',
-											_0: _rtfeldman$elm_css$Css$color(_user$project$Colors$primaryIconColor),
-											_1: {
+										_0: _rtfeldman$elm_css$Css$children(
+											{
 												ctor: '::',
-												_0: _rtfeldman$elm_css$Css$border(_rtfeldman$elm_css$Css$zero),
-												_1: {
-													ctor: '::',
-													_0: _rtfeldman$elm_css$Css$flex(
-														_rtfeldman$elm_css$Css$int(1)),
-													_1: {
+												_0: _rtfeldman$elm_css$Css$everything(
+													{
 														ctor: '::',
-														_0: _rtfeldman$elm_css$Css$padding(
-															_rtfeldman$elm_css$Css$px(10)),
+														_0: _rtfeldman$elm_css$Css$firstChild(
+															{
+																ctor: '::',
+																_0: _rtfeldman$elm_css$Css$flex(
+																	_rtfeldman$elm_css$Css$int(1)),
+																_1: {ctor: '[]'}
+															}),
 														_1: {
 															ctor: '::',
-															_0: _rtfeldman$elm_css$Css$margin(
-																_rtfeldman$elm_css$Css$px(5)),
-															_1: {
-																ctor: '::',
-																_0: _user$project$Colors$primaryBoxShadow,
-																_1: {
+															_0: _rtfeldman$elm_css$Css$lastChild(
+																{
 																	ctor: '::',
-																	_0: _rtfeldman$elm_css$Css$hover(
-																		{
-																			ctor: '::',
-																			_0: _rtfeldman$elm_css$Css$backgroundColor(_user$project$Colors$secondaryAccentColor),
-																			_1: {ctor: '[]'}
-																		}),
-																	_1: {
-																		ctor: '::',
-																		_0: _rtfeldman$elm_css$Css$focus(
-																			{
-																				ctor: '::',
-																				_0: _rtfeldman$elm_css$Css$outline(_rtfeldman$elm_css$Css$none),
-																				_1: {ctor: '[]'}
-																			}),
-																		_1: {ctor: '[]'}
-																	}
-																}
-															}
+																	_0: _rtfeldman$elm_css$Css$flex(
+																		_rtfeldman$elm_css$Css$int(2)),
+																	_1: {ctor: '[]'}
+																}),
+															_1: {ctor: '[]'}
 														}
-													}
-												}
-											}
-										}
+													}),
+												_1: {ctor: '[]'}
+											}),
+										_1: {ctor: '[]'}
 									}),
 								_1: {
 									ctor: '::',
 									_0: A2(
 										_rtfeldman$elm_css$Css$class,
-										_user$project$MyCss$Column,
+										_user$project$MyCss$Row,
 										{
 											ctor: '::',
 											_0: _rtfeldman$elm_css$Css$displayFlex,
 											_1: {
 												ctor: '::',
-												_0: A2(_rtfeldman$elm_css$Css$flexFlow2, _rtfeldman$elm_css$Css$noWrap, _rtfeldman$elm_css$Css$column),
+												_0: A2(_rtfeldman$elm_css$Css$flexFlow2, _rtfeldman$elm_css$Css$wrap, _rtfeldman$elm_css$Css$row),
 												_1: {ctor: '[]'}
 											}
 										}),
@@ -14693,24 +14671,53 @@ var _user$project$MyCss$css = function (_p0) {
 										ctor: '::',
 										_0: A2(
 											_rtfeldman$elm_css$Css$class,
-											_user$project$MyCss$Title,
+											_user$project$MyCss$SubmitButton,
 											{
 												ctor: '::',
-												_0: _rtfeldman$elm_css$Css$color(_user$project$Colors$primaryIconColor),
+												_0: _rtfeldman$elm_css$Css$backgroundColor(_user$project$Colors$primaryAccentColor),
 												_1: {
 													ctor: '::',
-													_0: _rtfeldman$elm_css$Css$backgroundColor(_user$project$Colors$primaryDarkColor),
+													_0: _rtfeldman$elm_css$Css$color(_user$project$Colors$primaryIconColor),
 													_1: {
 														ctor: '::',
-														_0: _rtfeldman$elm_css$Css$fontSize(
-															_rtfeldman$elm_css$Css$rem(1.5)),
+														_0: _rtfeldman$elm_css$Css$border(_rtfeldman$elm_css$Css$zero),
 														_1: {
 															ctor: '::',
-															_0: A2(
-																_rtfeldman$elm_css$Css$padding2,
-																_rtfeldman$elm_css$Css$rem(0.7),
-																_rtfeldman$elm_css$Css$rem(1)),
-															_1: {ctor: '[]'}
+															_0: _rtfeldman$elm_css$Css$flex(
+																_rtfeldman$elm_css$Css$int(1)),
+															_1: {
+																ctor: '::',
+																_0: _rtfeldman$elm_css$Css$padding(
+																	_rtfeldman$elm_css$Css$px(10)),
+																_1: {
+																	ctor: '::',
+																	_0: _rtfeldman$elm_css$Css$margin(
+																		_rtfeldman$elm_css$Css$px(5)),
+																	_1: {
+																		ctor: '::',
+																		_0: _user$project$Colors$primaryBoxShadow,
+																		_1: {
+																			ctor: '::',
+																			_0: _rtfeldman$elm_css$Css$hover(
+																				{
+																					ctor: '::',
+																					_0: _rtfeldman$elm_css$Css$backgroundColor(_user$project$Colors$secondaryAccentColor),
+																					_1: {ctor: '[]'}
+																				}),
+																			_1: {
+																				ctor: '::',
+																				_0: _rtfeldman$elm_css$Css$focus(
+																					{
+																						ctor: '::',
+																						_0: _rtfeldman$elm_css$Css$outline(_rtfeldman$elm_css$Css$none),
+																						_1: {ctor: '[]'}
+																					}),
+																				_1: {ctor: '[]'}
+																			}
+																		}
+																	}
+																}
+															}
 														}
 													}
 												}
@@ -14719,50 +14726,25 @@ var _user$project$MyCss$css = function (_p0) {
 											ctor: '::',
 											_0: A2(
 												_rtfeldman$elm_css$Css$class,
-												_user$project$MyCss$Pop,
+												_user$project$MyCss$Column,
 												{
 													ctor: '::',
-													_0: _rtfeldman$elm_css$Css$position(_rtfeldman$elm_css$Css$fixed),
+													_0: _rtfeldman$elm_css$Css$displayFlex,
 													_1: {
 														ctor: '::',
-														_0: _rtfeldman$elm_css$Css$bottom(
-															_rtfeldman$elm_css$Css$pct(2)),
-														_1: {
-															ctor: '::',
-															_0: _rtfeldman$elm_css$Css$right(
-																_rtfeldman$elm_css$Css$pct(2)),
-															_1: {
-																ctor: '::',
-																_0: _rtfeldman$elm_css$Css$maxWidth(
-																	_rtfeldman$elm_css$Css$pct(96)),
-																_1: {
-																	ctor: '::',
-																	_0: _user$project$Colors$primaryBoxShadow,
-																	_1: {ctor: '[]'}
-																}
-															}
-														}
+														_0: A2(_rtfeldman$elm_css$Css$flexFlow2, _rtfeldman$elm_css$Css$noWrap, _rtfeldman$elm_css$Css$column),
+														_1: {ctor: '[]'}
 													}
 												}),
 											_1: {
 												ctor: '::',
 												_0: A2(
 													_rtfeldman$elm_css$Css$class,
-													_user$project$MyCss$Padding1,
+													_user$project$MyCss$Title,
 													{
 														ctor: '::',
-														_0: A2(
-															_rtfeldman$elm_css$Css$padding2,
-															_rtfeldman$elm_css$Css$rem(0.7),
-															_rtfeldman$elm_css$Css$rem(1)),
-														_1: {ctor: '[]'}
-													}),
-												_1: {
-													ctor: '::',
-													_0: A2(
-														_rtfeldman$elm_css$Css$class,
-														_user$project$MyCss$Chip,
-														{
+														_0: _rtfeldman$elm_css$Css$color(_user$project$Colors$primaryIconColor),
+														_1: {
 															ctor: '::',
 															_0: _rtfeldman$elm_css$Css$backgroundColor(_user$project$Colors$primaryDarkColor),
 															_1: {
@@ -14771,9 +14753,46 @@ var _user$project$MyCss$css = function (_p0) {
 																	_rtfeldman$elm_css$Css$rem(1.5)),
 																_1: {
 																	ctor: '::',
-																	_0: _rtfeldman$elm_css$Css$lineHeight(
-																		_rtfeldman$elm_css$Css$rem(1.7)),
-																	_1: {ctor: '[]'}
+																	_0: A2(
+																		_rtfeldman$elm_css$Css$padding2,
+																		_rtfeldman$elm_css$Css$rem(0.7),
+																		_rtfeldman$elm_css$Css$rem(1)),
+																	_1: {
+																		ctor: '::',
+																		_0: _rtfeldman$elm_css$Css$lineHeight(
+																			_rtfeldman$elm_css$Css$rem(1.7)),
+																		_1: {ctor: '[]'}
+																	}
+																}
+															}
+														}
+													}),
+												_1: {
+													ctor: '::',
+													_0: A2(
+														_rtfeldman$elm_css$Css$class,
+														_user$project$MyCss$Pop,
+														{
+															ctor: '::',
+															_0: _rtfeldman$elm_css$Css$position(_rtfeldman$elm_css$Css$fixed),
+															_1: {
+																ctor: '::',
+																_0: _rtfeldman$elm_css$Css$bottom(
+																	_rtfeldman$elm_css$Css$pct(2)),
+																_1: {
+																	ctor: '::',
+																	_0: _rtfeldman$elm_css$Css$right(
+																		_rtfeldman$elm_css$Css$pct(2)),
+																	_1: {
+																		ctor: '::',
+																		_0: _rtfeldman$elm_css$Css$maxWidth(
+																			_rtfeldman$elm_css$Css$pct(96)),
+																		_1: {
+																			ctor: '::',
+																			_0: _user$project$Colors$primaryBoxShadow,
+																			_1: {ctor: '[]'}
+																		}
+																	}
 																}
 															}
 														}),
@@ -14781,127 +14800,71 @@ var _user$project$MyCss$css = function (_p0) {
 														ctor: '::',
 														_0: A2(
 															_rtfeldman$elm_css$Css$class,
-															_user$project$MyCss$MaterialIcon,
+															_user$project$MyCss$Padding1,
 															{
 																ctor: '::',
-																_0: _rtfeldman$elm_css$Css$fontFamilies(
-																	{
-																		ctor: '::',
-																		_0: _rtfeldman$elm_css$Css$qt('Material Icons'),
-																		_1: {ctor: '[]'}
-																	}),
-																_1: {
-																	ctor: '::',
-																	_0: _rtfeldman$elm_css$Css$fontStyle(_rtfeldman$elm_css$Css$normal),
-																	_1: {
-																		ctor: '::',
-																		_0: _rtfeldman$elm_css$Css$display(_rtfeldman$elm_css$Css$inlineBlock),
-																		_1: {
-																			ctor: '::',
-																			_0: _rtfeldman$elm_css$Css$color(_user$project$Colors$primaryIconColor),
-																			_1: {
-																				ctor: '::',
-																				_0: _rtfeldman$elm_css$Css$cursor(_rtfeldman$elm_css$Css$pointer),
-																				_1: {ctor: '[]'}
-																			}
-																		}
-																	}
-																}
+																_0: A2(
+																	_rtfeldman$elm_css$Css$padding2,
+																	_rtfeldman$elm_css$Css$rem(0.7),
+																	_rtfeldman$elm_css$Css$rem(1)),
+																_1: {ctor: '[]'}
 															}),
 														_1: {
 															ctor: '::',
 															_0: A2(
 																_rtfeldman$elm_css$Css$class,
-																_user$project$MyCss$Image,
+																_user$project$MyCss$MaxZero,
 																{
 																	ctor: '::',
-																	_0: _rtfeldman$elm_css$Css$maxWidth(
-																		_rtfeldman$elm_css$Css$pct(100)),
+																	_0: _rtfeldman$elm_css$Css$backgroundColor(_user$project$Colors$primaryDarkColor),
 																	_1: {
 																		ctor: '::',
-																		_0: _rtfeldman$elm_css$Css$display(_rtfeldman$elm_css$Css$block),
-																		_1: {
-																			ctor: '::',
-																			_0: _rtfeldman$elm_css$Css$minWidth(
-																				_rtfeldman$elm_css$Css$rem(11)),
-																			_1: {ctor: '[]'}
-																		}
+																		_0: _rtfeldman$elm_css$Css$children(
+																			{
+																				ctor: '::',
+																				_0: _rtfeldman$elm_css$Css$everything(
+																					{
+																						ctor: '::',
+																						_0: _rtfeldman$elm_css$Css$firstChild(
+																							{
+																								ctor: '::',
+																								_0: _rtfeldman$elm_css$Css$flex(
+																									_rtfeldman$elm_css$Css$int(1)),
+																								_1: {ctor: '[]'}
+																							}),
+																						_1: {ctor: '[]'}
+																					}),
+																				_1: {ctor: '[]'}
+																			}),
+																		_1: {ctor: '[]'}
 																	}
 																}),
 															_1: {
 																ctor: '::',
 																_0: A2(
 																	_rtfeldman$elm_css$Css$class,
-																	_user$project$MyCss$BackgroundImage,
+																	_user$project$MyCss$MaterialIcon,
 																	{
 																		ctor: '::',
-																		_0: _rtfeldman$elm_css$Css$position(_rtfeldman$elm_css$Css$fixed),
+																		_0: _rtfeldman$elm_css$Css$fontFamilies(
+																			{
+																				ctor: '::',
+																				_0: _rtfeldman$elm_css$Css$qt('Material Icons'),
+																				_1: {ctor: '[]'}
+																			}),
 																		_1: {
 																			ctor: '::',
-																			_0: _rtfeldman$elm_css$Css$top(
-																				_rtfeldman$elm_css$Css$pct(-50)),
+																			_0: _rtfeldman$elm_css$Css$fontStyle(_rtfeldman$elm_css$Css$normal),
 																			_1: {
 																				ctor: '::',
-																				_0: _rtfeldman$elm_css$Css$left(
-																					_rtfeldman$elm_css$Css$pct(-50)),
+																				_0: _rtfeldman$elm_css$Css$display(_rtfeldman$elm_css$Css$inlineBlock),
 																				_1: {
 																					ctor: '::',
-																					_0: _rtfeldman$elm_css$Css$width(
-																						_rtfeldman$elm_css$Css$pct(200)),
+																					_0: _rtfeldman$elm_css$Css$color(_user$project$Colors$primaryIconColor),
 																					_1: {
 																						ctor: '::',
-																						_0: _rtfeldman$elm_css$Css$height(
-																							_rtfeldman$elm_css$Css$pct(200)),
-																						_1: {
-																							ctor: '::',
-																							_0: _rtfeldman$elm_css$Css$zIndex(
-																								_rtfeldman$elm_css$Css$int(-1)),
-																							_1: {
-																								ctor: '::',
-																								_0: _rtfeldman$elm_css$Css$children(
-																									{
-																										ctor: '::',
-																										_0: _rtfeldman$elm_css$Css_Elements$img(
-																											{
-																												ctor: '::',
-																												_0: _rtfeldman$elm_css$Css$position(_rtfeldman$elm_css$Css$absolute),
-																												_1: {
-																													ctor: '::',
-																													_0: _rtfeldman$elm_css$Css$top(_rtfeldman$elm_css$Css$zero),
-																													_1: {
-																														ctor: '::',
-																														_0: _rtfeldman$elm_css$Css$left(_rtfeldman$elm_css$Css$zero),
-																														_1: {
-																															ctor: '::',
-																															_0: _rtfeldman$elm_css$Css$right(_rtfeldman$elm_css$Css$zero),
-																															_1: {
-																																ctor: '::',
-																																_0: _rtfeldman$elm_css$Css$bottom(_rtfeldman$elm_css$Css$zero),
-																																_1: {
-																																	ctor: '::',
-																																	_0: _rtfeldman$elm_css$Css$margin(_rtfeldman$elm_css$Css$auto),
-																																	_1: {
-																																		ctor: '::',
-																																		_0: _rtfeldman$elm_css$Css$minWidth(
-																																			_rtfeldman$elm_css$Css$pct(50)),
-																																		_1: {
-																																			ctor: '::',
-																																			_0: _rtfeldman$elm_css$Css$minHeight(
-																																				_rtfeldman$elm_css$Css$pct(50)),
-																																			_1: {ctor: '[]'}
-																																		}
-																																	}
-																																}
-																															}
-																														}
-																													}
-																												}
-																											}),
-																										_1: {ctor: '[]'}
-																									}),
-																								_1: {ctor: '[]'}
-																							}
-																						}
+																						_0: _rtfeldman$elm_css$Css$cursor(_rtfeldman$elm_css$Css$pointer),
+																						_1: {ctor: '[]'}
 																					}
 																				}
 																			}
@@ -15013,36 +14976,90 @@ var _user$project$Bootstrap$_p0 = _rtfeldman$elm_css_helpers$Html_CssHelpers$wit
 var _user$project$Bootstrap$id = _user$project$Bootstrap$_p0.id;
 var _user$project$Bootstrap$class = _user$project$Bootstrap$_p0.$class;
 var _user$project$Bootstrap$classList = _user$project$Bootstrap$_p0.classList;
-var _user$project$Bootstrap$mdIcon = _elm_lang$html$Html$i(
-	{
-		ctor: '::',
-		_0: _user$project$Bootstrap$class(
+var _user$project$Bootstrap$mdOneTwo = F3(
+	function (attributes, one, two) {
+		return A2(
+			_elm_lang$html$Html$div,
 			{
 				ctor: '::',
-				_0: _user$project$MyCss$MaterialIcon,
-				_1: {
-					ctor: '::',
-					_0: _user$project$MyCss$Padding1,
-					_1: {ctor: '[]'}
-				}
-			}),
-		_1: {ctor: '[]'}
-	});
-var _user$project$Bootstrap$mdChip = _elm_lang$html$Html$div(
-	{
-		ctor: '::',
-		_0: _user$project$Bootstrap$class(
+				_0: _user$project$Bootstrap$class(
+					{
+						ctor: '::',
+						_0: _user$project$MyCss$OneTwo,
+						_1: {
+							ctor: '::',
+							_0: _user$project$MyCss$Row,
+							_1: {
+								ctor: '::',
+								_0: _user$project$MyCss$Padding1,
+								_1: {
+									ctor: '::',
+									_0: _user$project$MyCss$Flex,
+									_1: {ctor: '[]'}
+								}
+							}
+						}
+					}),
+				_1: {ctor: '[]'}
+			},
 			{
 				ctor: '::',
-				_0: _user$project$MyCss$Row,
+				_0: one,
 				_1: {
 					ctor: '::',
-					_0: _user$project$MyCss$Chip,
+					_0: two,
 					_1: {ctor: '[]'}
 				}
-			}),
-		_1: {ctor: '[]'}
+			});
 	});
+var _user$project$Bootstrap$mdMaxZero = F3(
+	function (attributes, max, zero) {
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _user$project$Bootstrap$class(
+					{
+						ctor: '::',
+						_0: _user$project$MyCss$MaxZero,
+						_1: {
+							ctor: '::',
+							_0: _user$project$MyCss$Row,
+							_1: {ctor: '[]'}
+						}
+					}),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: max,
+				_1: {
+					ctor: '::',
+					_0: zero,
+					_1: {ctor: '[]'}
+				}
+			});
+	});
+var _user$project$Bootstrap$mdIcon = function (attributes) {
+	return _elm_lang$html$Html$i(
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			attributes,
+			{
+				ctor: '::',
+				_0: _user$project$Bootstrap$class(
+					{
+						ctor: '::',
+						_0: _user$project$MyCss$MaterialIcon,
+						_1: {
+							ctor: '::',
+							_0: _user$project$MyCss$Padding1,
+							_1: {ctor: '[]'}
+						}
+					}),
+				_1: {ctor: '[]'}
+			}));
+};
 var _user$project$Bootstrap$padding1 = _elm_lang$html$Html$div(
 	{
 		ctor: '::',
@@ -15054,43 +15071,27 @@ var _user$project$Bootstrap$padding1 = _elm_lang$html$Html$div(
 			}),
 		_1: {ctor: '[]'}
 	});
-var _user$project$Bootstrap$mdImage = function (x) {
+var _user$project$Bootstrap$mdImage = function (attributes) {
 	return A2(
-		_elm_lang$html$Html$img,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$src(x),
-			_1: {
+		_elm_lang$html$Html$div,
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			attributes,
+			{
 				ctor: '::',
 				_0: _user$project$Bootstrap$class(
 					{
 						ctor: '::',
-						_0: _user$project$MyCss$Image,
-						_1: {ctor: '[]'}
+						_0: _user$project$MyCss$Padding1,
+						_1: {
+							ctor: '::',
+							_0: _user$project$MyCss$Dimension,
+							_1: {ctor: '[]'}
+						}
 					}),
 				_1: {ctor: '[]'}
-			}
-		},
+			}),
 		{ctor: '[]'});
-};
-var _user$project$Bootstrap$mdBackgroundImage = function (x) {
-	return A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _user$project$Bootstrap$class(
-				{
-					ctor: '::',
-					_0: _user$project$MyCss$BackgroundImage,
-					_1: {ctor: '[]'}
-				}),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: _user$project$Bootstrap$mdImage(x),
-			_1: {ctor: '[]'}
-		});
 };
 var _user$project$Bootstrap$flex = _elm_lang$html$Html$div(
 	{
@@ -15144,28 +15145,38 @@ var _user$project$Bootstrap$mdRow = _elm_lang$html$Html$div(
 			}),
 		_1: {ctor: '[]'}
 	});
-var _user$project$Bootstrap$mdTitle = _elm_lang$html$Html$div(
-	{
-		ctor: '::',
-		_0: _user$project$Bootstrap$class(
+var _user$project$Bootstrap$mdTitle = function (attributes) {
+	return _elm_lang$html$Html$div(
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			attributes,
 			{
 				ctor: '::',
-				_0: _user$project$MyCss$Title,
+				_0: _user$project$Bootstrap$class(
+					{
+						ctor: '::',
+						_0: _user$project$MyCss$Title,
+						_1: {ctor: '[]'}
+					}),
 				_1: {ctor: '[]'}
-			}),
-		_1: {ctor: '[]'}
-	});
-var _user$project$Bootstrap$mdContent = _elm_lang$html$Html$div(
-	{
-		ctor: '::',
-		_0: _user$project$Bootstrap$class(
+			}));
+};
+var _user$project$Bootstrap$mdContent = function (attributes) {
+	return _elm_lang$html$Html$div(
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			attributes,
 			{
 				ctor: '::',
-				_0: _user$project$MyCss$MdContent,
+				_0: _user$project$Bootstrap$class(
+					{
+						ctor: '::',
+						_0: _user$project$MyCss$MdContent,
+						_1: {ctor: '[]'}
+					}),
 				_1: {ctor: '[]'}
-			}),
-		_1: {ctor: '[]'}
-	});
+			}));
+};
 var _user$project$Bootstrap$mdPop = F2(
 	function (attr, body) {
 		return A2(
@@ -15241,81 +15252,37 @@ var _user$project$Bootstrap$mdText = function (attr) {
 		{ctor: '[]'});
 };
 
-var _user$project$Modal$open = function (toMsg) {
-	return A2(
-		_elm_lang$html$Html$span,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Events$onClick(toMsg),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: _user$project$Bootstrap$mdIcon(
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html$text('menu'),
-					_1: {ctor: '[]'}
-				}),
-			_1: {ctor: '[]'}
-		});
-};
-var _user$project$Modal$closed = function (toMsg) {
-	return _user$project$Bootstrap$mdChip(
-		{
-			ctor: '::',
-			_0: _user$project$Bootstrap$flex(
-				{
-					ctor: '::',
-					_0: _user$project$Bootstrap$mdTitle(
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html$text('Tilmeld dig nyhedsbrevet'),
-							_1: {ctor: '[]'}
-						}),
-					_1: {ctor: '[]'}
-				}),
-			_1: {
-				ctor: '::',
-				_0: _user$project$Modal$open(toMsg),
-				_1: {ctor: '[]'}
-			}
-		});
-};
 var _user$project$Modal$getState = function (modal) {
 	var _p0 = modal;
 	return _p0._0;
 };
-var _user$project$Modal$view = F2(
-	function (_p1, modal) {
+var _user$project$Modal$viewHeader = F3(
+	function (_p1, modal, data) {
 		var _p2 = _p1;
+		var _p4 = _p2._0.header;
 		var state = _user$project$Modal$getState(modal);
 		var _p3 = state.status;
 		switch (_p3.ctor) {
-			case 'Opening':
+			case 'NotCalled':
 				return _elm_lang$html$Html$text('');
 			case 'Closed':
-				return A2(
-					_elm_lang$html$Html$div,
-					{ctor: '[]'},
-					{
-						ctor: '::',
-						_0: _user$project$Modal$closed(_p2._0.open),
-						_1: {ctor: '[]'}
-					});
+				return _p4(data);
 			default:
-				return A2(
-					_elm_lang$html$Html$div,
-					{ctor: '[]'},
-					{
-						ctor: '::',
-						_0: _p2._0.header,
-						_1: {
-							ctor: '::',
-							_0: _p2._0.body,
-							_1: {ctor: '[]'}
-						}
-					});
+				return _p4(data);
+		}
+	});
+var _user$project$Modal$viewBody = F3(
+	function (_p5, modal, data) {
+		var _p6 = _p5;
+		var state = _user$project$Modal$getState(modal);
+		var _p7 = state.status;
+		switch (_p7.ctor) {
+			case 'NotCalled':
+				return _elm_lang$html$Html$text('');
+			case 'Closed':
+				return _elm_lang$html$Html$text('');
+			default:
+				return _p6._0.body(data);
 		}
 	});
 var _user$project$Modal$State = F2(
@@ -15329,30 +15296,42 @@ var _user$project$Modal$Closed = {ctor: 'Closed'};
 var _user$project$Modal$Opened = {ctor: 'Opened'};
 var _user$project$Modal$alter = F3(
 	function (tagger, msg, parent) {
-		var tag = function (_p4) {
-			var _p5 = _p4;
+		var tag = function (_p8) {
+			var _p9 = _p8;
 			return {
 				ctor: '_Tuple2',
 				_0: _elm_lang$core$Native_Utils.update(
 					parent,
 					{
-						modal: _user$project$Modal$M(_p5._0)
+						modal: _user$project$Modal$M(_p9._0)
 					}),
-				_1: A2(_elm_lang$core$Platform_Cmd$map, tagger, _p5._1)
+				_1: A2(_elm_lang$core$Platform_Cmd$map, tagger, _p9._1)
 			};
 		};
 		var state = _user$project$Modal$getState(parent.modal);
-		return tag(
-			{
-				ctor: '_Tuple2',
-				_0: _elm_lang$core$Native_Utils.update(
-					state,
-					{status: _user$project$Modal$Opened, pristine: false}),
-				_1: _elm_lang$core$Platform_Cmd$none
-			});
+		var _p10 = msg;
+		if (_p10.ctor === 'Open') {
+			return tag(
+				{
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						state,
+						{status: _user$project$Modal$Opened, pristine: false}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				});
+		} else {
+			return tag(
+				{
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						state,
+						{status: _user$project$Modal$Closed}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				});
+		}
 	});
-var _user$project$Modal$Opening = {ctor: 'Opening'};
-var _user$project$Modal$initialState = {status: _user$project$Modal$Opening, pristine: true};
+var _user$project$Modal$NotCalled = {ctor: 'NotCalled'};
+var _user$project$Modal$initialState = {status: _user$project$Modal$NotCalled, pristine: true};
 var _user$project$Modal$empty = _user$project$Modal$M(_user$project$Modal$initialState);
 var _user$project$Modal$Close = {ctor: 'Close'};
 var _user$project$Modal$Open = {ctor: 'Open'};
@@ -15360,35 +15339,7 @@ var _user$project$Modal$Config = function (a) {
 	return {ctor: 'Config', _0: a};
 };
 
-var _user$project$Messages$TransitMsg = function (a) {
-	return {ctor: 'TransitMsg', _0: a};
-};
-var _user$project$Messages$CloseModal = {ctor: 'CloseModal'};
-var _user$project$Messages$OpenModal = {ctor: 'OpenModal'};
-var _user$project$Messages$ModalMsg = function (a) {
-	return {ctor: 'ModalMsg', _0: a};
-};
-
-var _user$project$Models$initialModel = {modal: _user$project$Modal$empty, transition: _etaque$elm_transit$Transit$empty};
-
-var _user$project$View$close = A2(
-	_elm_lang$html$Html$span,
-	{
-		ctor: '::',
-		_0: _elm_lang$html$Html_Events$onClick(_user$project$Messages$CloseModal),
-		_1: {ctor: '[]'}
-	},
-	{
-		ctor: '::',
-		_0: _user$project$Bootstrap$mdIcon(
-			{
-				ctor: '::',
-				_0: _elm_lang$html$Html$text('cancel'),
-				_1: {ctor: '[]'}
-			}),
-		_1: {ctor: '[]'}
-	});
-var _user$project$View$submitButton = _user$project$Bootstrap$mdInput(
+var _user$project$Main$submitButton = _user$project$Bootstrap$mdInput(
 	{
 		ctor: '::',
 		_0: _elm_lang$html$Html_Attributes$type_('submit'),
@@ -15398,7 +15349,7 @@ var _user$project$View$submitButton = _user$project$Bootstrap$mdInput(
 			_1: {ctor: '[]'}
 		}
 	});
-var _user$project$View$emailInput = _user$project$Bootstrap$mdText(
+var _user$project$Main$emailInput = _user$project$Bootstrap$mdText(
 	{
 		ctor: '::',
 		_0: _elm_lang$html$Html_Attributes$autocomplete(false),
@@ -15416,7 +15367,7 @@ var _user$project$View$emailInput = _user$project$Bootstrap$mdText(
 			}
 		}
 	});
-var _user$project$View$form = A2(
+var _user$project$Main$form = A2(
 	_user$project$Bootstrap$mdForm,
 	{
 		ctor: '::',
@@ -15429,171 +15380,209 @@ var _user$project$View$form = A2(
 	},
 	{
 		ctor: '::',
-		_0: _user$project$View$emailInput,
+		_0: _user$project$Main$emailInput,
 		_1: {
 			ctor: '::',
-			_0: _user$project$View$submitButton,
+			_0: _user$project$Main$submitButton,
 			_1: {ctor: '[]'}
 		}
 	});
-var _user$project$View$body = _user$project$Bootstrap$mdRow(
+var _user$project$Main$paragraph2 = A2(
+	_elm_lang$html$Html$p,
+	{ctor: '[]'},
 	{
 		ctor: '::',
-		_0: _user$project$Bootstrap$padding1(
-			{
-				ctor: '::',
-				_0: _user$project$Bootstrap$mdRow(
-					{
-						ctor: '::',
-						_0: _user$project$Bootstrap$flex(
-							{
-								ctor: '::',
-								_0: _user$project$Bootstrap$padding1(
-									{
-										ctor: '::',
-										_0: _user$project$Bootstrap$mdImage('image.jpg'),
-										_1: {ctor: '[]'}
-									}),
-								_1: {ctor: '[]'}
-							}),
-						_1: {
-							ctor: '::',
-							_0: _user$project$Bootstrap$flex2(
-								{
-									ctor: '::',
-									_0: _user$project$Bootstrap$padding1(
-										{
-											ctor: '::',
-											_0: A2(
-												_elm_lang$html$Html$p,
-												{ctor: '[]'},
-												{
-													ctor: '::',
-													_0: _elm_lang$html$Html$text('Tilmeld dig vores nyhedsmail og få tilbud, inspiration og de bedste rejsetilbud før alle andre.'),
-													_1: {ctor: '[]'}
-												}),
-											_1: {
-												ctor: '::',
-												_0: A2(
-													_elm_lang$html$Html$p,
-													{ctor: '[]'},
-													{
-														ctor: '::',
-														_0: _elm_lang$html$Html$text('Du er samtidig med i lodtrækningen om et rejsegavekort på 5000 kr.'),
-														_1: {ctor: '[]'}
-													}),
-												_1: {
-													ctor: '::',
-													_0: _user$project$View$form,
-													_1: {ctor: '[]'}
-												}
-											}
-										}),
-									_1: {ctor: '[]'}
-								}),
-							_1: {ctor: '[]'}
-						}
-					}),
-				_1: {ctor: '[]'}
-			}),
+		_0: _elm_lang$html$Html$text('Du er samtidig med i lodtrækningen om et rejsegavekort på 5000 kr.'),
 		_1: {ctor: '[]'}
 	});
-var _user$project$View$header = _user$project$Bootstrap$mdChip(
+var _user$project$Main$paragraph1 = A2(
+	_elm_lang$html$Html$p,
+	{ctor: '[]'},
 	{
 		ctor: '::',
-		_0: _user$project$Bootstrap$flex(
-			{
-				ctor: '::',
-				_0: _user$project$Bootstrap$mdTitle(
-					{
-						ctor: '::',
-						_0: _elm_lang$html$Html$text('Få nyhederne først!'),
-						_1: {ctor: '[]'}
-					}),
-				_1: {ctor: '[]'}
-			}),
+		_0: _elm_lang$html$Html$text('Tilmeld dig vores nyhedsmail og få tilbud, inspiration og de bedste rejsetilbud før alle andre.'),
+		_1: {ctor: '[]'}
+	});
+var _user$project$Main$content = _user$project$Bootstrap$padding1(
+	{
+		ctor: '::',
+		_0: _user$project$Main$paragraph1,
 		_1: {
 			ctor: '::',
-			_0: _user$project$View$close,
-			_1: {ctor: '[]'}
+			_0: _user$project$Main$paragraph2,
+			_1: {
+				ctor: '::',
+				_0: _user$project$Main$form,
+				_1: {ctor: '[]'}
+			}
 		}
 	});
-var _user$project$View$config = _user$project$Modal$Config(
-	{open: _user$project$Messages$OpenModal, header: _user$project$View$header, body: _user$project$View$body});
-var _user$project$View$view = function (model) {
+var _user$project$Main$backgroundImage = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'background-image', _1: 'url(image.jpg)'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'background-repeat', _1: 'no-repeat'},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'background-size', _1: 'cover'},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'background-position', _1: 'center'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'background-origin', _1: 'content-box'},
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		}
+	});
+var _user$project$Main$image = _user$project$Bootstrap$mdImage(
+	{
+		ctor: '::',
+		_0: _user$project$Main$backgroundImage,
+		_1: {ctor: '[]'}
+	});
+var _user$project$Main$body = function (data) {
+	return A3(
+		_user$project$Bootstrap$mdOneTwo,
+		{ctor: '[]'},
+		_user$project$Main$image,
+		_user$project$Main$content);
+};
+var _user$project$Main$button = F2(
+	function (msg, icon) {
+		return A2(
+			_user$project$Bootstrap$mdIcon,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Events$onClick(msg),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text(icon),
+				_1: {ctor: '[]'}
+			});
+	});
+var _user$project$Main$title = function (text) {
+	return A2(
+		_user$project$Bootstrap$mdTitle,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text(text),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Main$header = function (_p0) {
+	var _p1 = _p0;
+	return A3(
+		_user$project$Bootstrap$mdMaxZero,
+		{ctor: '[]'},
+		_user$project$Main$title(_p1.text),
+		A2(_user$project$Main$button, _p1.toMsg, _p1.icon));
+};
+var _user$project$Main$animation = function (transition) {
+	return _elm_lang$html$Html_Attributes$style(
+		{
+			ctor: '::',
+			_0: {
+				ctor: '_Tuple2',
+				_0: 'opacity',
+				_1: _elm_lang$core$Basics$toString(
+					_etaque$elm_transit$Transit$getValue(transition))
+			},
+			_1: {
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple2',
+					_0: 'bottom',
+					_1: A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(
+							2 * _etaque$elm_transit$Transit$getValue(transition)),
+						'%')
+				},
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$Main$config = _user$project$Modal$Config(
+	{header: _user$project$Main$header, body: _user$project$Main$body});
+var _user$project$Main$view = function (_p2) {
+	var _p3 = _p2;
+	var _p4 = _p3.modal;
 	return A2(
 		_user$project$Bootstrap$mdPop,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$style(
-				{
-					ctor: '::',
-					_0: {
-						ctor: '_Tuple2',
-						_0: 'opacity',
-						_1: _elm_lang$core$Basics$toString(
-							_etaque$elm_transit$Transit$getValue(model.transition))
-					},
-					_1: {
-						ctor: '::',
-						_0: {
-							ctor: '_Tuple2',
-							_0: 'bottom',
-							_1: A2(
-								_elm_lang$core$Basics_ops['++'],
-								_elm_lang$core$Basics$toString(
-									2 * _etaque$elm_transit$Transit$getValue(model.transition)),
-								'%')
-						},
-						_1: {ctor: '[]'}
-					}
-				}),
+			_0: _user$project$Main$animation(_p3.transition),
 			_1: {ctor: '[]'}
 		},
 		{
 			ctor: '::',
-			_0: _user$project$Bootstrap$mdContent(
-				{
-					ctor: '::',
-					_0: A2(_user$project$Modal$view, _user$project$View$config, model.modal),
-					_1: {ctor: '[]'}
-				}),
-			_1: {ctor: '[]'}
+			_0: A3(_user$project$Modal$viewHeader, _user$project$Main$config, _p4, _p3.data),
+			_1: {
+				ctor: '::',
+				_0: A3(
+					_user$project$Modal$viewBody,
+					_user$project$Main$config,
+					_p4,
+					{ctor: '[]'}),
+				_1: {ctor: '[]'}
+			}
 		});
 };
-
-var _user$project$Update$update = F2(
+var _user$project$Main$Data = F3(
+	function (a, b, c) {
+		return {text: a, icon: b, toMsg: c};
+	});
+var _user$project$Main$TransitMsg = function (a) {
+	return {ctor: 'TransitMsg', _0: a};
+};
+var _user$project$Main$subscriptions = function (model) {
+	return A2(_etaque$elm_transit$Transit$subscriptions, _user$project$Main$TransitMsg, model);
+};
+var _user$project$Main$CloseModal = {ctor: 'CloseModal'};
+var _user$project$Main$initialModel = {
+	modal: _user$project$Modal$empty,
+	transition: _etaque$elm_transit$Transit$empty,
+	data: {icon: 'cancel', text: 'Få nyhederne først!', toMsg: _user$project$Main$CloseModal}
+};
+var _user$project$Main$OpenModal = {ctor: 'OpenModal'};
+var _user$project$Main$ModalMsg = function (a) {
+	return {ctor: 'ModalMsg', _0: a};
+};
+var _user$project$Main$update = F2(
 	function (msg, model) {
-		var _p0 = msg;
-		switch (_p0.ctor) {
+		var _p5 = msg;
+		switch (_p5.ctor) {
 			case 'ModalMsg':
-				return A3(_user$project$Modal$alter, _user$project$Messages$ModalMsg, _p0._0, model);
+				return A3(_user$project$Modal$alter, _user$project$Main$ModalMsg, _p5._0, model);
 			case 'OpenModal':
 				return A4(
 					_etaque$elm_transit$Transit$start,
-					_user$project$Messages$TransitMsg,
-					_user$project$Messages$ModalMsg(_user$project$Modal$Open),
+					_user$project$Main$TransitMsg,
+					_user$project$Main$ModalMsg(_user$project$Modal$Open),
 					{ctor: '_Tuple2', _0: 500, _1: 500},
 					model);
 			case 'CloseModal':
 				return A4(
 					_etaque$elm_transit$Transit$start,
-					_user$project$Messages$TransitMsg,
-					_user$project$Messages$ModalMsg(_user$project$Modal$Close),
+					_user$project$Main$TransitMsg,
+					_user$project$Main$ModalMsg(_user$project$Modal$Close),
 					{ctor: '_Tuple2', _0: 500, _1: 500},
 					model);
 			default:
-				return A3(_etaque$elm_transit$Transit$tick, _user$project$Messages$TransitMsg, _p0._0, model);
+				return A3(_etaque$elm_transit$Transit$tick, _user$project$Main$TransitMsg, _p5._0, model);
 		}
 	});
-
-var _user$project$Subscription$subscriptions = function (model) {
-	return A2(_etaque$elm_transit$Transit$subscriptions, _user$project$Messages$TransitMsg, model);
-};
-
-var _user$project$Main$init = A2(_user$project$Update$update, _user$project$Messages$CloseModal, _user$project$Models$initialModel);
+var _user$project$Main$init = A2(_user$project$Main$update, _user$project$Main$OpenModal, _user$project$Main$initialModel);
 var _user$project$Main$main = _elm_lang$html$Html$program(
-	{init: _user$project$Main$init, view: _user$project$View$view, update: _user$project$Update$update, subscriptions: _user$project$Subscription$subscriptions})();
+	{init: _user$project$Main$init, view: _user$project$Main$view, update: _user$project$Main$update, subscriptions: _user$project$Main$subscriptions})();
 
 var Elm = {};
 Elm['Main'] = Elm['Main'] || {};

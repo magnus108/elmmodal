@@ -19,8 +19,20 @@ body {
 }
 
 .bootstrapFlex2 {
+    flex: 2;
+}
+
+.bootstrapDimension {
+    min-height: 10rem;
+    min-width: 10rem;
+}
+
+.bootstrapOneTwo > :first-child {
     flex: 1;
-    flex-basis: 10rem;
+}
+
+.bootstrapOneTwo > :last-child {
+    flex: 2;
 }
 
 .bootstrapRow {
@@ -56,6 +68,7 @@ body {
     background-color: #00954a;
     font-size: 1.5rem;
     padding: 0.7rem 1rem;
+    line-height: 1.7rem;
 }
 
 .bootstrapPop {
@@ -70,10 +83,12 @@ body {
     padding: 0.7rem 1rem;
 }
 
-.bootstrapChip {
+.bootstrapMaxZero {
     background-color: #00954a;
-    font-size: 1.5rem;
-    line-height: 1.7rem;
+}
+
+.bootstrapMaxZero > :first-child {
+    flex: 1;
 }
 
 .bootstrapMaterialIcon {
@@ -82,32 +97,6 @@ body {
     display: inline-block;
     color: #ffffff;
     cursor: pointer;
-}
-
-.bootstrapImage {
-    max-width: 100%;
-    display: block;
-    min-width: 11rem;
-}
-
-.bootstrapBackgroundImage {
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    z-index: -1;
-}
-
-.bootstrapBackgroundImage > img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    min-width: 50%;
-    min-height: 50%;
 }
 
 .bootstrapMdForm {
