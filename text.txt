@@ -1,0 +1,112 @@
+import Html exposing (text)
+
+
+
+type On = On              
+type Off = Off            
+type Switch a = State Bool
+
+
+type alias WithModal model a =
+    { model | switch : a }                    
+
+
+switch : Switch b -> Switch a    
+switch (State a) = State (not a)      
+
+
+on : Switch On            
+on = State True                
+
+
+off : Switch Off          
+off = State False               
+
+
+switchOn : Switch Off -> Switch On                   
+switchOn = switch         
+
+
+switchOff : Switch On -> Switch Off                  
+switchOff = switch        
+
+
+
+
+
+
+type alias Modela a =
+    { switch : Switch a }  
+  
+
+someSwitch : Switch Off
+someSwitch = off
+  
+  
+initialmodela3 : Switch a -> Modela a
+initialmodela3 k =
+  { switch =  k }
+
+
+toLista : Switch a -> Bool
+toLista a = 
+  case a of
+    State b -> b
+
+
+
+main =
+  text (toString (switchOff (switchOn ( .switch (initialmodela3 off) ))))
+  
+
+{-| A phantom type for 0, our base TypeNat. -}
+type Zero = Zero Zero
+
+
+{-|A phantom type constructor to increment a TypeNat,
+creating a larger TypeNat. -}
+type OnePlus a = OnePlus OnePlus
+
+
+type Safe a n
+  = SafeList (List a)
+
+
+{-| A list of length 0 -}
+null : Safe a Zero
+null = SafeList []
+
+
+{-| Given a new element and a list of length n, make a list of length n+1.
+Has the same infix precedence as (::) -}
+cons : a -> Safe a n -> Safe a (OnePlus n)
+cons h (SafeList t) = SafeList (h :: t)
+
+
+
+type alias Models a n =
+  { safe : Safe a n }
+  
+
+someLength3 : Safe Int (OnePlus (OnePlus (OnePlus (Zero))) )
+someLength3 = cons 2 ( cons 3 (cons 4  null))
+  
+  
+initialmodel : Models a Zero
+initialmodel =
+  { safe = null }
+  
+  
+initialmodel3 : Safe a n -> Models a n
+initialmodel3 k =
+  { safe =  k }
+
+
+
+toList : Safe a n -> List a
+toList (SafeList l) = l
+
+  
+  
+  
+  

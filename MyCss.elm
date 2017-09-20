@@ -5,9 +5,7 @@ import Css exposing (..)
 
 import Css.Elements
   exposing
-    ( html
-    , body
-    , img
+    ( img
     )
 
 import Css.Namespace exposing (namespace)
@@ -41,16 +39,7 @@ name = "bootstrap"
 css : Stylesheet
 css =
   (stylesheet << namespace name)
-  [ html
-    [ height (pct 100)
-    , fontSize (px 16)
-    ]
-  , body
-    [ displayFlex
-    , margin zero
-    , height (pct 100)
-    ]
-  , class MdContent
+  [ class MdContent
     [ flex (int 8)
     , maxWidth (Css.rem 45)
     ]
@@ -116,6 +105,7 @@ css =
     ]
   , class MaxZero
     [ backgroundColor primaryDarkColor
+    , alignItems center
     , children
       [ everything
         [ firstChild
@@ -126,6 +116,7 @@ css =
   , class MaterialIcon
     [ fontFamilies [(qt "Material Icons")] --should use svg instead
     , fontStyle normal
+    , fontSize (Css.rem 1.8)
     , display inlineBlock
     , color primaryIconColor
     , cursor pointer
