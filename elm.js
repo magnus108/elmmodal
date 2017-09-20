@@ -14840,8 +14840,29 @@ var _user$project$MyCss$css = function (_p0) {
 																				_0: _rtfeldman$elm_css$Css$color(_user$project$Colors$primaryIconColor),
 																				_1: {
 																					ctor: '::',
-																					_0: _rtfeldman$elm_css$Css$cursor(_rtfeldman$elm_css$Css$pointer),
-																					_1: {ctor: '[]'}
+																					_0: _rtfeldman$elm_css$Css$backgroundColor(_user$project$Colors$primaryDarkColor),
+																					_1: {
+																						ctor: '::',
+																						_0: _rtfeldman$elm_css$Css$border(_rtfeldman$elm_css$Css$zero),
+																						_1: {
+																							ctor: '::',
+																							_0: _rtfeldman$elm_css$Css$outline(_rtfeldman$elm_css$Css$zero),
+																							_1: {
+																								ctor: '::',
+																								_0: _rtfeldman$elm_css$Css$cursor(_rtfeldman$elm_css$Css$pointer),
+																								_1: {
+																									ctor: '::',
+																									_0: _rtfeldman$elm_css$Css$disabled(
+																										{
+																											ctor: '::',
+																											_0: _rtfeldman$elm_css$Css$cursor(_rtfeldman$elm_css$Css$notAllowed),
+																											_1: {ctor: '[]'}
+																										}),
+																									_1: {ctor: '[]'}
+																								}
+																							}
+																						}
+																					}
 																				}
 																			}
 																		}
@@ -15017,7 +15038,7 @@ var _user$project$Bootstrap$mdMaxZero = F3(
 			});
 	});
 var _user$project$Bootstrap$mdIcon = function (attributes) {
-	return _elm_lang$html$Html$i(
+	return _elm_lang$html$Html$button(
 		A2(
 			_elm_lang$core$Basics_ops['++'],
 			attributes,
@@ -15388,14 +15409,18 @@ var _user$project$Main$image = _user$project$Bootstrap$mdImage(
 		_0: _user$project$Main$backgroundImage,
 		_1: {ctor: '[]'}
 	});
-var _user$project$Main$button = F2(
-	function (msg, icon) {
+var _user$project$Main$button = F3(
+	function (msg, icon, disabled) {
 		return A2(
 			_user$project$Bootstrap$mdIcon,
 			{
 				ctor: '::',
 				_0: _elm_lang$html$Html_Events$onClick(msg),
-				_1: {ctor: '[]'}
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$disabled(disabled),
+					_1: {ctor: '[]'}
+				}
 			},
 			{
 				ctor: '::',
@@ -15413,20 +15438,22 @@ var _user$project$Main$title = function (text) {
 			_1: {ctor: '[]'}
 		});
 };
-var _user$project$Main$header = F2(
-	function (_p0, msg) {
-		var _p1 = _p0;
-		return A3(
-			_user$project$Bootstrap$mdMaxZero,
-			{ctor: '[]'},
-			_user$project$Main$title(_p1.text),
-			A2(_user$project$Main$button, msg, _p1.icon));
-	});
+var _user$project$Main$header = function (_p0) {
+	var _p1 = _p0;
+	return A3(
+		_user$project$Bootstrap$mdMaxZero,
+		{ctor: '[]'},
+		_user$project$Main$title(_p1.text),
+		A3(_user$project$Main$button, _p1.msg, _p1.icon, _p1.disabled));
+};
 var _user$project$Main$body = A3(
 	_user$project$Bootstrap$mdOneTwo,
 	{ctor: '[]'},
 	_user$project$Main$image,
 	_user$project$Main$content);
+var _user$project$Main$disabled = function (x) {
+	return !_elm_lang$core$Native_Utils.eq(x, 1);
+};
 var _user$project$Main$animation = function (transition) {
 	return _elm_lang$html$Html_Attributes$style(
 		{
@@ -15453,15 +15480,11 @@ var _user$project$Main$animation = function (transition) {
 		});
 };
 var _user$project$Main$initialSwitch = _user$project$Either$right(_user$project$Switch$initialModel);
-var _user$project$Main$initialModel = {
-	$switch: _user$project$Main$initialSwitch,
-	transition: _etaque$elm_transit$Transit$empty,
-	data: {icon: 'cancel', text: 'Få nyhederne først!'}
-};
+var _user$project$Main$initialModel = {$switch: _user$project$Main$initialSwitch, transition: _etaque$elm_transit$Transit$empty};
 var _user$project$Main$init = {ctor: '_Tuple2', _0: _user$project$Main$initialModel, _1: _elm_lang$core$Platform_Cmd$none};
-var _user$project$Main$Data = F2(
-	function (a, b) {
-		return {text: a, icon: b};
+var _user$project$Main$Data = F4(
+	function (a, b, c, d) {
+		return {text: a, icon: b, disabled: c, msg: d};
 	});
 var _user$project$Main$TransitMsg = function (a) {
 	return {ctor: 'TransitMsg', _0: a};
@@ -15483,14 +15506,7 @@ var _user$project$Main$update = F2(
 						{$switch: newSwitch}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
-			case 'OpenSwitch':
-				return A4(
-					_etaque$elm_transit$Transit$start,
-					_user$project$Main$TransitMsg,
-					_user$project$Main$SwitchMsg,
-					{ctor: '_Tuple2', _0: 500, _1: 500},
-					model);
-			case 'CloseSwitch':
+			case 'Switch':
 				return A4(
 					_etaque$elm_transit$Transit$start,
 					_user$project$Main$TransitMsg,
@@ -15501,7 +15517,7 @@ var _user$project$Main$update = F2(
 				return A3(_etaque$elm_transit$Transit$tick, _user$project$Main$TransitMsg, _p2._0, model);
 		}
 	});
-var _user$project$Main$CloseSwitch = {ctor: 'CloseSwitch'};
+var _user$project$Main$Switch = {ctor: 'Switch'};
 var _user$project$Main$viewOn = function (model) {
 	return A2(
 		_user$project$Bootstrap$mdPop,
@@ -15512,7 +15528,14 @@ var _user$project$Main$viewOn = function (model) {
 		},
 		{
 			ctor: '::',
-			_0: A2(_user$project$Main$header, model.data, _user$project$Main$CloseSwitch),
+			_0: _user$project$Main$header(
+				{
+					icon: 'cancel',
+					text: 'Få nyhederne først!',
+					disabled: _user$project$Main$disabled(
+						_etaque$elm_transit$Transit$getValue(model.transition)),
+					msg: _user$project$Main$Switch
+				}),
 			_1: {
 				ctor: '::',
 				_0: _user$project$Main$body,
@@ -15520,7 +15543,6 @@ var _user$project$Main$viewOn = function (model) {
 			}
 		});
 };
-var _user$project$Main$OpenSwitch = {ctor: 'OpenSwitch'};
 var _user$project$Main$viewOff = function (model) {
 	return A2(
 		_user$project$Bootstrap$mdPop,
@@ -15531,7 +15553,14 @@ var _user$project$Main$viewOff = function (model) {
 		},
 		{
 			ctor: '::',
-			_0: A2(_user$project$Main$header, model.data, _user$project$Main$OpenSwitch),
+			_0: _user$project$Main$header(
+				{
+					icon: 'menu',
+					text: 'Tilmeld dig nyhedsbrevet',
+					disabled: _user$project$Main$disabled(
+						_etaque$elm_transit$Transit$getValue(model.transition)),
+					msg: _user$project$Main$Switch
+				}),
 			_1: {ctor: '[]'}
 		});
 };

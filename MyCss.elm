@@ -119,7 +119,12 @@ css =
     , fontSize (Css.rem 1.8)
     , display inlineBlock
     , color primaryIconColor
+    , backgroundColor primaryDarkColor
+    , border zero
+    , outline zero
     , cursor pointer
+    , disabled
+      [ cursor notAllowed ]
     ]
   , class MdForm
     [ displayFlex

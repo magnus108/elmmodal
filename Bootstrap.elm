@@ -27,6 +27,7 @@ import Html
     , i
     , img
     , input
+    , button
     )
 
 
@@ -76,7 +77,7 @@ mdMaxZero attributes max zero =
 
 mdIcon : List (Attribute msg) -> List (Html msg) -> Html msg
 mdIcon attributes =
-  i ( attributes ++ [ class [ MaterialIcon, Padding1 ] ] )
+  button ( attributes ++ [ class [ MaterialIcon, Padding1 ] ] )
 
 
 

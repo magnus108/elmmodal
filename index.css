@@ -87,7 +87,14 @@
     font-size: 1.8rem;
     display: inline-block;
     color: #ffffff;
+    background-color: #00954a;
+    border: 0;
+    outline: 0;
     cursor: pointer;
+}
+
+.bootstrapMaterialIcon:disabled {
+    cursor: not-allowed;
 }
 
 .bootstrapMdForm {

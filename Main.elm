@@ -24,11 +24,9 @@ main =
 type alias Data =
   { text : String
   , icon : String
+  , disabled : Bool
+  , msg : Msg
   }
-
-
-type alias WithData data =
-  { data | data : Data}
 
 
 type alias WithSwitch model =
@@ -36,7 +34,7 @@ type alias WithSwitch model =
 
 
 type alias Model =
-  Transit.WithTransition (WithSwitch (WithData {}))
+  Transit.WithTransition (WithSwitch {})
 
 
 initialSwitch : Either (Switch On) (Switch Off)
@@ -48,10 +46,6 @@ initialModel : Model
 initialModel =
   { switch = initialSwitch
   , transition = Transit.empty
-  , data =
-    { icon = "cancel"
-    , text = "Få nyhederne først!"
-    }
   }
 
 
@@ -60,8 +54,7 @@ init = ( initialModel, Cmd.none )
 
 
 type Msg
-  = OpenSwitch --Switch.On
-  | CloseSwitch
+  = Switch
   | SwitchMsg
   | TransitMsg (Transit.Msg Msg)
 
@@ -71,15 +64,15 @@ update msg model =
   case msg of
     SwitchMsg ->
       let
+        -- Im pretty sure there could be more safety here
+        -- make you own transit module with 2 states done og transit...
+        -- simply like switch... GG
         newSwitch =
           Either.map1 Switch.switchOff Switch.switchOn model.switch
       in
         ({ model | switch = newSwitch }, Cmd.none)
 
-    OpenSwitch ->
-      Transit.start TransitMsg SwitchMsg (500, 500) model
-
-    CloseSwitch ->
+    Switch ->
       Transit.start TransitMsg SwitchMsg (500, 500) model
 
     TransitMsg transitMsg ->
@@ -104,11 +97,21 @@ animation transition =
     ]
 
 
+disabled : Float -> Bool
+disabled x =
+  x /= 1
+
+
 viewOn : Model -> Html Msg
 viewOn model =
   Bootstrap.mdPop
     [ animation model.transition ]
-    [ header model.data CloseSwitch
+    [ header
+      { icon = "cancel"
+      , text = "Få nyhederne først!"
+      , disabled = disabled (Transit.getValue model.transition)
+      , msg = Switch
+      }
     , body
     ]
 
@@ -122,13 +125,19 @@ viewOff : Model -> Html Msg
 viewOff model =
   Bootstrap.mdPop
     [ animation model.transition ]
-    [ header model.data OpenSwitch ]
+    [ header
+      { icon = "menu"
+      , text = "Tilmeld dig nyhedsbrevet"
+      , disabled = disabled (Transit.getValue model.transition)
+      , msg = Switch
+      }
+    ]
 
 
-header : Data -> Msg -> Html Msg
-header { icon, text } msg =
+header : Data -> Html Msg
+header { icon, text, disabled, msg } =
   Bootstrap.mdMaxZero []
-    ( title text ) ( button msg icon )
+    ( title text ) ( button msg icon disabled )
 
 
 title : String -> Html msg
@@ -136,9 +145,13 @@ title text =
   Bootstrap.mdTitle [] [ Html.text text ]
 
 
-button : Msg -> String -> Html Msg
-button msg icon =
-  Bootstrap.mdIcon [ Html.Events.onClick msg ] [ Html.text icon ]
+button : Msg -> String -> Bool -> Html Msg
+button msg icon disabled =
+  Bootstrap.mdIcon
+    [ Html.Events.onClick msg
+    , Html.Attributes.disabled disabled
+    ]
+    [ Html.text icon ]
 
 
 image : Html msg
