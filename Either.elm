@@ -33,9 +33,9 @@ map1 f g e =
 
 
 -- This is a simple library. Refactor this.
-map2 : c -> c -> Either a b -> c
+map2 : (a -> c) -> (b -> c) -> Either a b -> c
 map2 f g e =
   case e of
-    Left a -> f
+    Left a -> f a
 
-    Right b -> g
+    Right b -> g b

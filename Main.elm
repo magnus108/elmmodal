@@ -54,7 +54,8 @@ init = ( initialModel, Cmd.none )
 
 
 type Msg
-  = Switch
+  = SwitchOn (Switch Off)
+  | SwitchOff (Switch On)
   | SwitchMsg
   | TransitMsg (Transit.Msg Msg)
 
@@ -72,7 +73,10 @@ update msg model =
       in
         ({ model | switch = newSwitch }, Cmd.none)
 
-    Switch ->
+    SwitchOn switch ->
+      Transit.start TransitMsg SwitchMsg (500, 500) model
+
+    SwitchOff switch ->
       Transit.start TransitMsg SwitchMsg (500, 500) model
 
     TransitMsg transitMsg ->
@@ -102,15 +106,15 @@ disabled x =
   x /= 1
 
 
-viewOn : Model -> Html Msg
-viewOn model =
+viewOn : Model -> Switch On -> Html Msg
+viewOn model switch =
   Bootstrap.mdPop
     [ animation model.transition ]
     [ header
       { icon = "cancel"
       , text = "Få nyhederne først!"
       , disabled = disabled (Transit.getValue model.transition)
-      , msg = Switch
+      , msg = SwitchOff switch
       }
     , body
     ]
@@ -121,15 +125,15 @@ body =
   Bootstrap.mdOneTwo [] image content
 
 
-viewOff : Model -> Html Msg
-viewOff model =
+viewOff : Model -> Switch Off -> Html Msg
+viewOff model switch =
   Bootstrap.mdPop
     [ animation model.transition ]
     [ header
       { icon = "menu"
       , text = "Tilmeld dig nyhedsbrevet"
       , disabled = disabled (Transit.getValue model.transition)
-      , msg = Switch
+      , msg = SwitchOn switch
       }
     ]
 

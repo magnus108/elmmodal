@@ -15253,9 +15253,9 @@ var _user$project$Either$map2 = F3(
 	function (f, g, e) {
 		var _p0 = e;
 		if (_p0.ctor === 'Left') {
-			return f;
+			return f(_p0._0);
 		} else {
-			return g;
+			return g(_p0._0);
 		}
 	});
 var _user$project$Either$Right = function (a) {
@@ -15506,7 +15506,14 @@ var _user$project$Main$update = F2(
 						{$switch: newSwitch}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
-			case 'Switch':
+			case 'SwitchOn':
+				return A4(
+					_etaque$elm_transit$Transit$start,
+					_user$project$Main$TransitMsg,
+					_user$project$Main$SwitchMsg,
+					{ctor: '_Tuple2', _0: 500, _1: 500},
+					model);
+			case 'SwitchOff':
 				return A4(
 					_etaque$elm_transit$Transit$start,
 					_user$project$Main$TransitMsg,
@@ -15517,53 +15524,60 @@ var _user$project$Main$update = F2(
 				return A3(_etaque$elm_transit$Transit$tick, _user$project$Main$TransitMsg, _p2._0, model);
 		}
 	});
-var _user$project$Main$Switch = {ctor: 'Switch'};
-var _user$project$Main$viewOn = function (model) {
-	return A2(
-		_user$project$Bootstrap$mdPop,
-		{
-			ctor: '::',
-			_0: _user$project$Main$animation(model.transition),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: _user$project$Main$header(
-				{
-					icon: 'cancel',
-					text: 'Få nyhederne først!',
-					disabled: _user$project$Main$disabled(
-						_etaque$elm_transit$Transit$getValue(model.transition)),
-					msg: _user$project$Main$Switch
-				}),
-			_1: {
+var _user$project$Main$SwitchOff = function (a) {
+	return {ctor: 'SwitchOff', _0: a};
+};
+var _user$project$Main$viewOn = F2(
+	function (model, $switch) {
+		return A2(
+			_user$project$Bootstrap$mdPop,
+			{
 				ctor: '::',
-				_0: _user$project$Main$body,
+				_0: _user$project$Main$animation(model.transition),
 				_1: {ctor: '[]'}
-			}
-		});
+			},
+			{
+				ctor: '::',
+				_0: _user$project$Main$header(
+					{
+						icon: 'cancel',
+						text: 'Få nyhederne først!',
+						disabled: _user$project$Main$disabled(
+							_etaque$elm_transit$Transit$getValue(model.transition)),
+						msg: _user$project$Main$SwitchOff($switch)
+					}),
+				_1: {
+					ctor: '::',
+					_0: _user$project$Main$body,
+					_1: {ctor: '[]'}
+				}
+			});
+	});
+var _user$project$Main$SwitchOn = function (a) {
+	return {ctor: 'SwitchOn', _0: a};
 };
-var _user$project$Main$viewOff = function (model) {
-	return A2(
-		_user$project$Bootstrap$mdPop,
-		{
-			ctor: '::',
-			_0: _user$project$Main$animation(model.transition),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: _user$project$Main$header(
-				{
-					icon: 'menu',
-					text: 'Tilmeld dig nyhedsbrevet',
-					disabled: _user$project$Main$disabled(
-						_etaque$elm_transit$Transit$getValue(model.transition)),
-					msg: _user$project$Main$Switch
-				}),
-			_1: {ctor: '[]'}
-		});
-};
+var _user$project$Main$viewOff = F2(
+	function (model, $switch) {
+		return A2(
+			_user$project$Bootstrap$mdPop,
+			{
+				ctor: '::',
+				_0: _user$project$Main$animation(model.transition),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: _user$project$Main$header(
+					{
+						icon: 'menu',
+						text: 'Tilmeld dig nyhedsbrevet',
+						disabled: _user$project$Main$disabled(
+							_etaque$elm_transit$Transit$getValue(model.transition)),
+						msg: _user$project$Main$SwitchOn($switch)
+					}),
+				_1: {ctor: '[]'}
+			});
+	});
 var _user$project$Main$view = function (model) {
 	return A3(
 		_user$project$Either$map2,
