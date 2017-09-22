@@ -157,6 +157,7 @@ css =
     , display block
     , border zero
     , borderBottom3 (px 1) solid (rgba 0 0 0 0.12)
+    , minWidth (Css.rem 16)
     , focus
       [ outline none
       , borderBottom3 (px 1) solid secondaryAccentColor

@@ -15560,21 +15560,26 @@ var _user$project$MyCss$css = function (_p0) {
 																											A4(_rtfeldman$elm_css$Css$rgba, 0, 0, 0, 0.12)),
 																										_1: {
 																											ctor: '::',
-																											_0: _rtfeldman$elm_css$Css$focus(
-																												{
-																													ctor: '::',
-																													_0: _rtfeldman$elm_css$Css$outline(_rtfeldman$elm_css$Css$none),
-																													_1: {
+																											_0: _rtfeldman$elm_css$Css$minWidth(
+																												_rtfeldman$elm_css$Css$rem(16)),
+																											_1: {
+																												ctor: '::',
+																												_0: _rtfeldman$elm_css$Css$focus(
+																													{
 																														ctor: '::',
-																														_0: A3(
-																															_rtfeldman$elm_css$Css$borderBottom3,
-																															_rtfeldman$elm_css$Css$px(1),
-																															_rtfeldman$elm_css$Css$solid,
-																															_user$project$Colors$secondaryAccentColor),
-																														_1: {ctor: '[]'}
-																													}
-																												}),
-																											_1: {ctor: '[]'}
+																														_0: _rtfeldman$elm_css$Css$outline(_rtfeldman$elm_css$Css$none),
+																														_1: {
+																															ctor: '::',
+																															_0: A3(
+																																_rtfeldman$elm_css$Css$borderBottom3,
+																																_rtfeldman$elm_css$Css$px(1),
+																																_rtfeldman$elm_css$Css$solid,
+																																_user$project$Colors$secondaryAccentColor),
+																															_1: {ctor: '[]'}
+																														}
+																													}),
+																												_1: {ctor: '[]'}
+																											}
 																										}
 																									}
 																								}
