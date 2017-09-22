@@ -15147,14 +15147,27 @@ var _user$project$MyCss$css = function (_p0) {
 						_user$project$MyCss$Dimension,
 						{
 							ctor: '::',
-							_0: _rtfeldman$elm_css$Css$minHeight(
-								_rtfeldman$elm_css$Css$rem(10)),
-							_1: {
-								ctor: '::',
-								_0: _rtfeldman$elm_css$Css$minWidth(
-									_rtfeldman$elm_css$Css$rem(10)),
-								_1: {ctor: '[]'}
-							}
+							_0: A2(
+								_rtfeldman$elm_css$Css_Media$withMedia,
+								{
+									ctor: '::',
+									_0: A2(
+										_rtfeldman$elm_css$Css_Media$only,
+										_rtfeldman$elm_css$Css_Media$screen,
+										{
+											ctor: '::',
+											_0: _rtfeldman$elm_css$Css_Media$maxWidth(
+												_rtfeldman$elm_css$Css$px(800)),
+											_1: {ctor: '[]'}
+										}),
+									_1: {ctor: '[]'}
+								},
+								{
+									ctor: '::',
+									_0: _rtfeldman$elm_css$Css$display(_rtfeldman$elm_css$Css$none),
+									_1: {ctor: '[]'}
+								}),
+							_1: {ctor: '[]'}
 						}),
 					_1: {
 						ctor: '::',
@@ -15561,7 +15574,7 @@ var _user$project$MyCss$css = function (_p0) {
 																										_1: {
 																											ctor: '::',
 																											_0: _rtfeldman$elm_css$Css$minWidth(
-																												_rtfeldman$elm_css$Css$rem(16)),
+																												_rtfeldman$elm_css$Css$rem(10)),
 																											_1: {
 																												ctor: '::',
 																												_0: _rtfeldman$elm_css$Css$focus(

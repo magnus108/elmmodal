@@ -52,8 +52,9 @@ css =
     [ flex (int 2)
     ]
   , class Dimension
-    [ minHeight ( Css.rem 10 )
-    , minWidth ( Css.rem 10 )
+    [ Media.withMedia
+      [ Media.only Media.screen [ Media.maxWidth (px 800) ] ]
+      [ display none ]
     ]
   , class OneTwo
     [ children
@@ -157,7 +158,7 @@ css =
     , display block
     , border zero
     , borderBottom3 (px 1) solid (rgba 0 0 0 0.12)
-    , minWidth (Css.rem 16)
+    , minWidth (Css.rem 10)
     , focus
       [ outline none
       , borderBottom3 (px 1) solid secondaryAccentColor

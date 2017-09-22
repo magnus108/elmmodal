@@ -11,9 +11,10 @@
     flex: 2;
 }
 
-.bootstrapDimension {
-    min-height: 10rem;
-    min-width: 10rem;
+@media only screen and (max-width: 800px) {
+    .bootstrapDimension {
+        display: none;
+    }
 }
 
 .bootstrapOneTwo > :first-child {
@@ -127,7 +128,7 @@
     display: block;
     border: 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-    min-width: 16rem;
+    min-width: 10rem;
 }
 
 .bootstrapMdText:focus {
