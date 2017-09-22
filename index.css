@@ -21,6 +21,7 @@
 }
 
 .bootstrapOneTwo > :last-child {
+    min-width: 16rem;
     flex: 2;
 }
 

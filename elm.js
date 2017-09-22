@@ -15181,9 +15181,14 @@ var _user$project$MyCss$css = function (_p0) {
 													_0: _rtfeldman$elm_css$Css$lastChild(
 														{
 															ctor: '::',
-															_0: _rtfeldman$elm_css$Css$flex(
-																_rtfeldman$elm_css$Css$int(2)),
-															_1: {ctor: '[]'}
+															_0: _rtfeldman$elm_css$Css$minWidth(
+																_rtfeldman$elm_css$Css$rem(16)),
+															_1: {
+																ctor: '::',
+																_0: _rtfeldman$elm_css$Css$flex(
+																	_rtfeldman$elm_css$Css$int(2)),
+																_1: {ctor: '[]'}
+															}
 														}),
 													_1: {ctor: '[]'}
 												}

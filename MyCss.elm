@@ -61,7 +61,9 @@ css =
         [ firstChild
           [ flex (int 1) ]
         , lastChild
-          [ flex (int 2) ]
+          [ minWidth (Css.rem 16)
+          , flex (int 2)
+          ]
         ]
       ]
     ]
