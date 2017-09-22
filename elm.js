@@ -16043,6 +16043,51 @@ var _user$project$Main$viewMini = F2(
 	function (mode, $switch) {
 		return _user$project$Main$empty;
 	});
+var _user$project$Main$legacy3 = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'word-wrap', _1: 'initial'},
+		_1: {ctor: '[]'}
+	});
+var _user$project$Main$button = F3(
+	function (msg, icon, disabled) {
+		return A2(
+			_user$project$Bootstrap$mdIcon,
+			{
+				ctor: '::',
+				_0: _user$project$Main$legacy3,
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Events$onClick(msg),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$disabled(disabled),
+						_1: {ctor: '[]'}
+					}
+				}
+			},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text(icon),
+				_1: {ctor: '[]'}
+			});
+	});
+var _user$project$Main$header = function (_p0) {
+	var _p1 = _p0;
+	return A3(
+		_user$project$Bootstrap$mdMaxZero,
+		{ctor: '[]'},
+		_user$project$Main$title(_p1.text),
+		A3(_user$project$Main$button, _p1.msg, _p1.icon, _p1.disabled));
+};
+var _user$project$Main$header2 = function (_p2) {
+	var _p3 = _p2;
+	return A3(
+		_user$project$Bootstrap$mdMaxZero2,
+		{ctor: '[]'},
+		_user$project$Main$title(_p3.text),
+		A3(_user$project$Main$button, _p3.msg, _p3.icon, _p3.disabled));
+};
 var _user$project$Main$legacy2 = _elm_lang$html$Html_Attributes$style(
 	{
 		ctor: '::',
@@ -16117,56 +16162,9 @@ var _user$project$Main$body = A3(
 var _user$project$Main$legacy = _elm_lang$html$Html_Attributes$style(
 	{
 		ctor: '::',
-		_0: {ctor: '_Tuple2', _0: 'word-wrap', _1: 'initial'},
-		_1: {
-			ctor: '::',
-			_0: {ctor: '_Tuple2', _0: 'z-index', _1: '200'},
-			_1: {
-				ctor: '::',
-				_0: {ctor: '_Tuple2', _0: 'background', _1: 'white'},
-				_1: {ctor: '[]'}
-			}
-		}
+		_0: {ctor: '_Tuple2', _0: 'z-index', _1: '200'},
+		_1: {ctor: '[]'}
 	});
-var _user$project$Main$button = F3(
-	function (msg, icon, disabled) {
-		return A2(
-			_user$project$Bootstrap$mdIcon,
-			{
-				ctor: '::',
-				_0: _user$project$Main$legacy,
-				_1: {
-					ctor: '::',
-					_0: _elm_lang$html$Html_Events$onClick(msg),
-					_1: {
-						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$disabled(disabled),
-						_1: {ctor: '[]'}
-					}
-				}
-			},
-			{
-				ctor: '::',
-				_0: _elm_lang$html$Html$text(icon),
-				_1: {ctor: '[]'}
-			});
-	});
-var _user$project$Main$header = function (_p0) {
-	var _p1 = _p0;
-	return A3(
-		_user$project$Bootstrap$mdMaxZero,
-		{ctor: '[]'},
-		_user$project$Main$title(_p1.text),
-		A3(_user$project$Main$button, _p1.msg, _p1.icon, _p1.disabled));
-};
-var _user$project$Main$header2 = function (_p2) {
-	var _p3 = _p2;
-	return A3(
-		_user$project$Bootstrap$mdMaxZero2,
-		{ctor: '[]'},
-		_user$project$Main$title(_p3.text),
-		A3(_user$project$Main$button, _p3.msg, _p3.icon, _p3.disabled));
-};
 var _user$project$Main$animation = function (transition) {
 	return _elm_lang$html$Html_Attributes$style(
 		{
