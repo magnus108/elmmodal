@@ -148,15 +148,19 @@ animation transition =
 legacy : Html.Attribute msg
 legacy =
   Html.Attributes.style
-    [ ( "word-wrap", "initial" )
-    , ( "z-index", "200" )
-    ]
+    [ ( "z-index", "200" ) ]
 
 
 legacy2 : Html.Attribute msg
 legacy2 =
   Html.Attributes.style
     [ ( "background", "white" ) ]
+
+
+legacy3 : Html.Attribute msg
+legacy3 =
+  Html.Attributes.style
+    [ ( "word-wrap", "initial" ) ]
 
 
 empty : Html msg
@@ -252,7 +256,7 @@ title text =
 button : Msg -> String -> Bool -> Html Msg
 button msg icon disabled =
   Bootstrap.mdIcon
-    [ legacy
+    [ legacy3
     , Html.Events.onClick msg
     , Html.Attributes.disabled disabled
     ]
