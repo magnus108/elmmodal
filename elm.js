@@ -16135,6 +16135,20 @@ var _user$project$Main$viewMini = F2(
 	function (mode, $switch) {
 		return _user$project$Main$empty;
 	});
+var _user$project$Main$legacy = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'background', _1: 'white'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'word-wrap', _1: 'initial'},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'z-index', _1: '200'},
+				_1: {ctor: '[]'}
+			}
+		}
+	});
 var _user$project$Main$animation = function (transition) {
 	return _elm_lang$html$Html_Attributes$style(
 		{
@@ -16241,7 +16255,11 @@ var _user$project$Main$viewOnOff = F2(
 			{
 				ctor: '::',
 				_0: _user$project$Main$animation(model.transition),
-				_1: {ctor: '[]'}
+				_1: {
+					ctor: '::',
+					_0: _user$project$Main$legacy,
+					_1: {ctor: '[]'}
+				}
 			},
 			{
 				ctor: '::',
@@ -16290,7 +16308,11 @@ var _user$project$Main$viewOn = F2(
 			{
 				ctor: '::',
 				_0: _user$project$Main$animation(model.transition),
-				_1: {ctor: '[]'}
+				_1: {
+					ctor: '::',
+					_0: _user$project$Main$legacy,
+					_1: {ctor: '[]'}
+				}
 			},
 			{
 				ctor: '::',

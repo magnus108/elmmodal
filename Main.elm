@@ -145,6 +145,15 @@ animation transition =
     ]
 
 
+legacy : Html.Attribute msg
+legacy =
+  Html.Attributes.style
+    [ ( "background", "white" )
+    , ( "word-wrap", "initial" )
+    , ( "z-index", "200" )
+    ]
+
+
 empty : Html msg
 empty = Html.text ""
 
@@ -162,7 +171,7 @@ viewMini mode switch =
 viewOn : Model -> Switch.Switch On -> Html Msg
 viewOn model switch =
   Bootstrap.mdPop
-    [ animation model.transition ]
+    [ animation model.transition, legacy ]
     [ header2
       { icon = "cancel"
       , text = "Få nyhederne først!"
@@ -176,7 +185,7 @@ viewOn model switch =
 viewOnOff : Model -> Switch.Switch OnOff -> Html Msg
 viewOnOff model switch =
   Bootstrap.mdPop
-    [ animation model.transition ]
+    [ animation model.transition, legacy ]
     [ header2
       { icon = "cancel"
       , text = "Få nyhederne først!"
