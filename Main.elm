@@ -204,7 +204,7 @@ viewOnOff model switch =
 
 body : Html Msg
 body =
-  Bootstrap.mdOneTwo [] image content
+  Bootstrap.mdOneTwo [legacy2] image content
 
 
 viewOff : Model -> Switch.Switch Off -> Html Msg
@@ -253,7 +253,8 @@ title text =
 button : Msg -> String -> Bool -> Html Msg
 button msg icon disabled =
   Bootstrap.mdIcon
-    [ Html.Events.onClick msg
+    [ legacy
+    , Html.Events.onClick msg
     , Html.Attributes.disabled disabled
     ]
     [ Html.text icon ]
