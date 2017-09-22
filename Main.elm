@@ -180,7 +180,7 @@ viewMini mode switch =
 viewOn : Model -> Switch.Switch On -> Html Msg
 viewOn model switch =
   Bootstrap.mdPop
-    [ animation model.transition, legacy ]
+    [ animation model.transition, legacy, legacy2 ]
     [ header2
       { icon = "cancel"
       , text = "Få nyhederne først!"
@@ -194,7 +194,7 @@ viewOn model switch =
 viewOnOff : Model -> Switch.Switch OnOff -> Html Msg
 viewOnOff model switch =
   Bootstrap.mdPop
-    [ animation model.transition, legacy ]
+    [ animation model.transition, legacy, legacy2 ]
     [ header2
       { icon = "cancel"
       , text = "Få nyhederne først!"
@@ -213,7 +213,7 @@ body =
 viewOff : Model -> Switch.Switch Off -> Html Msg
 viewOff model switch =
   Bootstrap.mdPop
-    [ animation model.transition, legacy ]
+    [ animation model.transition, legacy, legacy2 ]
     [ header
       { icon = "menu"
       , text = "Tilmeld dig nyhedsbrevet"
@@ -226,7 +226,7 @@ viewOff model switch =
 viewOffOn : Model -> Switch.Switch OffOn -> Html Msg
 viewOffOn model switch =
   Bootstrap.mdPop
-    [ animation model.transition, legacy ]
+    [ animation model.transition, legacy, legacy2 ]
     [ header
       { icon = "menu"
       , text = "Tilmeld dig nyhedsbrevet"

@@ -16274,7 +16274,11 @@ var _user$project$Main$viewOnOff = F2(
 				_1: {
 					ctor: '::',
 					_0: _user$project$Main$legacy,
-					_1: {ctor: '[]'}
+					_1: {
+						ctor: '::',
+						_0: _user$project$Main$legacy2,
+						_1: {ctor: '[]'}
+					}
 				}
 			},
 			{
@@ -16303,7 +16307,11 @@ var _user$project$Main$viewOffOn = F2(
 				_1: {
 					ctor: '::',
 					_0: _user$project$Main$legacy,
-					_1: {ctor: '[]'}
+					_1: {
+						ctor: '::',
+						_0: _user$project$Main$legacy2,
+						_1: {ctor: '[]'}
+					}
 				}
 			},
 			{
@@ -16331,7 +16339,11 @@ var _user$project$Main$viewOn = F2(
 				_1: {
 					ctor: '::',
 					_0: _user$project$Main$legacy,
-					_1: {ctor: '[]'}
+					_1: {
+						ctor: '::',
+						_0: _user$project$Main$legacy2,
+						_1: {ctor: '[]'}
+					}
 				}
 			},
 			{
@@ -16363,7 +16375,11 @@ var _user$project$Main$viewOff = F2(
 				_1: {
 					ctor: '::',
 					_0: _user$project$Main$legacy,
-					_1: {ctor: '[]'}
+					_1: {
+						ctor: '::',
+						_0: _user$project$Main$legacy2,
+						_1: {ctor: '[]'}
+					}
 				}
 			},
 			{
