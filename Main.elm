@@ -150,7 +150,6 @@ legacy =
   Html.Attributes.style
     [ ( "word-wrap", "initial" )
     , ( "z-index", "200" )
-    , ( "background", "white" )
     ]
 
 
