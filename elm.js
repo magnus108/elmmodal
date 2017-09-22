@@ -16123,7 +16123,7 @@ var _user$project$Main$form = A2(
 		_0: _elm_lang$html$Html_Attributes$method('POST'),
 		_1: {
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$action('http://coco.cctravel.dk/scripts/apsis/Tilmelding/Callback.php'),
+			_0: _elm_lang$html$Html_Attributes$action('//cctravel.dk/sites/cctravel.dk/files/testmail/Tilmelding/Callback.php'),
 			_1: {ctor: '[]'}
 		}
 	},

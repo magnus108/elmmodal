@@ -305,7 +305,7 @@ form : Html msg
 form =
   Bootstrap.mdForm
     [ Html.Attributes.method "POST"
-    , Html.Attributes.action "http://coco.cctravel.dk/scripts/apsis/Tilmelding/Callback.php"
+    , Html.Attributes.action "//cctravel.dk/sites/cctravel.dk/files/testmail/Tilmelding/Callback.php"
     ]
     [ emailInput
     , submitButton
