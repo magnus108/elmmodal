@@ -253,7 +253,7 @@ image =
 backgroundImage : Html.Attribute msg
 backgroundImage =
   Html.Attributes.style
-    [ ( "background-image", "url(image.jpg)" )
+    [ ( "background-image", "url(//cctravel.dk/sites/cctravel.dk/files/images/image.jpg)" )
     , ( "background-repeat", "no-repeat" )
     , ( "background-size", "cover" )
     , ( "background-position", "center" )

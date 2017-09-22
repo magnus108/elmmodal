@@ -16051,7 +16051,7 @@ var _user$project$Main$content = _user$project$Bootstrap$padding1(
 var _user$project$Main$backgroundImage = _elm_lang$html$Html_Attributes$style(
 	{
 		ctor: '::',
-		_0: {ctor: '_Tuple2', _0: 'background-image', _1: 'url(image.jpg)'},
+		_0: {ctor: '_Tuple2', _0: 'background-image', _1: 'url(//cctravel.dk/sites/cctravel.dk/files/images/image.jpg)'},
 		_1: {
 			ctor: '::',
 			_0: {ctor: '_Tuple2', _0: 'background-repeat', _1: 'no-repeat'},
