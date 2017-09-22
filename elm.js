@@ -15980,44 +15980,6 @@ var _user$project$Main$submitButton = _user$project$Bootstrap$mdInput(
 			_1: {ctor: '[]'}
 		}
 	});
-var _user$project$Main$emailInput = _user$project$Bootstrap$mdText(
-	{
-		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$autocomplete(false),
-		_1: {
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$type_('email'),
-			_1: {
-				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$name('Email'),
-				_1: {
-					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$placeholder('Email-addresse'),
-					_1: {ctor: '[]'}
-				}
-			}
-		}
-	});
-var _user$project$Main$form = A2(
-	_user$project$Bootstrap$mdForm,
-	{
-		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$method('POST'),
-		_1: {
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$action('http://coco.cctravel.dk/scripts/apsis/Tilmelding/Callback.php'),
-			_1: {ctor: '[]'}
-		}
-	},
-	{
-		ctor: '::',
-		_0: _user$project$Main$emailInput,
-		_1: {
-			ctor: '::',
-			_0: _user$project$Main$submitButton,
-			_1: {ctor: '[]'}
-		}
-	});
 var _user$project$Main$paragraph2 = A2(
 	_elm_lang$html$Html$p,
 	{ctor: '[]'},
@@ -16033,20 +15995,6 @@ var _user$project$Main$paragraph1 = A2(
 		ctor: '::',
 		_0: _elm_lang$html$Html$text('Tilmeld dig vores nyhedsmail og få tilbud, inspiration og de bedste rejsetilbud før alle andre.'),
 		_1: {ctor: '[]'}
-	});
-var _user$project$Main$content = _user$project$Bootstrap$padding1(
-	{
-		ctor: '::',
-		_0: _user$project$Main$paragraph1,
-		_1: {
-			ctor: '::',
-			_0: _user$project$Main$paragraph2,
-			_1: {
-				ctor: '::',
-				_0: _user$project$Main$form,
-				_1: {ctor: '[]'}
-			}
-		}
 	});
 var _user$project$Main$backgroundImage = _elm_lang$html$Html_Attributes$style(
 	{
@@ -16121,11 +16069,6 @@ var _user$project$Main$header = function (_p2) {
 		_user$project$Main$title(_p3.text),
 		A3(_user$project$Main$button, _p3.msg, _p3.icon, _p3.disabled));
 };
-var _user$project$Main$body = A3(
-	_user$project$Bootstrap$mdOneTwo,
-	{ctor: '[]'},
-	_user$project$Main$image,
-	_user$project$Main$content);
 var _user$project$Main$empty = _elm_lang$html$Html$text('');
 var _user$project$Main$viewHidden = F2(
 	function (model, $switch) {
@@ -16135,18 +16078,81 @@ var _user$project$Main$viewMini = F2(
 	function (mode, $switch) {
 		return _user$project$Main$empty;
 	});
-var _user$project$Main$legacy = _elm_lang$html$Html_Attributes$style(
+var _user$project$Main$legacy2 = _elm_lang$html$Html_Attributes$style(
 	{
 		ctor: '::',
 		_0: {ctor: '_Tuple2', _0: 'background', _1: 'white'},
+		_1: {ctor: '[]'}
+	});
+var _user$project$Main$emailInput = _user$project$Bootstrap$mdText(
+	{
+		ctor: '::',
+		_0: _user$project$Main$legacy2,
 		_1: {
 			ctor: '::',
-			_0: {ctor: '_Tuple2', _0: 'word-wrap', _1: 'initial'},
+			_0: _elm_lang$html$Html_Attributes$autocomplete(false),
 			_1: {
 				ctor: '::',
-				_0: {ctor: '_Tuple2', _0: 'z-index', _1: '200'},
+				_0: _elm_lang$html$Html_Attributes$type_('email'),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$name('Email'),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$placeholder('Email-addresse'),
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		}
+	});
+var _user$project$Main$form = A2(
+	_user$project$Bootstrap$mdForm,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$method('POST'),
+		_1: {
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$action('http://coco.cctravel.dk/scripts/apsis/Tilmelding/Callback.php'),
+			_1: {ctor: '[]'}
+		}
+	},
+	{
+		ctor: '::',
+		_0: _user$project$Main$emailInput,
+		_1: {
+			ctor: '::',
+			_0: _user$project$Main$submitButton,
+			_1: {ctor: '[]'}
+		}
+	});
+var _user$project$Main$content = _user$project$Bootstrap$padding1(
+	{
+		ctor: '::',
+		_0: _user$project$Main$paragraph1,
+		_1: {
+			ctor: '::',
+			_0: _user$project$Main$paragraph2,
+			_1: {
+				ctor: '::',
+				_0: _user$project$Main$form,
 				_1: {ctor: '[]'}
 			}
+		}
+	});
+var _user$project$Main$body = A3(
+	_user$project$Bootstrap$mdOneTwo,
+	{ctor: '[]'},
+	_user$project$Main$image,
+	_user$project$Main$content);
+var _user$project$Main$legacy = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'word-wrap', _1: 'initial'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'z-index', _1: '200'},
+			_1: {ctor: '[]'}
 		}
 	});
 var _user$project$Main$animation = function (transition) {

@@ -148,10 +148,15 @@ animation transition =
 legacy : Html.Attribute msg
 legacy =
   Html.Attributes.style
-    [ ( "background", "white" )
-    , ( "word-wrap", "initial" )
+    [ ( "word-wrap", "initial" )
     , ( "z-index", "200" )
     ]
+
+
+legacy2 : Html.Attribute msg
+legacy2 =
+  Html.Attributes.style
+    [ ( "background", "white" ) ]
 
 
 empty : Html msg
@@ -305,7 +310,8 @@ form =
 emailInput : Html msg
 emailInput =
   Bootstrap.mdText
-    [ Html.Attributes.autocomplete False
+    [ legacy2
+    , Html.Attributes.autocomplete False
     , Html.Attributes.type_ "email"
     , Html.Attributes.name "Email"
     , Html.Attributes.placeholder "Email-addresse"
