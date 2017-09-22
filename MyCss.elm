@@ -2,6 +2,7 @@ module MyCss exposing (..)
 
 
 import Css exposing (..)
+import Css.Media as Media
 
 import Css.Elements
   exposing
@@ -27,6 +28,7 @@ type CssClasses
   | Pop
   | Padding1
   | MaxZero
+  | MaxZero2
   | MaterialIcon
   | OneTwo
 
@@ -104,6 +106,20 @@ css =
     [ padding2 (Css.rem 0.7) (Css.rem 1)
     ]
   , class MaxZero
+    [ backgroundColor primaryDarkColor
+    , alignItems center
+    , children
+      [ everything
+        [ firstChild
+          [ flex (int 1)
+          , Media.withMedia
+            [ Media.only Media.screen [ Media.maxWidth (px 800) ] ]
+            [ display none ]
+          ]
+        ]
+      ]
+    ]
+  , class MaxZero2
     [ backgroundColor primaryDarkColor
     , alignItems center
     , children

@@ -15,6 +15,7 @@ module Bootstrap
   , mdText
   , mdOneTwo
   , mdMaxZero
+  , mdMaxZero2
   )
 
 
@@ -60,6 +61,13 @@ mdOneTwo attributes one two =
 mdMaxZero : List (Attribute msg) -> Html msg -> Html msg -> Html msg
 mdMaxZero attributes max zero =
   div [ class [ MaxZero, Row ] ]
+    [ max
+    , zero
+    ]
+
+mdMaxZero2 : List (Attribute msg) -> Html msg -> Html msg -> Html msg
+mdMaxZero2 attributes max zero =
+  div [ class [ MaxZero2, Row ] ]
     [ max
     , zero
     ]

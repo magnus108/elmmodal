@@ -3,7 +3,7 @@ module Main exposing (main)
 
 import Html exposing (Html)
 import Transit
-import Switch exposing (Switch, On, Off)
+import Switch exposing (On, OnOff, Off, OffOn, Hidden, Mini)
 import Either exposing (Either)
 import Html
 import Html.Events
@@ -29,17 +29,26 @@ type alias Data =
   }
 
 
-type alias WithSwitch model =
-  { model | switch : Either (Switch On) (Switch Off) }
+type alias WithSwitch model = { model | switch : Switch }
 
 
 type alias Model =
   Transit.WithTransition (WithSwitch {})
 
 
-initialSwitch : Either (Switch On) (Switch Off)
+type alias Switch =
+  Either
+    (Switch.Switch Hidden)
+    (Switch.Switch On)
+    (Switch.Switch OnOff)
+    (Switch.Switch Off)
+    (Switch.Switch OffOn)
+    (Switch.Switch Mini)
+
+
+initialSwitch : Switch
 initialSwitch =
-  Either.right Switch.initialModel
+  Either.hidden Switch.hidden
 
 
 initialModel : Model
@@ -49,38 +58,66 @@ initialModel =
   }
 
 
-init : ( Model, Cmd Msg )
-init = ( initialModel, Cmd.none )
+init : (Model, Cmd Msg)
+init = update SwitchUnhide initialModel
 
 
 type Msg
-  = SwitchOn (Switch Off)
-  | SwitchOff (Switch On)
-  | SwitchMsg
+  = SwitchUnhide
+  | SwitchOn (Switch.Switch OffOn)
+  | SwitchOff (Switch.Switch On)
+  | SwitchMsg (Switch)
   | TransitMsg (Transit.Msg Msg)
 
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
   case msg of
-    SwitchMsg ->
-      let
+    SwitchMsg switch ->
+  --    let
         -- Im pretty sure there could be more safety here
         -- make you own transit module with 2 states done og transit...
         -- simply like switch... GG
-        newSwitch =
-          Either.map1 Switch.switchOff Switch.switchOn model.switch
-      in
-        ({ model | switch = newSwitch }, Cmd.none)
+ --       newSwitch =
+  --        Either.map1 Switch.switchOff Switch.switchOn model.switch
+   ---   in
+      ({ model | switch = switch }, Cmd.none)
+
+    SwitchUnhide ->
+      Transit.start TransitMsg (SwitchMsg switchUnhide) (500, 500)
+        model
 
     SwitchOn switch ->
-      Transit.start TransitMsg SwitchMsg (500, 500) model
+      Transit.start TransitMsg (SwitchMsg (switchOn switch)) (500, 500)
+        { model | switch = Either.offOn switch }
 
     SwitchOff switch ->
-      Transit.start TransitMsg SwitchMsg (500, 500) model
+      -- DER SKAL VÆRE EN LET HER CUZ SIDEEFFEKT :S
+      -- Det skal være min model jeg passer rundt jo
+      -- Det skal være min model jeg passer rundt jo
+      -- Det skal være min model jeg passer rundt jo
+      -- Det skal være min model jeg passer rundt jo
+      -- Det skal være min model jeg passer rundt jo
+      Transit.start TransitMsg (SwitchMsg (switchOff switch)) (500, 500)
+        { model | switch = Either.onOff (Switch.switchingOff switch) }
 
     TransitMsg transitMsg ->
       Transit.tick TransitMsg transitMsg model
+
+
+switchUnhide : Switch
+switchUnhide =
+  Either.off Switch.off
+
+
+switchOn : Switch.Switch OffOn -> Switch
+switchOn =
+  Either.on << Switch.switchOn
+
+
+switchOff : Switch.Switch On -> Switch
+switchOff =
+  Either.off << Switch.switchOff
 
 
 subscriptions : Model -> Sub Msg
@@ -90,7 +127,14 @@ subscriptions model =
 
 view : Model -> Html Msg
 view model =
-  Either.map2 (viewOn model) (viewOff model) model.switch
+  Either.map
+    (viewHidden model)
+    (viewOn model)
+    (viewOnOff model)
+    (viewOff model)
+    (viewOffOn model)
+    (viewMini model)
+    model.switch
 
 
 animation : Transit.Transition -> Html.Attribute msg
@@ -101,20 +145,43 @@ animation transition =
     ]
 
 
-disabled : Float -> Bool
-disabled x =
-  x /= 1
+empty : Html msg
+empty = Html.text ""
 
 
-viewOn : Model -> Switch On -> Html Msg
+viewHidden : Model -> Switch.Switch Hidden -> Html Msg
+viewHidden model switch =
+  empty
+
+
+viewMini : Model -> Switch.Switch Mini -> Html Msg
+viewMini mode switch =
+  empty
+
+
+viewOn : Model -> Switch.Switch On -> Html Msg
 viewOn model switch =
   Bootstrap.mdPop
     [ animation model.transition ]
-    [ header
+    [ header2
       { icon = "cancel"
       , text = "Få nyhederne først!"
-      , disabled = disabled (Transit.getValue model.transition)
+      , disabled = False
       , msg = SwitchOff switch
+      }
+    , body
+    ]
+
+
+viewOnOff : Model -> Switch.Switch OnOff -> Html Msg
+viewOnOff model switch =
+  Bootstrap.mdPop
+    [ animation model.transition ]
+    [ header2
+      { icon = "cancel"
+      , text = "Få nyhederne først!"
+      , disabled = True
+      , msg = SwitchMsg model.switch --fejl
       }
     , body
     ]
@@ -125,15 +192,28 @@ body =
   Bootstrap.mdOneTwo [] image content
 
 
-viewOff : Model -> Switch Off -> Html Msg
+viewOff : Model -> Switch.Switch Off -> Html Msg
 viewOff model switch =
   Bootstrap.mdPop
     [ animation model.transition ]
     [ header
       { icon = "menu"
       , text = "Tilmeld dig nyhedsbrevet"
-      , disabled = disabled (Transit.getValue model.transition)
-      , msg = SwitchOn switch
+      , disabled = False
+      , msg = SwitchOn (Switch.switchingOn switch)
+      }
+    ]
+
+
+viewOffOn : Model -> Switch.Switch OffOn -> Html Msg
+viewOffOn model switch =
+  Bootstrap.mdPop
+    [ animation model.transition ]
+    [ header
+      { icon = "menu"
+      , text = "Tilmeld dig nyhedsbrevet"
+      , disabled = True
+      , msg = SwitchMsg model.switch -- fejl
       }
     ]
 
@@ -141,6 +221,12 @@ viewOff model switch =
 header : Data -> Html Msg
 header { icon, text, disabled, msg } =
   Bootstrap.mdMaxZero []
+    ( title text ) ( button msg icon disabled )
+
+--remove i got stressed
+header2 : Data -> Html Msg
+header2 { icon, text, disabled, msg } =
+  Bootstrap.mdMaxZero2 []
     ( title text ) ( button msg icon disabled )
 
 

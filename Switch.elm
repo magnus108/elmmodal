@@ -2,43 +2,64 @@ module Switch
   exposing
     ( Switch
     , On
+    , OnOff
     , Off
-    , initialModel
+    , OffOn
+    , Hidden
+    , Mini
+    , mini
+    , hidden
+    , off
     , switchOn
     , switchOff
+    , switchingOff
+    , switchingOn
     )
 
 
 type On = On
+type OnOff = OnOff
 type Off = Off
-type Switch a = State Bool
+type OffOn = OffOn
+type Hidden = Hidden
+type Mini = Mini
+
+type Switch a = State
 
 
-initialModel : Switch Off
-initialModel = off
-
-
-fromBool : Bool -> Switch a
-fromBool = State
-
-
-map : (Bool -> Bool) -> Switch a -> Switch b
-map f (State a) = fromBool (f a)
+state : Switch a
+state = State
 
 
 switch : Switch a -> Switch b
-switch x = map not x
+switch _ = State
+
+
+mini : Switch Mini
+mini = State
 
 
 on : Switch On
-on = fromBool True
+on = state
+
+
+onOff : Switch OnOff
+onOff = state
 
 
 off : Switch Off
-off = fromBool False
+off = state
 
 
-switchOn : Switch Off -> Switch On
+offOn : Switch OffOn
+offOn = state
+
+
+hidden : Switch Hidden
+hidden = state
+
+
+switchOn : Switch OffOn -> Switch On
 switchOn = switch
 
 
@@ -46,5 +67,9 @@ switchOff : Switch On -> Switch Off
 switchOff = switch
 
 
-toBool : Switch a -> Bool
-toBool (State a) = a
+switchingOff : Switch On -> Switch OnOff
+switchingOff = switch
+
+
+switchingOn : Switch Off -> Switch OffOn
+switchingOn = switch

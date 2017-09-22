@@ -4,7 +4,7 @@ module Colors exposing (..)
 import Css exposing (..)
 
 
-primaryBoxShadow : Mixin
+primaryBoxShadow : Style
 primaryBoxShadow =
   boxShadow5 zero (px 2) (px 5) zero (rgba 0 0 0 0.26)
 

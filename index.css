@@ -81,6 +81,21 @@
     flex: 1;
 }
 
+@media only screen and (max-width: 800px) {
+    .bootstrapMaxZero > :first-child {
+        display: none;
+    }
+}
+
+.bootstrapMaxZero2 {
+    background-color: #00954a;
+    align-items: center;
+}
+
+.bootstrapMaxZero2 > :first-child {
+    flex: 1;
+}
+
 .bootstrapMaterialIcon {
     font-family: "Material Icons";
     font-style: normal;
