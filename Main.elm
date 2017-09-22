@@ -150,6 +150,7 @@ legacy =
   Html.Attributes.style
     [ ( "word-wrap", "initial" )
     , ( "z-index", "200" )
+    , ( "background", "white" )
     ]
 
 
@@ -209,7 +210,7 @@ body =
 viewOff : Model -> Switch.Switch Off -> Html Msg
 viewOff model switch =
   Bootstrap.mdPop
-    [ animation model.transition ]
+    [ animation model.transition, legacy ]
     [ header
       { icon = "menu"
       , text = "Tilmeld dig nyhedsbrevet"
@@ -222,7 +223,7 @@ viewOff model switch =
 viewOffOn : Model -> Switch.Switch OffOn -> Html Msg
 viewOffOn model switch =
   Bootstrap.mdPop
-    [ animation model.transition ]
+    [ animation model.transition, legacy ]
     [ header
       { icon = "menu"
       , text = "Tilmeld dig nyhedsbrevet"
