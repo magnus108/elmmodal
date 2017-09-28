@@ -15307,19 +15307,14 @@ var _user$project$MyCss$css = function (_p0) {
 													_1: {
 														ctor: '::',
 														_0: _rtfeldman$elm_css$Css$fontSize(
-															_rtfeldman$elm_css$Css$rem(1.5)),
+															_rtfeldman$elm_css$Css$rem(1)),
 														_1: {
 															ctor: '::',
 															_0: A2(
 																_rtfeldman$elm_css$Css$padding2,
-																_rtfeldman$elm_css$Css$rem(0.7),
+																_rtfeldman$elm_css$Css$rem(0.4),
 																_rtfeldman$elm_css$Css$rem(1)),
-															_1: {
-																ctor: '::',
-																_0: _rtfeldman$elm_css$Css$lineHeight(
-																	_rtfeldman$elm_css$Css$rem(1.7)),
-																_1: {ctor: '[]'}
-															}
+															_1: {ctor: '[]'}
 														}
 													}
 												}
@@ -15362,8 +15357,8 @@ var _user$project$MyCss$css = function (_p0) {
 														ctor: '::',
 														_0: A2(
 															_rtfeldman$elm_css$Css$padding2,
-															_rtfeldman$elm_css$Css$rem(0.7),
-															_rtfeldman$elm_css$Css$rem(1)),
+															_rtfeldman$elm_css$Css$rem(0.4),
+															_rtfeldman$elm_css$Css$rem(0.6)),
 														_1: {ctor: '[]'}
 													}),
 												_1: {
@@ -15476,7 +15471,7 @@ var _user$project$MyCss$css = function (_p0) {
 																		_1: {
 																			ctor: '::',
 																			_0: _rtfeldman$elm_css$Css$fontSize(
-																				_rtfeldman$elm_css$Css$rem(1.8)),
+																				_rtfeldman$elm_css$Css$rem(1.4)),
 																			_1: {
 																				ctor: '::',
 																				_0: _rtfeldman$elm_css$Css$display(_rtfeldman$elm_css$Css$inlineBlock),
@@ -16342,7 +16337,7 @@ var _user$project$Main$viewOffOn = F2(
 				_0: _user$project$Main$header(
 					{
 						icon: 'menu',
-						text: 'Tilmeld dig nyhedsbrevet',
+						text: 'Få nyhederne først',
 						disabled: true,
 						msg: _user$project$Main$SwitchMsg(model.$switch)
 					}),
@@ -16410,7 +16405,7 @@ var _user$project$Main$viewOff = F2(
 				_0: _user$project$Main$header(
 					{
 						icon: 'menu',
-						text: 'Tilmeld dig nyhedsbrevet',
+						text: 'Få nyhederne først',
 						disabled: false,
 						msg: _user$project$Main$SwitchOn(
 							_user$project$Switch$switchingOn($switch))

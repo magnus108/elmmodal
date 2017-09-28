@@ -94,9 +94,8 @@ css =
   , class Title
     [ color primaryIconColor
     , backgroundColor primaryDarkColor
-    , fontSize (Css.rem 1.5)
-    , padding2 (Css.rem 0.7) (Css.rem 1)
-    , lineHeight (Css.rem 1.7)
+    , fontSize (Css.rem 1)
+    , padding2 (Css.rem 0.4) (Css.rem 1)
     ]
   , class Pop
     [ position fixed
@@ -106,7 +105,7 @@ css =
     , primaryBoxShadow
     ]
   , class Padding1
-    [ padding2 (Css.rem 0.7) (Css.rem 1)
+    [ padding2 (Css.rem 0.4) (Css.rem 0.6)
     ]
   , class MaxZero
     [ backgroundColor primaryDarkColor
@@ -135,7 +134,7 @@ css =
   , class MaterialIcon
     [ fontFamilies [(qt "Material Icons")] --should use svg instead
     , fontStyle normal
-    , fontSize (Css.rem 1.8)
+    , fontSize (Css.rem 1.4)
     , display inlineBlock
     , color primaryIconColor
     , backgroundColor primaryDarkColor

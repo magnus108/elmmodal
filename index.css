@@ -57,9 +57,8 @@
 .bootstrapTitle {
     color: #ffffff;
     background-color: #00954a;
-    font-size: 1.5rem;
-    padding: 0.7rem 1rem;
-    line-height: 1.7rem;
+    font-size: 1rem;
+    padding: 0.4rem 1rem;
 }
 
 .bootstrapPop {
@@ -71,7 +70,7 @@
 }
 
 .bootstrapPadding1 {
-    padding: 0.7rem 1rem;
+    padding: 0.4rem 0.6rem;
 }
 
 .bootstrapMaxZero {
@@ -101,7 +100,7 @@
 .bootstrapMaterialIcon {
     font-family: "Material Icons";
     font-style: normal;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     display: inline-block;
     color: #ffffff;
     background-color: #00954a;

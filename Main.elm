@@ -216,12 +216,11 @@ viewOff model switch =
     [ animation model.transition, legacy, legacy2 ]
     [ header
       { icon = "menu"
-      , text = "Tilmeld dig nyhedsbrevet"
+      , text = "Få nyhederne først"
       , disabled = False
       , msg = SwitchOn (Switch.switchingOn switch)
       }
     ]
-
 
 viewOffOn : Model -> Switch.Switch OffOn -> Html Msg
 viewOffOn model switch =
@@ -229,7 +228,7 @@ viewOffOn model switch =
     [ animation model.transition, legacy, legacy2 ]
     [ header
       { icon = "menu"
-      , text = "Tilmeld dig nyhedsbrevet"
+      , text = "Få nyhederne først"
       , disabled = True
       , msg = SwitchMsg model.switch -- fejl
       }
