@@ -308,6 +308,7 @@ form =
   Bootstrap.mdForm
     [ Html.Attributes.method "POST"
     , Html.Attributes.action "//cctravel.dk/sites/cctravel.dk/files/testmail/Tilmelding/Callback.php"
+    , Html.Attributes.id "modalForm"
     ]
     [ emailInput
     , submitButton
