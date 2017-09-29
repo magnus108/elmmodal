@@ -114,6 +114,9 @@ css =
       [ everything
         [ firstChild
           [ flex (int 1)
+          , cursor pointer
+          , disabled
+            [ cursor notAllowed ]
           , Media.withMedia
             [ Media.only Media.screen [ Media.maxWidth (px 800) ] ]
             [ display none ]
@@ -127,7 +130,11 @@ css =
     , children
       [ everything
         [ firstChild
-          [ flex (int 1) ]
+          [ flex (int 1)
+          , cursor pointer
+          , disabled
+            [ cursor notAllowed ]
+          ]
         ]
       ]
     ]

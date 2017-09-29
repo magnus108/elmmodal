@@ -15387,27 +15387,40 @@ var _user$project$MyCss$css = function (_p0) {
 																								_rtfeldman$elm_css$Css$int(1)),
 																							_1: {
 																								ctor: '::',
-																								_0: A2(
-																									_rtfeldman$elm_css$Css_Media$withMedia,
-																									{
+																								_0: _rtfeldman$elm_css$Css$cursor(_rtfeldman$elm_css$Css$pointer),
+																								_1: {
+																									ctor: '::',
+																									_0: _rtfeldman$elm_css$Css$disabled(
+																										{
+																											ctor: '::',
+																											_0: _rtfeldman$elm_css$Css$cursor(_rtfeldman$elm_css$Css$notAllowed),
+																											_1: {ctor: '[]'}
+																										}),
+																									_1: {
 																										ctor: '::',
 																										_0: A2(
-																											_rtfeldman$elm_css$Css_Media$only,
-																											_rtfeldman$elm_css$Css_Media$screen,
+																											_rtfeldman$elm_css$Css_Media$withMedia,
 																											{
 																												ctor: '::',
-																												_0: _rtfeldman$elm_css$Css_Media$maxWidth(
-																													_rtfeldman$elm_css$Css$px(800)),
+																												_0: A2(
+																													_rtfeldman$elm_css$Css_Media$only,
+																													_rtfeldman$elm_css$Css_Media$screen,
+																													{
+																														ctor: '::',
+																														_0: _rtfeldman$elm_css$Css_Media$maxWidth(
+																															_rtfeldman$elm_css$Css$px(800)),
+																														_1: {ctor: '[]'}
+																													}),
+																												_1: {ctor: '[]'}
+																											},
+																											{
+																												ctor: '::',
+																												_0: _rtfeldman$elm_css$Css$display(_rtfeldman$elm_css$Css$none),
 																												_1: {ctor: '[]'}
 																											}),
 																										_1: {ctor: '[]'}
-																									},
-																									{
-																										ctor: '::',
-																										_0: _rtfeldman$elm_css$Css$display(_rtfeldman$elm_css$Css$none),
-																										_1: {ctor: '[]'}
-																									}),
-																								_1: {ctor: '[]'}
+																									}
+																								}
 																							}
 																						}),
 																					_1: {ctor: '[]'}
@@ -15442,7 +15455,20 @@ var _user$project$MyCss$css = function (_p0) {
 																								ctor: '::',
 																								_0: _rtfeldman$elm_css$Css$flex(
 																									_rtfeldman$elm_css$Css$int(1)),
-																								_1: {ctor: '[]'}
+																								_1: {
+																									ctor: '::',
+																									_0: _rtfeldman$elm_css$Css$cursor(_rtfeldman$elm_css$Css$pointer),
+																									_1: {
+																										ctor: '::',
+																										_0: _rtfeldman$elm_css$Css$disabled(
+																											{
+																												ctor: '::',
+																												_0: _rtfeldman$elm_css$Css$cursor(_rtfeldman$elm_css$Css$notAllowed),
+																												_1: {ctor: '[]'}
+																											}),
+																										_1: {ctor: '[]'}
+																									}
+																								}
 																							}),
 																						_1: {ctor: '[]'}
 																					}),
@@ -15659,20 +15685,23 @@ var _user$project$Bootstrap$mdMaxZero = F3(
 	function (attributes, max, zero) {
 		return A2(
 			_elm_lang$html$Html$div,
-			{
-				ctor: '::',
-				_0: _user$project$Bootstrap$class(
-					{
-						ctor: '::',
-						_0: _user$project$MyCss$MaxZero,
-						_1: {
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				attributes,
+				{
+					ctor: '::',
+					_0: _user$project$Bootstrap$class(
+						{
 							ctor: '::',
-							_0: _user$project$MyCss$Row,
-							_1: {ctor: '[]'}
-						}
-					}),
-				_1: {ctor: '[]'}
-			},
+							_0: _user$project$MyCss$MaxZero,
+							_1: {
+								ctor: '::',
+								_0: _user$project$MyCss$Row,
+								_1: {ctor: '[]'}
+							}
+						}),
+					_1: {ctor: '[]'}
+				}),
 			{
 				ctor: '::',
 				_0: max,
@@ -15687,20 +15716,23 @@ var _user$project$Bootstrap$mdMaxZero2 = F3(
 	function (attributes, max, zero) {
 		return A2(
 			_elm_lang$html$Html$div,
-			{
-				ctor: '::',
-				_0: _user$project$Bootstrap$class(
-					{
-						ctor: '::',
-						_0: _user$project$MyCss$MaxZero2,
-						_1: {
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				attributes,
+				{
+					ctor: '::',
+					_0: _user$project$Bootstrap$class(
+						{
 							ctor: '::',
-							_0: _user$project$MyCss$Row,
-							_1: {ctor: '[]'}
-						}
-					}),
-				_1: {ctor: '[]'}
-			},
+							_0: _user$project$MyCss$MaxZero2,
+							_1: {
+								ctor: '::',
+								_0: _user$project$MyCss$Row,
+								_1: {ctor: '[]'}
+							}
+						}),
+					_1: {ctor: '[]'}
+				}),
 			{
 				ctor: '::',
 				_0: max,
@@ -16067,44 +16099,51 @@ var _user$project$Main$legacy3 = _elm_lang$html$Html_Attributes$style(
 		_0: {ctor: '_Tuple2', _0: 'word-wrap', _1: 'initial'},
 		_1: {ctor: '[]'}
 	});
-var _user$project$Main$button = F3(
-	function (msg, icon, disabled) {
-		return A2(
-			_user$project$Bootstrap$mdIcon,
-			{
-				ctor: '::',
-				_0: _user$project$Main$legacy3,
-				_1: {
-					ctor: '::',
-					_0: _elm_lang$html$Html_Events$onClick(msg),
-					_1: {
-						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$disabled(disabled),
-						_1: {ctor: '[]'}
-					}
-				}
-			},
-			{
-				ctor: '::',
-				_0: _elm_lang$html$Html$text(icon),
-				_1: {ctor: '[]'}
-			});
-	});
+var _user$project$Main$button = function (icon) {
+	return A2(
+		_user$project$Bootstrap$mdIcon,
+		{
+			ctor: '::',
+			_0: _user$project$Main$legacy3,
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text(icon),
+			_1: {ctor: '[]'}
+		});
+};
 var _user$project$Main$header = function (_p0) {
 	var _p1 = _p0;
 	return A3(
 		_user$project$Bootstrap$mdMaxZero,
-		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Events$onClick(_p1.msg),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$disabled(_p1.disabled),
+				_1: {ctor: '[]'}
+			}
+		},
 		_user$project$Main$title(_p1.text),
-		A3(_user$project$Main$button, _p1.msg, _p1.icon, _p1.disabled));
+		_user$project$Main$button(_p1.icon));
 };
 var _user$project$Main$header2 = function (_p2) {
 	var _p3 = _p2;
 	return A3(
 		_user$project$Bootstrap$mdMaxZero2,
-		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Events$onClick(_p3.msg),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$disabled(_p3.disabled),
+				_1: {ctor: '[]'}
+			}
+		},
 		_user$project$Main$title(_p3.text),
-		A3(_user$project$Main$button, _p3.msg, _p3.icon, _p3.disabled));
+		_user$project$Main$button(_p3.icon));
 };
 var _user$project$Main$legacy2 = _elm_lang$html$Html_Attributes$style(
 	{

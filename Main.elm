@@ -237,14 +237,20 @@ viewOffOn model switch =
 
 header : Data -> Html Msg
 header { icon, text, disabled, msg } =
-  Bootstrap.mdMaxZero []
-    ( title text ) ( button msg icon disabled )
+  Bootstrap.mdMaxZero
+    [ Html.Events.onClick msg
+    , Html.Attributes.disabled disabled
+    ]
+    ( title text ) ( button icon )
 
 --remove i got stressed
 header2 : Data -> Html Msg
 header2 { icon, text, disabled, msg } =
-  Bootstrap.mdMaxZero2 []
-    ( title text ) ( button msg icon disabled )
+  Bootstrap.mdMaxZero2
+    [ Html.Events.onClick msg
+    , Html.Attributes.disabled disabled
+    ]
+    ( title text ) ( button icon )
 
 
 title : String -> Html msg
@@ -252,13 +258,10 @@ title text =
   Bootstrap.mdTitle [] [ Html.text text ]
 
 
-button : Msg -> String -> Bool -> Html Msg
-button msg icon disabled =
+button : String -> Html Msg
+button icon =
   Bootstrap.mdIcon
-    [ legacy3
-    , Html.Events.onClick msg
-    , Html.Attributes.disabled disabled
-    ]
+    [ legacy3 ]
     [ Html.text icon ]
 
 

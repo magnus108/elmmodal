@@ -80,6 +80,11 @@
 
 .bootstrapMaxZero > :first-child {
     flex: 1;
+    cursor: pointer;
+}
+
+.bootstrapMaxZero > :first-child:disabled {
+    cursor: not-allowed;
 }
 
 @media only screen and (max-width: 800px) {
@@ -95,6 +100,11 @@
 
 .bootstrapMaxZero2 > :first-child {
     flex: 1;
+    cursor: pointer;
+}
+
+.bootstrapMaxZero2 > :first-child:disabled {
+    cursor: not-allowed;
 }
 
 .bootstrapMaterialIcon {
