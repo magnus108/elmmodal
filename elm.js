@@ -15518,13 +15518,18 @@ var _user$project$MyCss$css = function (_p0) {
 																									_0: _rtfeldman$elm_css$Css$cursor(_rtfeldman$elm_css$Css$pointer),
 																									_1: {
 																										ctor: '::',
-																										_0: _rtfeldman$elm_css$Css$disabled(
-																											{
-																												ctor: '::',
-																												_0: _rtfeldman$elm_css$Css$cursor(_rtfeldman$elm_css$Css$notAllowed),
-																												_1: {ctor: '[]'}
-																											}),
-																										_1: {ctor: '[]'}
+																										_0: _rtfeldman$elm_css$Css$fontFeatureSettings(
+																											A2(_rtfeldman$elm_css$Css$featureTag2, 'liga', 1)),
+																										_1: {
+																											ctor: '::',
+																											_0: _rtfeldman$elm_css$Css$disabled(
+																												{
+																													ctor: '::',
+																													_0: _rtfeldman$elm_css$Css$cursor(_rtfeldman$elm_css$Css$notAllowed),
+																													_1: {ctor: '[]'}
+																												}),
+																											_1: {ctor: '[]'}
+																										}
 																									}
 																								}
 																							}
@@ -15560,21 +15565,15 @@ var _user$project$MyCss$css = function (_p0) {
 																			_1: {
 																				ctor: '::',
 																				_0: _rtfeldman$elm_css$Css$flex(
-																					_rtfeldman$elm_css$Css$int(6)),
+																					_rtfeldman$elm_css$Css$int(3)),
 																				_1: {
 																					ctor: '::',
-																					_0: A4(
-																						_rtfeldman$elm_css$Css$margin4,
-																						_rtfeldman$elm_css$Css$px(8),
-																						_rtfeldman$elm_css$Css$px(32),
-																						_rtfeldman$elm_css$Css$px(8),
-																						_rtfeldman$elm_css$Css$px(0)),
+																					_0: _rtfeldman$elm_css$Css$margin(
+																						_rtfeldman$elm_css$Css$px(8)),
 																					_1: {
 																						ctor: '::',
-																						_0: A2(
-																							_rtfeldman$elm_css$Css$padding2,
-																							_rtfeldman$elm_css$Css$px(8),
-																							_rtfeldman$elm_css$Css$px(2)),
+																						_0: _rtfeldman$elm_css$Css$padding(
+																							_rtfeldman$elm_css$Css$px(8)),
 																						_1: {
 																							ctor: '::',
 																							_0: _rtfeldman$elm_css$Css$fontSize(

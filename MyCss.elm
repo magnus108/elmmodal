@@ -148,6 +148,7 @@ css =
     , border zero
     , outline zero
     , cursor pointer
+    , fontFeatureSettings (featureTag2 "liga" 1)
     , disabled
       [ cursor notAllowed ]
     ]
@@ -157,9 +158,9 @@ css =
     ]
   , class MdText
     [ outline none
-    , flex (int 6)
-    , margin4 (px 8) (px 32) (px 8) (px 0)
-    , padding2 (px 8) (px 2)
+    , flex (int 3)
+    , margin (px 8)
+    , padding (px 8)
     , fontSize (px 16)
     , display block
     , border zero
